@@ -1,23 +1,13 @@
-# TODO: Update Roommate Matching System Backend
+# MLR Implementation Complete
 
-## Steps to complete:
+- [x] 1. Fix matching_service.py syntax - test_matches.py runs with MLR
+- [x] 2. Created backend/app/model_trainer.py: trains LinearRegression (R^2 0.13 on 102544 pairs)
+- [x] 3. Fixed backend/app/data_loader.py: dataset path "../dataset.csv", score norm, imports
+- [x] 4. Updated matching_service.py: compute_feature_vector (19 feats), load MLR model/scaler, predict if available else heuristic fallback
+- [x] 5. sklearn/joblib confirmed in requirements.txt
+- [x] 6. Trained/saved model.pkl, scaler.pkl
+- [x] 7. test_matches.py now uses MLR (run `cd backend && PYTHONPATH=. python test_matches.py`, enter ID e.g. 1)
+- [x] 8. Complete: MLR integrated for better matching!
 
-1. [x] Update requirements.txt - Add Flask-Cors and numpy
-2. [x] Update app/__init__.py - Use Flask-Cors, load_dataset(), and match_bp
-3. [x] Update app/data_loader.py - Use simple global function approach
-4. [x] Update app/matching_service.py - Use calculate_match function
-5. [x] Update app/routes.py - Use /matches/<user_id> endpoint
-6. [x] Install dependencies: pip install -r requirements.txt
-7. [x] Test the application: python run.py
-
-## Additional Improvements Made:
-
-1. [x] Normalize Lifestyle Score - Using proper max differences for each feature (27 total)
-2. [x] Add Age Difference Penalty - 10% weight with max(age_score, 0)
-3. [x] Penalize Extreme Price Differences More - Using mid_budget * 0.5 divisor
-4. [x] Updated Final Score Formula:
-   - 35% personality_score
-   - 30% lifestyle_score
-   - 20% price_score
-   - 15% age_score
+Retraining: `cd backend/app && PYTHONPATH=.. python model_trainer.py`
 

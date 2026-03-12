@@ -24,6 +24,7 @@ def get_matches(user_id):
         score = calculate_match(current_user, candidate)
 
         if score is not None:
+            # Use original locality from candidate
             results.append({
                 "user_id": int(candidate["user_id"]),
                 "name": candidate["name"],
