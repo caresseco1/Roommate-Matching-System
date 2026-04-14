@@ -1,23 +1,10 @@
-"""
-StayMate Matching Engine
-========================
-Uses Multiple Linear Regression (MLR) to learn feature importance weights
-from the dataset, then combines the predicted compatibility with Pearson
-correlation across the feature vector to rank candidates.
 
-Pipeline:
-  1. Encode every DatasetProfile into a numeric feature vector.
-  2. Build synthetic pairwise labels (compatibility score 0-1) from
-     domain rules — these become the MLR training targets.
-  3. Fit sklearn LinearRegression once (lazy, cached per process).
-  4. For a query user, encode them → compute MLR predicted score AND
-     Pearson r against every candidate → combine for final ranking.
-"""
 
 import numpy as np
 from scipy.stats import pearsonr
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import MinMaxScaler
+from sklearn.metrics import mean_absolute_error
 
 # ── Encoding maps ────────────────────────────────────────────────────────────
 
@@ -145,16 +132,13 @@ def _build_label(va: np.ndarray, vb: np.ndarray, p_a=None, p_b=None):
     budget_range = max(bmax_a - bmin_a, bmax_b - bmin_b, 1)
     budget_score = min(1.0, overlap / budget_range)
 
-    # Weighted combination (domain-tuned weights)
-    # High priority: budget, location, gender preference.
+    # Weighted combination for MLR training.
+    # We remove loc_score and pref_gender_score because they are categorical dealbreakers
+    # already handled perfectly in get_matches(), and are not encoded in the feature vector.
     label = (
         0.20 * budget_score +      # 20%
-        0.25 * loc_score +         # 25%
-        0.20 * lifestyle_score +   # 20%
-        0.15 * big5_score +        # 15% (Personality)
-        0.20 * pref_gender_avg +   # 20%
-        0.00 * sleep_score         # 0%
-        # age_score removed (weight 0)
+        0.40 * lifestyle_score +   # 40%
+        0.40 * big5_score          # 40%
     )
 
     return float(np.clip(label, 0, 1))
@@ -204,6 +188,13 @@ def _get_model_and_data(profiles):
 
     model = LinearRegression()
     model.fit(X_scaled, y)
+
+    # Calculate and log the R^2 (Accuracy) score
+    r2 = model.score(X_scaled, y)
+    
+    # Calculate Mean Absolute Error to see the actual % error margin
+    mae = mean_absolute_error(y, model.predict(X_scaled))
+    print(f"[Matching Engine] MLR Model trained on {len(X_scaled)} pairs. R^2 Score: {r2:.4f} | MAE: {mae:.4f}")
 
     _mlr_model = model
     _scaler = scaler
