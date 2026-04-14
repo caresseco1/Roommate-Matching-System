@@ -82,9 +82,7 @@
           {{ field.label(class="form-label") }}
           <div class="trait-slider-row">
             {{ field(class="form-input trait-input", type="number", min=1, max=10) }}
-            <input type="range" min="1" max="10" class="trait-slider"
-                   oninput="document.getElementById('{{ field.id }}').value=this.value"
-                   value="{{ field.data or 5 }}"/>
+            <input type="range" min="1" max="10" class="trait-slider" value="{{ field.data or 5 }}"/>
           </div>
           {% for e in field.errors %}<span class="form-error">{{ e }}</span>{% endfor %}
         </div>
@@ -97,44 +95,91 @@
           <div class="form-group">{{ form.budget_min.label(class="form-label") }}{{ form.budget_min(class="form-input") }}</div>
           <div class="form-group">{{ form.budget_max.label(class="form-label") }}{{ form.budget_max(class="form-input") }}</div>
         </div>
-        {% if current_user.looking_for == 'roomate' %}
-        <div class="form-group">
+        <div id="roomPriceGroup" class="form-group"
+             style="display: {% if current_user.looking_for in ['roomate', 'roommate'] %}block{% else %}none{% endif %};">
           {{ form.room_price.label(class="form-label") }}
           {{ form.room_price(class="form-input") }}
           <small class="form-hint">Monthly rent you're offering for roommate</small>
-          {% for e in form.room_price.errors %}<span class="form-error">{{ e }}</span>{% endfor %}
+          {% for e in form.room_price.errors %}
+            <span class="form-error">{{ e }}</span>
+          {% endfor %}
         </div>
-        {% endif %}
+
         <div class="form-row">
-          <div class="form-group">{{ form.accommodation_type.label(class="form-label") }}{{ form.accommodation_type(class="form-select") }}</div>
-          <div class="form-group">{{ form.preferred_gender.label(class="form-label") }}{{ form.preferred_gender(class="form-select") }}</div>
+          <div class="form-group">
+            {{ form.accommodation_type.label(class="form-label") }}
+            {{ form.accommodation_type(class="form-select") }}
+          </div>
+          <div class="form-group">
+            {{ form.preferred_gender.label(class="form-label") }}
+            {{ form.preferred_gender(class="form-select") }}
+          </div>
         </div>
-        <div class="form-group" style="margin-top: .75rem;">{{ form.looking_for.label(class="form-label") }}{{ form.looking_for(class="form-select") }}</div>
+
+        <div class="form-group" style="margin-top: .75rem;">
+          {{ form.looking_for.label(class="form-label") }}
+          {{ form.looking_for(class="form-select") }}
+        </div>
       </div>
 
-      {% if current_user.looking_for == 'roomate' %}
-      <div class="form-section">
+      <div id="roomPhotosSection" class="form-section"
+           style="display: {% if current_user.looking_for in ['roomate', 'roommate'] %}block{% else %}none{% endif %};">
         <h3 class="section-label">🏠 Room Photos</h3>
         <p class="section-hint">Upload photos of your room to attract roommates (up to 6)</p>
         <div style="text-align: center; margin: 1.5rem 0;">
-          <a href="{{ url_for('upload_room_photos') }}" class="btn btn-secondary btn-full">
+          <a href="{{ url_for('upload_room_photos') }}" id="uploadPhotosLink" class="btn btn-secondary btn-full">
             📸 Upload Room Photos
           </a>
+          <small id="uploadPhotosHint" class="form-hint" style="display: none; color: var(--accent); margin-top: 0.5rem;">Please save your profile first before uploading photos.</small>
         </div>
       </div>
-      {% endif %}
       
       {{ form.submit(class="btn btn-primary btn-full btn-lg") }}
     </form>
   </div>
 </div>
 <script>
+// Two-way binding for personality trait sliders and number inputs
 document.querySelectorAll('.trait-input').forEach(input => {
   const slider = input.nextElementSibling;
   if (slider) {
-    slider.value = input.value;
+    slider.value = input.value || 5;
+    // Sync number input -> slider
     input.addEventListener('input', () => slider.value = input.value);
+    // Sync slider -> number input
+    slider.addEventListener('input', () => input.value = slider.value);
   }
 });
+
+// Toggle room owner specific fields dynamically
+const lookingForSelect = document.getElementById('looking_for');
+const roomPriceGroup = document.getElementById('roomPriceGroup');
+const roomPhotosSection = document.getElementById('roomPhotosSection');
+const uploadPhotosLink = document.getElementById('uploadPhotosLink');
+const uploadPhotosHint = document.getElementById('uploadPhotosHint');
+const initialLookingFor = '{{ current_user.looking_for }}';
+
+function toggleRoomOwnerFields() {
+  if (!lookingForSelect) return;
+  const isRoomOwner = lookingForSelect.value === 'roomate' || lookingForSelect.value === 'roommate';
+  const displayStyle = isRoomOwner ? 'block' : 'none';
+  
+  if (roomPriceGroup) roomPriceGroup.style.display = displayStyle;
+  if (roomPhotosSection) roomPhotosSection.style.display = displayStyle;
+  
+  // Ask to save profile first if they just switched to room owner (so backend accepts the photos)
+  if (isRoomOwner && initialLookingFor !== 'roomate' && initialLookingFor !== 'roommate') {
+    if (uploadPhotosLink) { uploadPhotosLink.style.pointerEvents = 'none'; uploadPhotosLink.style.opacity = '0.5'; }
+    if (uploadPhotosHint) uploadPhotosHint.style.display = 'block';
+  } else {
+    if (uploadPhotosLink) { uploadPhotosLink.style.pointerEvents = 'auto'; uploadPhotosLink.style.opacity = '1'; }
+    if (uploadPhotosHint) uploadPhotosHint.style.display = 'none';
+  }
+}
+
+if (lookingForSelect) {
+  lookingForSelect.addEventListener('change', toggleRoomOwnerFields);
+  toggleRoomOwnerFields();
+}
 </script>
 {% endblock %}

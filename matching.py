@@ -148,7 +148,6 @@ def _build_label(va: np.ndarray, vb: np.ndarray, p_a=None, p_b=None):
 
 _mlr_model: LinearRegression | None = None
 _scaler: MinMaxScaler | None = None
-_dataset_vectors: list[tuple] | None = None   # list of (profile, np.ndarray)
 
 
 def _get_model_and_data(profiles):
@@ -156,12 +155,12 @@ def _get_model_and_data(profiles):
     Lazily train / return the cached MLR model.
     profiles: list of DatasetProfile ORM objects
     """
-    global _mlr_model, _scaler, _dataset_vectors
-
-    if _mlr_model is not None and _dataset_vectors is not None:
-        return _mlr_model, _scaler, _dataset_vectors
+    global _mlr_model, _scaler
 
     vecs = [(p, encode_profile(p)) for p in profiles]
+
+    if _mlr_model is not None and _scaler is not None:
+        return _mlr_model, _scaler, vecs
 
     # Build pairwise training data
     X_train, y_train = [], []
@@ -198,7 +197,6 @@ def _get_model_and_data(profiles):
 
     _mlr_model = model
     _scaler = scaler
-    _dataset_vectors = vecs
     return model, scaler, vecs
 
 
@@ -259,9 +257,9 @@ def get_matches(current_user, profiles, top_n=20, sort_by='compatibility'):
         if p_pref_gen not in ['any', ''] and p_pref_gen != user_gen:
             continue
             
-        # 3. Looking For Check (Prevents two people who already have rooms from matching)
+# 3. Looking For Check: "roomate" means room owner (seeking tenant); matches "room" seekers only (prevents owner-owner matches)
         p_looking = (profile.looking_for or 'room').strip().lower()
-        if user_looking == 'roomate' and p_looking == 'roomate':
+        if user_looking == 'roomate' and p_looking == 'roomate':  # roomate = room owner
             continue
 
         diff_vec = np.abs(user_vec - pvec)
@@ -417,7 +415,6 @@ def _breakdown(a, b) -> dict:
 
 def invalidate_cache():
     """Call this when new profiles are added so model is re-trained."""
-    global _mlr_model, _scaler, _dataset_vectors
+    global _mlr_model, _scaler
     _mlr_model = None
     _scaler = None
-    _dataset_vectors = None

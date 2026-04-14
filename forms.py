@@ -34,8 +34,8 @@ class OTPForm(FlaskForm):
 class LookingForForm(FlaskForm):
     looking_for = SelectField('Looking For', choices=[
         ('room', 'Looking for a Room'),
-        ('roomate', 'Looking for a Roommate')
-    ], validators=[DataRequired()])
+        ('roommate', 'Looking for roommate (room owner)')],
+        validators=[DataRequired()])
     submit = SubmitField('Continue')
 
 
@@ -111,7 +111,7 @@ class RegistrationForm(FlaskForm):
         ('', 'Select'), ('PG', 'PG'), ('Flat', 'Flat'), ('Apartment', 'Apartment'),
         ('Hostel', 'Hostel'), ('Service Apartment', 'Service Apartment')
     ], validators=[DataRequired()])
-    preferred_gender = SelectField('Preferred Roommate Gender', choices=[
+    preferred_gender = SelectField('Preferred roomate Gender', choices=[
         ('', 'Select'), ('Any', 'Any'), ('Male', 'Male'), ('Female', 'Female')
     ], validators=[DataRequired()])
 
@@ -120,8 +120,9 @@ class RegistrationForm(FlaskForm):
 
 class EditProfileForm(RegistrationForm):
     looking_for = SelectField('Looking For', choices=[
-        ('room', 'Looking for a Room'), ('roomate', 'Looking for a Roommate')
-    ], validators=[Optional()])
+        ('room', 'Looking for a Room'),
+        ('roommate', 'Looking for roommate (room owner)')]
+, validators=[Optional()])
     room_price = IntegerField('Room Price (₹/month)', validators=[Optional(), NumberRange(1000, 500000)])
 
 
@@ -151,10 +152,14 @@ class RoomPhotosForm(FlaskForm):
     ])
     submit = SubmitField('Upload Photos')
     
-    def validate_photos(self, field):
+def validate_photos(self, field):
         if field.data:
-            if len(field.data) > 6:
+            photos = field.data if isinstance(field.data, list) else [field.data]
+            if len(photos) > 6:
                 raise ValidationError('Maximum 6 photos allowed.')
+            for photo in photos:
+                if photo and photo.size > 5 * 1024 * 1024:
+                    raise ValidationError('Each photo must be under 5MB.')
             for photo in field.data:
                 if photo.size > 5 * 1024 * 1024:
                     raise ValidationError('Each photo must be under 5MB.')

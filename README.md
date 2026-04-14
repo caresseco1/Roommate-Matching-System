@@ -1,4 +1,4 @@
-# 🏠 StayMate — AI-Powered Roommate Matching
+# 🏠 StayMate — AI-Powered roomate Matching
 
 > Multiple Linear Regression + Pearson Correlation matching engine,
 > trained on 300+ Mumbai profiles from your dataset.

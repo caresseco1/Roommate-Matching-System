@@ -13,8 +13,9 @@
         {% if dp.locality %}<span>📍 {{ dp.locality }}, {{ dp.city or 'Mumbai' }}</span>{% endif %}
       </div>
       {% if dp.looking_for %}
-      <div class="looking-badge">{{ '🔍 Looking for a Room' if dp.looking_for == 'room' else '🤝 Has a Room / Looking for Roommate' }}</div>
+      <div class="looking-badge">{{ '🔍 Looking for a Room' if dp.looking_for == 'room' else '🤝 Room Owner / Looking for Roommate' }}</div>
       {% endif %}
+
     </div>
     <div class="profile-compat-big">
       <div class="compat-circle {% if compat.final_score >= 80 %}score-high{% elif compat.final_score >= 60 %}score-mid{% else %}score-low{% endif %}">
@@ -41,8 +42,27 @@
     </div>
   </div>
 
+  <!-- ROOM PHOTOS GALLERY (room owners) -->
+  {% if dp.original_user_id and dp.looking_for == 'roommate' %}
+  <div class="form-section">
+    <h3 class="section-label">🏠 Room Photos</h3>
+    <div class="photos-grid">
+      {% for photo in room_photos %}
+      <div class="photo-card glass">
+        <img src="{{ url_for('static', filename=photo.filename) }}" alt="Room photo" loading="lazy">
+      </div>
+      {% else %}
+      <p class="no-photos">No room photos uploaded yet.</p>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+
+
   <!-- Profile details -->
   <div class="profile-details-grid">
+
     <div class="detail-card glass">
       <h3>🌙 Lifestyle</h3>
       <div class="detail-list">

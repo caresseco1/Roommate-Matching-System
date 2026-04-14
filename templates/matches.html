@@ -4,7 +4,7 @@
 <div class="page-container">
   <div class="page-header">
     <h1>Your Matches <span class="badge-sm">{{ matches|length }} found</span></h1>
-    <p>Ranked by MLR prediction (60%) + Pearson correlation (40%)</p>
+    <p>Ranked by MLR prediction (40%) + Pearson correlation (60%)</p>
   </div>
 
   <div class="filter-bar glass">
@@ -28,8 +28,7 @@
     <select id="lookingFilter" class="form-select" onchange="filterMatches()">
       <option value="">Any type</option>
       <option value="room">Looking for room</option>
-      <option value="roomate">Looking for roommate</option>
-    </select>
+      <option value="roomate">Looking for roomate (room owner)</option>\n    </select>
   </div>
 
   {% if matches %}

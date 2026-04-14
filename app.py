@@ -369,7 +369,7 @@ def edit_profile():
 @app.route('/upload-room-photos', methods=['GET', 'POST'])
 @login_required
 def upload_room_photos():
-    if current_user.looking_for != 'roommate':
+    if current_user.looking_for != 'roomate':
         flash('Room photos available for room owners only.', 'warning')
         return redirect(url_for('edit_profile'))
     
@@ -483,13 +483,15 @@ def profile_dataset(dp_id):
     dp = DatasetProfile.query.get_or_404(dp_id)
     compat = matching.get_compatibility(current_user, dp, _all_dataset_profiles())
 
+    room_photos = []
     # If the dataset profile is a real user, track the view
     if dp.original_user_id:
         pv = ProfileView(viewer_id=current_user.id, viewed_id=dp.original_user_id)
         db.session.add(pv)
         db.session.commit()
+        room_photos = RoomPhoto.query.filter_by(user_id=dp.original_user_id).all()
 
-    return render_template('profile_dataset.html', dp=dp, compat=compat)
+    return render_template('profile_dataset.html', dp=dp, compat=compat, room_photos=room_photos)
 
 
 @app.route('/profile/<int:user_id>')
@@ -501,7 +503,8 @@ def profile(user_id):
     db.session.add(pv)
     db.session.commit()
     compat = matching.get_compatibility(current_user, viewed_user, _all_dataset_profiles())
-    return render_template('profile.html', viewed=viewed_user, compat=compat)
+    room_photos = RoomPhoto.query.filter_by(user_id=user_id).all()
+    return render_template('profile.html', viewed=viewed_user, compat=compat, room_photos=room_photos)
 
 
 # ── Messaging ─────────────────────────────────────────────────────────────────
