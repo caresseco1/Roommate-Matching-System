@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{% block title %}StayMate{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+</head>
+<body>
+{% if current_user.is_authenticated %}
+<nav class="navbar">
+  <a class="navbar-brand" href="{{ url_for('dashboard') }}">
+    <span class="brand-icon">🏠</span>StayMate
+  </a>
+  <div class="nav-links">
+    {% if current_user.is_admin %}
+    <a href="{{ url_for('admin_dashboard') }}" class="nav-link {% if request.endpoint=='admin_dashboard' %}active{% endif %}">Dashboard</a>
+    <a href="{{ url_for('admin_feedback') }}" class="nav-link {% if request.endpoint=='admin_feedback' %}active{% endif %}">Feedback</a>
+    <a href="{{ url_for('logout') }}" class="nav-link logout">Logout</a>
+    {% else %}
+    <a href="{{ url_for('dashboard') }}" class="nav-link {% if request.endpoint=='dashboard' %}active{% endif %}">Dashboard</a>
+    <a href="{{ url_for('matches') }}" class="nav-link {% if request.endpoint=='matches' %}active{% endif %}">Matches</a>
+    <a href="{{ url_for('messages') }}" class="nav-link {% if request.endpoint in ['messages','chat'] %}active{% endif %}">
+      Messages {% if unread_msgs > 0 %}<span class="badge">{{ unread_msgs }}</span>{% endif %}
+    </a>
+    <a href="{{ url_for('room_requests') }}" class="nav-link {% if request.endpoint=='room_requests' %}active{% endif %}">
+      Requests {% if pending_reqs > 0 %}<span class="badge">{{ pending_reqs }}</span>{% endif %}
+    </a>
+    <a href="{{ url_for('notifications') }}" class="nav-link {% if request.endpoint=='notifications' %}active{% endif %}">
+      🔔 {% if unread_notifs > 0 %}<span class="badge">{{ unread_notifs }}</span>{% endif %}
+    </a>
+    <a href="{{ url_for('feedback') }}" class="nav-link">Feedback</a>
+    <a href="{{ url_for('edit_profile') }}" class="nav-link">Profile</a>
+    <a href="{{ url_for('logout') }}" class="nav-link logout">Logout</a>
+    {% endif %}
+  </div>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+</nav>
+{% endif %}
+
+<div class="flash-container">
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% for cat, msg in messages %}
+  <div class="flash flash-{{ cat }}">{{ msg }} <span class="flash-close" onclick="this.parentElement.remove()">×</span></div>
+  {% endfor %}
+{% endwith %}
+</div>
+
+<main>{% block content %}{% endblock %}</main>
+
+<footer class="footer">
+  <p>© 2025 StayMate · Find your perfect roommate in Mumbai</p>
+</footer>
+
+<script>
+setTimeout(() => {
+  document.querySelectorAll('.flash').forEach(el => el.remove());
+}, 4000);
+</script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

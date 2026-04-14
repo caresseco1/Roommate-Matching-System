@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}StayMate — Find Your Perfect Roommate{% endblock %}
+{% block content %}
+<div class="hero">
+  <div class="hero-particles"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">Welcome to <strong>StayMate</strong>.<br></h1>
+    <p class="hero-subtitle">AI-powered matching using Multiple Linear Regression & Personality Correlation. Not just budget — your lifestyle, personality, and habits.</p>
+    <div class="hero-actions">
+      <a href="{{ url_for('signup') }}" class="btn btn-primary btn-lg">Get Started Free</a>
+      <a href="{{ url_for('login') }}" class="btn btn-outline btn-lg">Sign In</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">300+</span><span class="stat-label">Profiles</span></div>
+      <div class="stat"><span class="stat-num">28</span><span class="stat-label">Match Factors</span></div>
+      <div class="stat"><span class="stat-num">95%</span><span class="stat-label">Happy Matches</span></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="match-card-demo">
+      <div class="demo-avatar">👤</div>
+      <div class="demo-info">
+        <div class="demo-name">Priya S.</div>
+        <div class="demo-loc">📍 Powai, Mumbai</div>
+        <div class="demo-score-bar">
+          <div class="demo-score-fill" style="width:87%"></div>
+        </div>
+        <div class="demo-score-label">87% Compatible</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="features">
+  <h2 class="section-title">Why StayMate?</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🧠</div>
+      <h3>MLR-Powered Matching</h3>
+      <p>Multiple Linear Regression trained on 300+ Mumbai profiles weighs 28 lifestyle and personality factors to compute your compatibility score.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📊</div>
+      <h3>Pearson Correlation</h3>
+      <p>Beyond scores — we compute Pearson correlation between full personality vectors so similar people always surface at the top.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">💬</div>
+      <h3>In-App Messaging</h3>
+      <p>Chat directly with potential roommates, send room requests, and manage your matches — all in one place.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔔</div>
+      <h3>Smart Notifications</h3>
+      <p>Get instant alerts for room requests, acceptances, and messages so you never miss an opportunity.</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

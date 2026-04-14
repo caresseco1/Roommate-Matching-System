@@ -1,0 +1,273 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — StayMate{% endblock %}
+
+{% block content %}
+
+<!-- Leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+
+<style>
+  .leaflet-popup-content-wrapper,
+  .leaflet-popup-tip {
+    background: rgba(13,15,26,0.85);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(16px);
+    color: var(--text);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  }
+</style>
+
+<div class="dashboard">
+
+  <!-- HEADER -->
+  <div class="dash-header">
+    <div style="display: flex; align-items: center; gap: 1rem;">
+      {% if user.profile_pic %}
+      <img src="{{ url_for('static', filename='uploads/' + user.profile_pic) }}" alt="Profile" style="width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent); flex-shrink: 0;">
+      {% else %}
+      <div style="width: 64px; height: 64px; border-radius: 50%; background: var(--accent-grad); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: bold; color: white; flex-shrink: 0;">{{ user.username[0]|upper }}</div>
+      {% endif %}
+      <div>
+        <h1 style="margin-bottom: 0.2rem;">Hello, {{ user.username.split()[0] }} 👋</h1>
+        <p class="dash-sub" style="margin: 0;">Here's your roommate compatibility overview</p>
+      </div>
+    </div>
+
+    <div class="dash-actions">
+      <a href="{{ url_for('matches') }}" class="btn btn-primary">View Matches</a>
+      <a href="{{ url_for('edit_profile') }}" class="btn btn-outline">Edit Profile</a>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-row">
+
+    <div class="stat-card glass">
+      <div class="stat-icon">📊</div>
+      <div class="stat-body">
+        <div class="stat-value">{{ profile_completion }}%</div>
+        <div class="stat-label">Profile Complete</div>
+        <div class="stat-bar">
+          <div class="stat-bar-fill" data-width="{{ profile_completion }}"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stat-card glass">
+      <div class="stat-icon">🤝</div>
+      <div class="stat-body">
+        <div class="stat-value">{{ top_matches|length }}</div>
+        <div class="stat-label">Top Matches</div>
+      </div>
+    </div>
+
+    <div class="stat-card glass">
+      <div class="stat-icon">📨</div>
+      <div class="stat-body">
+        <div class="stat-value">{{ total_pending_requests }}</div>
+        <div class="stat-label">Pending Requests</div>
+      </div>
+    </div>
+
+    <div class="stat-card glass">
+      <div class="stat-icon">💬</div>
+      <div class="stat-body">
+        <div class="stat-value">{{ active_chats_count }}</div>
+        <div class="stat-label">Active Chats</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ALERT -->
+  {% if profile_completion < 50 %}
+  <div class="alert-card glass">
+    ⚠️ Complete your profile ({{ profile_completion }}%)
+    <a href="{{ url_for('registration') }}" class="btn btn-primary btn-sm">Complete Now</a>
+  </div>
+  {% endif %}
+
+  <!-- MATCHES -->
+  {% if top_matches %}
+
+  <div style="display:flex; justify-content:space-between; margin-bottom:1rem;">
+    <h2>Your Top Matches</h2>
+    <button class="btn btn-secondary btn-sm" onclick="toggleMap(this)">🗺️ Show Map</button>
+  </div>
+
+  <div id="matchesMap" style="height:400px; display:none;" class="glass"></div>
+
+  <div class="matches-grid">
+
+    {% for m in top_matches %}
+    {% set p = m.profile %}
+
+    <div class="match-card glass">
+
+      <div class="match-card-header">
+
+        <div class="match-avatar">
+          {{ (p.name or 'U')[0] }}
+        </div>
+
+        <div class="match-info">
+          <div class="match-name">{{ p.name or 'Anonymous' }}</div>
+          <div class="match-loc">📍 {{ p.locality or 'Mumbai' }}</div>
+        </div>
+
+        <div class="match-score-badge
+          {% if m.final_score >= 80 %}score-high
+          {% elif m.final_score >= 60 %}score-mid
+          {% else %}score-low{% endif %}">
+          {{ m.final_score }}%
+        </div>
+
+      </div>
+
+      <div class="match-score-bar">
+        <div class="score-fill" data-width="{{ m.final_score }}"></div>
+      </div>
+
+      <div class="match-actions">
+        <a href="{{ url_for('profile_dataset', dp_id=p.id) }}" class="btn btn-outline btn-sm">
+          View Profile
+        </a>
+        {% if p.original_user_id and p.original_user_id != current_user.id %}
+        <form method="POST" action="{{ url_for('start_chat', receiver_id=p.original_user_id) }}" style="display:inline;">
+          <button type="submit" class="btn btn-primary btn-sm">Message</button>
+        </form>
+        {% endif %}
+      </div>
+
+    </div>
+
+    {% endfor %}
+
+  </div>
+
+  {% else %}
+  <div class="empty-state glass">
+    <h3>No matches yet</h3>
+  </div>
+  {% endif %}
+
+</div>
+
+<!-- JS -->
+<script>
+  // Animate bars
+  document.querySelectorAll('[data-width]').forEach(el => {
+    el.style.width = el.dataset.width + '%';
+  });
+
+  // Map toggle
+  let mapInitialized = false;
+  window.leafletMap = null;
+
+  function toggleMap(btn) {
+    const mapDiv = document.getElementById('matchesMap');
+
+    if (mapDiv.style.display === 'none') {
+      mapDiv.style.display = 'block';
+      btn.innerHTML = '🗺️ Hide Map';
+
+      if (!mapInitialized) {
+        initMap();
+        mapInitialized = true;
+      } else {
+        setTimeout(() => window.leafletMap.invalidateSize(), 100);
+      }
+    } else {
+      mapDiv.style.display = 'none';
+      btn.innerHTML = '🗺️ Show Map';
+    }
+  }
+
+  function initMap() {
+    window.leafletMap = L.map('matchesMap').setView([19.0760, 72.8777], 11);
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '© OpenStreetMap contributors, © CARTO'
+    }).addTo(window.leafletMap);
+
+    // ✅ FIXED mapData (NO JS ERRORS)
+    const mapData = [
+      {% for m in top_matches %}
+      {
+        name: {{ (m.profile.name or 'Anonymous') | tojson }},
+        locality: {{ (m.profile.locality or m.profile.city or 'Mumbai') | tojson }},
+        score: {{ m.final_score | tojson }},
+        url: {{ url_for('profile_dataset', dp_id=m.profile.id) | tojson }}
+      }{% if not loop.last %},{% endif %}
+      {% endfor %}
+    ];
+
+    const coords = {
+      'powai': [19.1176, 72.9060], 'andheri': [19.1136, 72.8697], 'bandra': [19.0596, 72.8295],
+      'borivali': [19.2307, 72.8567], 'malad': [19.1800, 72.8412], 'goregaon': [19.1663, 72.8526],
+      'juhu': [19.1075, 72.8263], 'vile parle': [19.1006, 72.8426], 'santacruz': [19.0843, 72.8360],
+      'kandivali': [19.2047, 72.8519], 'dadar': [19.0178, 72.8475], 'worli': [19.0169, 72.8197],
+      'colaba': [18.9067, 72.8147], 'chembur': [19.0522, 72.9005], 'kurla': [19.0728, 72.8797],
+      'ghatkopar': [19.0515, 72.9038], 'thane': [19.2183, 72.9781], 'navi mumbai': [19.0330, 73.0297],
+      'mumbai': [19.0760, 72.8777]
+    };
+
+    const bounds = [];
+
+    // Helper to prevent XSS injection in Leaflet HTML popups
+    const escapeHTML = (str) => String(str).replace(/[&<>'"]/g, 
+      tag => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+      }[tag] || tag)
+    );
+
+    mapData.forEach(match => {
+      let safeName = String(match.name || 'Anonymous');
+      let safeLocality = String(match.locality || 'Mumbai');
+      let locKey = safeLocality.toLowerCase();
+      let base = coords['mumbai'];
+
+      for (let k in coords) {
+        if (locKey.includes(k)) {
+          base = coords[k];
+          break;
+        }
+      }
+
+      let lat = base[0] + (Math.random() - 0.5) * 0.02;
+      let lng = base[1] + (Math.random() - 0.5) * 0.02;
+      bounds.push([lat, lng]);
+      
+      let initial = escapeHTML(safeName.charAt(0).toUpperCase());
+      let cleanName = escapeHTML(safeName);
+      let cleanLoc = escapeHTML(safeLocality);
+
+      // Use a custom HTML marker with their initial and gradient background!
+      const customIcon = L.divIcon({
+        html: `<div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#7c6ef5 0%,#5eead4 100%);display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;border:2px solid white;box-shadow:0 4px 8px rgba(0,0,0,0.4);">${initial}</div>`,
+        className: '',
+        iconSize: [32, 32],
+        iconAnchor: [16, 32],
+        popupAnchor: [0, -32]
+      });
+
+      const marker = L.marker([lat, lng], {icon: customIcon}).addTo(window.leafletMap);
+
+      marker.bindPopup(`
+        <div style="text-align: center; font-family: 'Poppins', sans-serif; min-width: 140px;">
+          <strong style="font-size: 1.1rem; color: #7c6ef5;">${match.score}% Match</strong><br>
+          <b style="font-size: .95rem; color: var(--text);">${cleanName}</b><br>
+          <span style="color: #7a7f9a; font-size: 0.8rem;">📍 ${cleanLoc}</span><br>
+          <a href="${match.url}" style="display: inline-block; margin-top: 8px; padding: 4px 12px; background: #7c6ef5; color: white; border-radius: 6px; text-decoration: none; font-size: 0.8rem; font-weight: 600;">View Profile</a>
+        </div>
+      `);
+    });
+
+    if (bounds.length > 0) {
+      window.leafletMap.fitBounds(bounds, { padding: [30, 30], maxZoom: 14 });
+    }
+  }
+</script>
+
+{% endblock %}

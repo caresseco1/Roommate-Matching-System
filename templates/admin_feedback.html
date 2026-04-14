@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Admin — Feedback{% endblock %}
+{% block content %}
+<div class="page-container">
+  <div class="page-header">
+    <h1>🛠️ Admin — Feedback</h1>
+    <p>{{ feedbacks|length }} total submissions</p>
+  </div>
+
+  <div class="admin-stats glass" style="display:flex;gap:2rem;padding:1.5rem;margin-bottom:2rem;border-radius:16px">
+    {% set avg = (feedbacks | map(attribute='rating') | list | sum / feedbacks|length) if feedbacks else 0 %}
+    <div><div style="font-size:2rem;font-weight:700;color:var(--accent)">{{ '%.1f'|format(avg) }}/5</div><div style="color:var(--text-muted)">Avg Rating</div></div>
+    <div><div style="font-size:2rem;font-weight:700;color:var(--accent)">{{ feedbacks|length }}</div><div style="color:var(--text-muted)">Total</div></div>
+  </div>
+
+  {% if feedbacks %}
+  <div class="feedback-list">
+    {% for fb in feedbacks %}
+    <div class="feedback-card glass">
+      <div class="fb-header">
+        <div class="fb-user">{{ fb.user.username }} <span style="color:var(--text-muted);font-size:.85rem">{{ fb.user.email }}</span></div>
+        <div class="fb-meta">
+          <span class="tag">{{ fb.category }}</span>
+          <span class="rating-stars">{{ '⭐' * fb.rating }}</span>
+          <span style="color:var(--text-muted);font-size:.8rem">{{ fb.created_at.strftime('%d %b %Y') }}</span>
+        </div>
+      </div>
+      {% if fb.comment %}
+      <div class="fb-comment">{{ fb.comment }}</div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="empty-state glass">
+    <div class="empty-icon">📭</div>
+    <h3>No feedback yet</h3>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Login — StayMate{% endblock %}
+{% block content %}
+<div class="auth-page">
+  <div class="auth-card glass">
+    <div class="auth-header">
+      <div class="auth-logo">🏠</div>
+      <h2>Welcome Back</h2>
+      <p>Sign in to see your matches</p>
+    </div>
+    <form method="POST" novalidate>
+      {{ form.hidden_tag() }}
+      <div class="form-group">
+        {{ form.email.label(class="form-label") }}
+        {{ form.email(class="form-input", placeholder="you@example.com") }}
+        {% for e in form.email.errors %}<span class="form-error">{{ e }}</span>{% endfor %}
+      </div>
+      <div class="form-group">
+        {{ form.password.label(class="form-label") }}
+        {{ form.password(class="form-input", placeholder="Password") }}
+        {% for e in form.password.errors %}<span class="form-error">{{ e }}</span>{% endfor %}
+      </div>
+      {{ form.submit(class="btn btn-primary btn-full") }}
+    </form>
+    <p class="auth-switch">Don't have an account? <a href="{{ url_for('signup') }}">Sign Up</a></p>
+  </div>
+</div>
+{% endblock %}

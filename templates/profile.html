@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% block title %}{{ viewed.username }} — StayMate{% endblock %}
+
+{% block content %}
+<div class="profile-page">
+
+  <!-- HERO SECTION -->
+  <div class="profile-hero glass">
+    
+    <div class="profile-avatar-lg">
+      {{ viewed.username[0]|upper }}
+    </div>
+
+    <div class="profile-hero-info">
+      <h1>{{ viewed.username }}</h1>
+
+      <div class="profile-meta">
+        {% if viewed.age %}<span>{{ viewed.age }} yrs</span>{% endif %}
+        {% if viewed.gender %}<span>{{ viewed.gender }}</span>{% endif %}
+        {% if viewed.occupation %}<span>{{ viewed.occupation }}</span>{% endif %}
+        {% if viewed.locality %}
+          <span>📍 {{ viewed.locality }}, Mumbai</span>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- COMPATIBILITY SCORE -->
+    <div class="profile-compat-big">
+      <div class="compat-circle 
+        {% if compat.final_score >= 80 %}
+          score-high
+        {% elif compat.final_score >= 60 %}
+          score-mid
+        {% else %}
+          score-low
+        {% endif %}">
+        {{ compat.final_score }}%
+      </div>
+      <div class="compat-label">Compatible</div>
+    </div>
+
+  </div>
+
+  <!-- BREAKDOWN -->
+  <div class="compat-breakdown glass">
+    <h3>📊 Compatibility Breakdown</h3>
+
+    <p class="breakdown-note">
+      MLR: <strong>{{ compat.mlr_score }}%</strong> |
+      Pearson r: <strong>{{ compat.pearson_score }}%</strong>
+    </p>
+
+    <div class="breakdown-grid">
+
+      {% set items = [
+        ('Age','🎂','age'),
+        ('Lifestyle','🌙','lifestyle'),
+        ('Personality','🧠','personality'),
+        ('Budget','💰','budget'),
+        ('Location','📍','location')
+      ] %}
+
+      {% for label, icon, key in items %}
+      <div class="breakdown-item">
+
+        <div class="breakdown-label">
+          {{ icon }} {{ label }}
+        </div>
+
+        <div class="breakdown-bar-wrap">
+          <div class="breakdown-bar">
+            <div class="breakdown-fill"
+                 data-width="{{ compat.breakdown[key] }}">
+            </div>
+          </div>
+
+          <span class="breakdown-pct">
+            {{ compat.breakdown[key] }}%
+          </span>
+        </div>
+
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+
+  <!-- ACTION BUTTONS -->
+  {% if viewed.id != current_user.id %}
+  <div class="profile-actions glass">
+
+    <!-- MESSAGE -->
+    <form method="POST"
+          action="{{ url_for('start_chat', receiver_id=viewed.id) }}"
+          style="display:inline;">
+      <button type="submit" class="btn btn-primary">
+        💬 Message
+      </button>
+    </form>
+
+  </div>
+  {% endif %}
+
+</div>
+
+<!-- ✅ JS (fixes VS Code CSS errors + adds animation) -->
+<script>
+  document.querySelectorAll('.breakdown-fill').forEach(el => {
+    const width = el.dataset.width;
+    el.style.width = width + '%';
+  });
+</script>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Sign Up — StayMate{% endblock %}
+{% block content %}
+<div class="auth-page">
+  <div class="auth-card glass">
+    <div class="auth-header">
+      <div class="auth-logo">🏠</div>
+      <h2>Create Account</h2>
+      <p>Join thousands finding roommates in Mumbai</p>
+    </div>
+    <form method="POST" novalidate>
+      {{ form.hidden_tag() }}
+      <div class="form-group">
+        {{ form.username.label(class="form-label") }}
+        {{ form.username(class="form-input", placeholder="Your full name") }}
+        {% for e in form.username.errors %}<span class="form-error">{{ e }}</span>{% endfor %}
+      </div>
+      <div class="form-group">
+        {{ form.email.label(class="form-label") }}
+        {{ form.email(class="form-input", placeholder="you@example.com") }}
+        {% for e in form.email.errors %}<span class="form-error">{{ e }}</span>{% endfor %}
+      </div>
+      <div class="form-group">
+        {{ form.password.label(class="form-label") }}
+        {{ form.password(class="form-input", placeholder="Min 8 chars, 1 uppercase, 1 digit") }}
+        {% for e in form.password.errors %}<span class="form-error">{{ e }}</span>{% endfor %}
+      </div>
+      <div class="form-group">
+        {{ form.confirm_password.label(class="form-label") }}
+        {{ form.confirm_password(class="form-input", placeholder="Repeat password") }}
+        {% for e in form.confirm_password.errors %}<span class="form-error">{{ e }}</span>{% endfor %}
+      </div>
+      {{ form.submit(class="btn btn-primary btn-full") }}
+    </form>
+    <p class="auth-switch">Already have an account? <a href="{{ url_for('login') }}">Sign In</a></p>
+  </div>
+</div>
+{% endblock %}

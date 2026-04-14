@@ -1,0 +1,178 @@
+{% extends "base.html" %}
+{% block title %}Complete Profile — StayMate{% endblock %}
+{% block content %}
+<div class="reg-page">
+  <div class="reg-card glass">
+    <div class="reg-header">
+      <h2>Complete Your Profile</h2>
+      <p>The more you fill in, the better your matches</p>
+    </div>
+    <form method="POST" enctype="multipart/form-data" novalidate>
+      {{ form.hidden_tag() }}
+
+      <div class="form-section">
+        <h3 class="section-label">👤 About You</h3>
+        <div class="form-group" style="margin-bottom: 1rem;">
+          {{ form.profile_pic.label(class="form-label") }}
+          {{ form.profile_pic(class="form-input", style="padding: 0.5rem; background: rgba(255,255,255,0.02);") }}
+          <span style="font-size: 0.75rem; color: var(--text-muted);">Max size: 16MB (JPG, PNG)</span>
+          {% for e in form.profile_pic.errors %}<span class="form-error">{{ e }}</span>{% endfor %}
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            {{ form.age.label(class="form-label") }}
+            {{ form.age(class="form-input", placeholder="25") }}
+            {% for e in form.age.errors %}<span class="form-error">{{ e }}</span>{% endfor %}
+          </div>
+          <div class="form-group">
+            {{ form.gender.label(class="form-label") }}
+            {{ form.gender(class="form-select") }}
+            {% for e in form.gender.errors %}<span class="form-error">{{ e }}</span>{% endfor %}
+          </div>
+        </div>
+        <div class="form-group">
+          {{ form.occupation.label(class="form-label") }}
+          {{ form.occupation(class="form-input", placeholder="Software Engineer") }}
+          {% for e in form.occupation.errors %}<span class="form-error">{{ e }}</span>{% endfor %}
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            {{ form.locality.label(class="form-label") }}
+            {{ form.locality(class="form-input", placeholder="Powai, Andheri, etc.") }}
+            {% for e in form.locality.errors %}<span class="form-error">{{ e }}</span>{% endfor %}
+          </div>
+          <div class="form-group">
+            {{ form.phone_number.label(class="form-label") }}
+            {{ form.phone_number(class="form-input", placeholder="9876543210") }}
+            {% for e in form.phone_number.errors %}<span class="form-error">{{ e }}</span>{% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3 class="section-label">🌙 Lifestyle</h3>
+        <div class="form-row">
+          <div class="form-group">
+            {{ form.sleep_schedule.label(class="form-label") }}
+            {{ form.sleep_schedule(class="form-select") }}
+          </div>
+          <div class="form-group">
+            {{ form.cleanliness.label(class="form-label") }}
+            {{ form.cleanliness(class="form-select") }}
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            {{ form.smoking.label(class="form-label") }}
+            {{ form.smoking(class="form-select") }}
+          </div>
+          <div class="form-group">
+            {{ form.drinking.label(class="form-label") }}
+            {{ form.drinking(class="form-select") }}
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            {{ form.diet.label(class="form-label") }}
+            {{ form.diet(class="form-select") }}
+          </div>
+          <div class="form-group">
+            {{ form.pets.label(class="form-label") }}
+            {{ form.pets(class="form-select") }}
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            {{ form.guests.label(class="form-label") }}
+            {{ form.guests(class="form-select") }}
+          </div>
+          <div class="form-group">
+            {{ form.wfh_frequency.label(class="form-label") }}
+            {{ form.wfh_frequency(class="form-select") }}
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            {{ form.noise_tolerance.label(class="form-label") }}
+            {{ form.noise_tolerance(class="form-select") }}
+          </div>
+          <div class="form-group">
+            {{ form.sharing_pref.label(class="form-label") }}
+            {{ form.sharing_pref(class="form-select") }}
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            {{ form.cooking.label(class="form-label") }}
+            {{ form.cooking(class="form-select") }}
+          </div>
+          <div class="form-group">
+            {{ form.social_style.label(class="form-label") }}
+            {{ form.social_style(class="form-select") }}
+          </div>
+        </div>
+        <div class="form-group">
+          {{ form.communication.label(class="form-label") }}
+          {{ form.communication(class="form-select") }}
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3 class="section-label">🧠 Big Five Personality <small>(rate 1-10)</small></h3>
+        <p class="section-hint">These are used directly in the MLR compatibility calculation</p>
+        {% for field in [form.openness, form.conscientiousness, form.extraversion, form.agreeableness, form.neuroticism] %}
+        <div class="form-group trait-group">
+          {{ field.label(class="form-label") }}
+          <div class="trait-slider-row">
+            {{ field(class="form-input trait-input", type="number", min=1, max=10) }}
+            <input type="range" min="1" max="10" class="trait-slider" 
+                   oninput="document.getElementById('{{ field.id }}').value=this.value"
+                   onchange="document.getElementById('{{ field.id }}').value=this.value"
+                   value="{{ field.data or 5 }}"/>
+          </div>
+          {% for e in field.errors %}<span class="form-error">{{ e }}</span>{% endfor %}
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="form-section">
+        <h3 class="section-label">💰 Budget & Accommodation</h3>
+        <div class="form-row">
+          <div class="form-group">
+            {{ form.budget_min.label(class="form-label") }}
+            {{ form.budget_min(class="form-input", placeholder="10000") }}
+            {% for e in form.budget_min.errors %}<span class="form-error">{{ e }}</span>{% endfor %}
+          </div>
+          <div class="form-group">
+            {{ form.budget_max.label(class="form-label") }}
+            {{ form.budget_max(class="form-input", placeholder="30000") }}
+            {% for e in form.budget_max.errors %}<span class="form-error">{{ e }}</span>{% endfor %}
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            {{ form.accommodation_type.label(class="form-label") }}
+            {{ form.accommodation_type(class="form-select") }}
+          </div>
+          <div class="form-group">
+            {{ form.preferred_gender.label(class="form-label") }}
+            {{ form.preferred_gender(class="form-select") }}
+          </div>
+        </div>
+      </div>
+
+      {{ form.submit(class="btn btn-primary btn-full btn-lg") }}
+    </form>
+  </div>
+</div>
+<script>
+// Sync range sliders with number inputs
+document.querySelectorAll('.trait-input').forEach(input => {
+  const slider = input.nextElementSibling;
+  if (slider) {
+    slider.value = input.value;
+    input.addEventListener('input', () => slider.value = input.value);
+  }
+});
+</script>
+{% endblock %}

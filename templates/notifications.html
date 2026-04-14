@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Notifications — StayMate{% endblock %}
+{% block content %}
+<div class="page-container">
+  <div class="page-header">
+    <h1>🔔 Notifications</h1>
+    <p>Stay updated on your matches and requests</p>
+  </div>
+
+  {% if notifications %}
+  <div class="notif-list">
+    {% for n in notifications %}
+    <div class="notif-card glass {% if not n.is_read %}notif-unread{% endif %}">
+      <div class="notif-icon">
+        {% if 'request' in n.message|lower %}🤝
+        {% elif 'accepted' in n.message|lower %}✅
+        {% elif 'declined' in n.message|lower %}❌
+        {% elif 'unmatched' in n.message|lower %}💔
+        {% elif 'message' in n.message|lower %}💬
+        {% else %}🔔{% endif %}
+      </div>
+      <div class="notif-body">
+        <div class="notif-msg">{{ n.message }}</div>
+        <div class="notif-time">{{ n.created_at.strftime('%d %b %Y, %I:%M %p') }}</div>
+      </div>
+      {% if n.link %}
+      <a href="{{ n.link }}" class="btn btn-outline btn-sm">View →</a>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="empty-state glass">
+    <div class="empty-icon">🔔</div>
+    <h3>All caught up!</h3>
+    <p>No notifications yet. Start connecting with roommates.</p>
+    <a href="{{ url_for('matches') }}" class="btn btn-primary">Find Matches</a>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

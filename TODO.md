@@ -1,0 +1,1 @@
+# StayMate Email Config Task&#10;=========================&#10;&#10;- [x] 1. Create TODO.md&#10;- [x] 2. Create .env with MAIL_USERNAME/MAIL_PASSWORD&#10;- [x] 3. Verify .env loaded correctly (app running on http://127.0.0.1:5000)&#10;- [x] 4. Complete task

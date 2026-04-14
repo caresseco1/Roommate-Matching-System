@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}Chat with {{ other.username }} — StayMate{% endblock %}
+{% block content %}
+<div class="chat-page">
+  <div class="chat-header glass">
+    <a href="{{ url_for('messages') }}" class="back-btn">←</a>
+    <div class="chat-avatar">{{ other.username[0] }}</div>
+    <div class="chat-header-info">
+      <div class="chat-name">{{ other.username }}</div>
+      {% if other.locality %}<div class="chat-loc">📍 {{ other.locality }}</div>{% endif %}
+    </div>
+    <div class="chat-header-actions">
+      <a href="{{ url_for('profile', user_id=other.id) }}" class="btn btn-outline btn-sm">View Profile</a>
+    </div>
+  </div>
+
+  <div class="chat-messages" id="chatMessages">
+    {% if messages %}
+      {% for msg in messages %}
+      <div class="message-bubble {% if msg.sender_id == current_user.id %}bubble-sent{% else %}bubble-received{% endif %}">
+        <div class="bubble-content">{{ msg.content }}</div>
+        <div class="bubble-time">{{ msg.sent_at.strftime('%d %b, %I:%M %p') }}</div>
+      </div>
+      {% endfor %}
+    {% else %}
+    <div class="chat-empty">
+      <p>Say hello to {{ other.username }}! 👋</p>
+    </div>
+    {% endif %}
+  </div>
+
+  {% if is_matched %}
+  <div class="chat-input-area glass">
+    <form method="POST" class="chat-form" id="chatForm">
+      {{ form.hidden_tag() }}
+      {{ form.content(class="chat-input", placeholder="Type a message…", id="chatInput", rows=1,
+         onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();document.getElementById('chatForm').submit();}") }}
+      <button type="submit" class="btn btn-primary chat-send">Send ➤</button>
+    </form>
+  </div>
+  {% else %}
+  <div class="chat-input-area glass" style="text-align: center; padding: 1.25rem; color: var(--text-muted);">
+    <p style="margin-bottom: 0.25rem;">🔒 <strong>Chat is locked</strong></p>
+    <p style="font-size: .85rem; margin: 0;">You can message each other once the room request is accepted.</p>
+  </div>
+  {% endif %}
+</div>
+
+<script>
+  // Scroll to bottom on load
+  const msgs = document.getElementById('chatMessages');
+  if (msgs) msgs.scrollTop = msgs.scrollHeight;
+
+  // Poll unread count every 15s (lightweight)
+  setInterval(() => {
+    fetch("{{ url_for('unread_count') }}")
+      .then(r => r.json())
+      .then(d => {
+        const badges = document.querySelectorAll('.nav-link .badge');
+        badges.forEach(b => b.textContent = d.count > 0 ? d.count : '');
+      });
+  }, 15000);
+</script>
+{% endblock %}

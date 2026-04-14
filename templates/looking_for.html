@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}What are you looking for? — StayMate{% endblock %}
+{% block content %}
+<div class="onboard-page">
+  <div class="onboard-card glass">
+    <h2>What are you looking for?</h2>
+    <p>This helps us find the right matches for you</p>
+    <form method="POST" id="lookingForm">
+      {{ form.hidden_tag() }}
+      {{ form.looking_for(id="looking_for_input") }}
+      <div class="choice-grid">
+        <div class="choice-card" onclick="selectChoice('room', this)">
+          <div class="choice-icon">🔍</div>
+          <h3>Looking for a Room</h3>
+          <p>I need a place to stay — show me available rooms with compatible roommates</p>
+        </div>
+        <div class="choice-card" onclick="selectChoice('roomate', this)">
+          <div class="choice-icon">🤝</div>
+          <h3>Looking for a Roommate</h3>
+          <p>I have a room / flat — show me compatible people looking for a place</p>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary btn-full" id="continueBtn" disabled>Finish Profile →</button>
+    </form>
+  </div>
+</div>
+<script>
+function selectChoice(val, el) {
+  document.querySelectorAll('.choice-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById('looking_for_input').value = val;
+  document.getElementById('continueBtn').disabled = false;
+}
+</script>
+{% endblock %}

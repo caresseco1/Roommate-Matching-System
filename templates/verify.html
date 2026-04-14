@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Verify Email — StayMate{% endblock %}
+{% block content %}
+<div class="auth-page">
+  <div class="auth-card glass">
+    <div class="auth-header">
+      <div class="auth-logo">📧</div>
+      <h2>Verify Your Email</h2>
+      <p>Enter the 6-digit OTP we sent to your email</p>
+    </div>
+    <form method="POST" novalidate>
+      {{ form.hidden_tag() }}
+      <div class="form-group">
+        {{ form.otp.label(class="form-label") }}
+        {{ form.otp(class="form-input otp-input", placeholder="000000", maxlength=6) }}
+        {% for e in form.otp.errors %}<span class="form-error">{{ e }}</span>{% endfor %}
+      </div>
+      {{ form.submit(class="btn btn-primary btn-full") }}
+    </form>
+    <p class="auth-switch">Didn't receive it? <a href="{{ url_for('resend_otp') }}">Resend OTP</a></p>
+  </div>
+</div>
+{% endblock %}

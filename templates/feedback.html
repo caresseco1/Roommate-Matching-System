@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Feedback — StayMate{% endblock %}
+{% block content %}
+<div class="auth-page">
+  <div class="auth-card glass" style="max-width:560px">
+    <div class="auth-header">
+      <div class="auth-logo">💬</div>
+      <h2>Share Your Feedback</h2>
+      <p>Help us improve StayMate for everyone</p>
+    </div>
+    <form method="POST" novalidate>
+      {{ form.hidden_tag() }}
+      <div class="form-group">
+        {{ form.rating.label(class="form-label") }}
+        {{ form.rating(class="form-select") }}
+        {% for e in form.rating.errors %}<span class="form-error">{{ e }}</span>{% endfor %}
+      </div>
+      <div class="form-group">
+        {{ form.category.label(class="form-label") }}
+        {{ form.category(class="form-select") }}
+      </div>
+      <div class="form-group">
+        {{ form.comment.label(class="form-label") }}
+        {{ form.comment(class="form-input", rows=4, placeholder="Tell us what you think…") }}
+        {% for e in form.comment.errors %}<span class="form-error">{{ e }}</span>{% endfor %}
+      </div>
+      {{ form.submit(class="btn btn-primary btn-full") }}
+    </form>
+  </div>
+</div>
+{% endblock %}

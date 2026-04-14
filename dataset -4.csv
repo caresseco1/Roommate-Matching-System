@@ -1,0 +1,353 @@
+user_id,name,age,gender,occupation,city,locality,sleep_schedule,cleanliness,smoking,drinking,diet,pets,guests,wfh_frequency,noise_tolerance,sharing_pref,cooking,openness,conscientiousness,extraversion,agreeableness,neuroticism,social_style,communication,budget_min,accommodation_type,budget_max,preferred_gender,phone_number,email,room/roomate,profile_pic,Room_price
+1,Aadhya Sharma,33,Female,Software Engineer,Mumbai,Andheri East,Night owl,4,No,Socially,Non-Veg,No,Sometimes,2 days/week,Medium,Private,Yes,7,8,6,7,4,Ambivert,Direct,15000,Flat,30000,Any,8269847455,aadhya.sharma87@gmail.com,room,None,
+2,Aarav Kumar,18,Male,Student,Mumbai,Powai,Early bird,5,No,Never,Veg,No,Rarely,Never,Low,Shared,No,6,7,5,8,3,Introvert,Polite,5000,Hostel,12000,Female,9731118429,aarav.kumar23@gmail.com,room,None,
+3,Vihaan Singh,27,Male,Data Analyst,Mumbai,Goregaon East,Flexible,3,Occasionally,Socially,Non-Veg,Yes,Sometimes,3 days/week,High,Shared,Yes,8,6,7,6,5,Extrovert,Friendly,12000,PG,25000,Any,2141859000,vihaan.singh@gmail.com,room,None,
+4,Ananya Patel,35,Female,Product Manager,Mumbai,Bandra West,Night owl,4,No,Socially,Veg,No,Often,2 days/week,Medium,Private,Yes,7,8,6,8,3,Extrovert,Direct,25000,Apartment,50000,Male,9336697905,ananya.patel12@gmail.com,room,None,
+5,Advik Reddy,18,Male,Student,Mumbai,Malad West,Early bird,4,No,Never,Veg,No,Rarely,Never,Low,Shared,No,5,6,4,7,4,Introvert,Polite,4000,Hostel,10000,Female,8314491974,advik.reddy@gmail.com,room,None,
+6,Kabir Joshi,31,Male,Architect,Mumbai,Dadar,Flexible,5,No,Socially,Non-Veg,No,Rarely,1 day/week,Medium,Private,Yes,8,9,5,7,3,Introvert,Clear,20000,Flat,40000,Any,7031219216,kabir.joshi34@gmail.com,room,None,
+7,Reyansh Malhotra,40,Male,Senior Manager,Mumbai,Nariman Point,Early bird,5,No,Socially,Veg,No,Rarely,Full-time,Low,Private,No,7,9,5,8,3,Introvert,Direct,35000,Service Apartment,70000,Any,2407877473,reyansh.malhotra@gmail.com,room,None,
+8,Diya Kapoor,40,Female,Consultant,Mumbai,Chembur,Night owl,3,Yes,Often,Non-Veg,No,Often,3 days/week,High,Shared,Yes,8,5,8,6,6,Extrovert,Friendly,20000,Flat,45000,Female,9519424892,diya.kapoor90@gmail.com,room,None,
+9,Sanya Verma,29,Female,Marketing Manager,Mumbai,Juhu,Flexible,4,No,Socially,Veg,Yes,Sometimes,2 days/week,Medium,Private,Yes,7,7,7,7,4,Ambivert,Clear,25000,Apartment,55000,Any,8885538324,sanya.verma@gmail.com,roomate,None,"20,000"
+10,Shaurya Gupta,24,Male,Software Developer,Mumbai,Vile Parle,Night owl,3,Occasionally,Socially,Non-Veg,No,Often,3 days/week,High,Shared,Yes,8,5,9,5,5,Extrovert,Direct,12000,PG,25000,Male,1600817484,shaurya.gupta21@gmail.com,roomate,None,"30,000"
+11,Ishita Mehta,29,Female,HR Manager,Mumbai,Andheri West,Early bird,5,No,Never,Veg,No,Rarely,1 day/week,Low,Private,Yes,6,8,5,8,3,Introvert,Polite,18000,Flat,35000,Female,5203934959,ishita.mehta@gmail.com,roomate,None,"15,900"
+12,Myra Nair,30,Female,Data Scientist,Mumbai,Powai,Flexible,4,No,Socially,Non-Veg,Yes,Sometimes,2 days/week,Medium,Private,Yes,8,7,6,7,4,Ambivert,Clear,20000,Apartment,45000,Any,7518037755,myra.nair89@gmail.com,roomate,None,"18,000"
+13,Anika Yadav,27,Female,Teacher,Mumbai,Borivali,Early bird,5,No,Never,Veg,No,Rarely,1 day/week,Low,Shared,Yes,6,8,5,8,3,Introvert,Polite,10000,PG,20000,Female,3349241816,anika.yadav@gmail.com,roomate,None,6000
+14,Navya Rao,20,Female,Student,Mumbai,Ghatkopar,Night owl,3,No,Occasionally,Non-Veg,No,Sometimes,Never,Medium,Shared,No,7,5,7,6,5,Ambivert,Friendly,5000,Hostel,12000,Female,8747011450,navya.rao54@gmail.com,roomate,None,"11,000"
+15,Pari Sharma,22,Female,Designer,Mumbai,Colaba,Flexible,4,Occasionally,Socially,Veg,Yes,Often,2 days/week,High,Private,Yes,8,6,8,6,4,Extrovert,Direct,15000,PG,30000,Any,7901749875,pari.sharma@gmail.com,roomate,None,19000
+16,Dhruv Khanna,20,Male,Student,Mumbai,Kurla,Early bird,4,No,Never,Veg,No,Rarely,Never,Low,Shared,No,5,7,4,7,3,Introvert,Polite,4000,Hostel,10000,Female,2877526502,dhruv.khanna76@gmail.com,room,None,
+17,Rudra Mishra,32,Male,Civil Engineer,Mumbai,Thane West,Night owl,3,Yes,Often,Non-Veg,No,Sometimes,2 days/week,Medium,Private,Yes,7,5,6,5,6,Introvert,Direct,15000,Flat,28000,Male,4821896746,rudra.mishra@gmail.com,roomate,None,17950
+18,Arjun Choudhury,18,Male,Student,Mumbai,Malad East,Early bird,4,No,Never,Veg,No,Rarely,Never,Low,Shared,No,5,6,4,7,3,Introvert,Polite,4000,Hostel,10000,Female,6098072049,arjun.choudhury98@gmail.com,roomate,None,"23,000"
+19,Anaya Bhat,21,Female,Student,Mumbai,Bandra East,Flexible,3,No,Occasionally,Non-Veg,No,Sometimes,1 day/week,Medium,Shared,No,7,5,7,6,4,Ambivert,Friendly,8000,PG,18000,Female,4808375071,anaya.bhat@gmail.com,room,None,
+20,Vivaan Saxena,33,Male,Banker,Mumbai,Fort,Early bird,5,No,Never,Veg,No,Rarely,2 days/week,Low,Private,Yes,6,9,5,8,3,Introvert,Clear,25000,Apartment,50000,Any,7243820834,vivaan.saxena@gmail.com,room,None,
+21,Sai Deshpande,31,Male,Doctor,Mumbai,Parel,Night owl,4,No,Occasionally,Veg,No,Rarely,Full-time,Medium,Private,No,7,8,5,7,4,Introvert,Direct,30000,Service Apartment,60000,Any,8155456383,sai.deshpande@gmail.com,roomate,None,"33,000"
+22,Jhanvi Menon,28,Female,Content Writer,Mumbai,Juhu,Flexible,3,No,Socially,Non-Veg,Yes,Often,3 days/week,High,Shared,Yes,8,5,8,6,5,Extrovert,Friendly,15000,PG,30000,Female,9716789611,jhanvi.menon@gmail.com,room,None,
+23,Trisha Iyer,19,Female,Student,Mumbai,Vashi,Early bird,4,No,Never,Veg,No,Rarely,Never,Low,Shared,No,5,6,4,7,3,Introvert,Polite,5000,Hostel,12000,Female,9179074418,trisha.iyer37@gmail.com,roomate,None,12000
+24,Kiara Sengupta,35,Female,Architect,Mumbai,Lower Parel,Night owl,4,No,Socially,Non-Veg,No,Sometimes,2 days/week,Medium,Private,Yes,7,7,6,8,4,Ambivert,Direct,25000,Flat,50000,Female,1120763959,kiara.sengupta@gmail.com,roomate,None,9000
+25,Yash Thakur,34,Male,Business Analyst,Mumbai,BKC,Early bird,5,No,Socially,Veg,No,Rarely,3 days/week,Low,Private,Yes,6,8,5,7,3,Introvert,Clear,30000,Apartment,60000,Any,5212997118,yash.thakur@gmail.com,room,None,
+26,Atharva Kulkarni,40,Male,Senior Consultant,Mumbai,Dadar,Flexible,4,No,Socially,Non-Veg,Yes,Sometimes,2 days/week,Medium,Private,Yes,8,7,6,8,4,Ambivert,Direct,35000,Service Apartment,70000,Male,3651993180,atharva.kulkarni@gmail.com,room,None,
+27,Krishna Pillai,35,Male,Professor,Mumbai,Matunga,Early bird,5,No,Never,Veg,No,Rarely,2 days/week,Low,Private,Yes,7,9,5,8,3,Introvert,Clear,20000,Flat,40000,Any,6949323468,krishna.pillai@gmail.com,room,None,
+28,Prisha Chatterjee,33,Female,Graphic Designer,Mumbai,Santacruz,Night owl,3,Occasionally,Socially,Non-Veg,Yes,Often,3 days/week,High,Shared,Yes,8,5,8,5,6,Extrovert,Friendly,12000,PG,25000,Female,1084498329,prisha.chatterjee@gmail.com,room,None,
+29,Shaan George,20,Male,Student,Mumbai,Kharghar,Flexible,3,No,Occasionally,Non-Veg,No,Sometimes,Never,Medium,Shared,No,6,5,7,6,4,Ambivert,Friendly,5000,Hostel,12000,Female,6141457633,shaan.george15@gmail.com,roomate,None,12000
+30,Amaira Das,22,Female,Fashion Designer,Mumbai,Bandra West,Night owl,4,No,Socially,Veg,No,Often,1 day/week,Medium,Private,Yes,7,6,7,7,4,Extrovert,Direct,18000,Flat,35000,Any,3223798441,amaira.das@gmail.com,roomate,None,8000
+31,Jayesh Pawar,37,Male,Project Manager,Mumbai,Powai,Early bird,5,No,Socially,Non-Veg,No,Rarely,2 days/week,Low,Private,Yes,6,9,5,8,3,Introvert,Clear,30000,Apartment,60000,Male,9860641157,jayesh.pawar@gmail.com,room,None,
+32,Veer Gokhale,37,Male,Financial Analyst,Mumbai,Nariman Point,Flexible,4,No,Socially,Veg,Yes,Sometimes,3 days/week,Medium,Private,Yes,8,7,6,7,4,Ambivert,Direct,35000,Service Apartment,70000,Any,6565764019,veer.gokhale@gmail.com,room,None,
+33,Nakul Kaur,35,Male,Product Designer,Mumbai,Andheri East,Night owl,3,Occasionally,Often,Non-Veg,No,Often,2 days/week,High,Shared,Yes,8,5,8,5,6,Extrovert,Friendly,15000,PG,30000,Female,4135210826,nakul.kaur@gmail.com,room,None,
+34,Ishani Shetty,31,Female,Content Strategist,Mumbai,Goregaon West,Flexible,4,No,Socially,Veg,Yes,Sometimes,1 day/week,Medium,Private,Yes,7,6,7,7,4,Ambivert,Clear,18000,Flat,35000,Any,1382096831,ishani.shetty@gmail.com,room,None,
+35,Rohan Patil,28,Male,Software Engineer,Mumbai,Malad West,Night owl,3,No,Socially,Non-Veg,No,Sometimes,3 days/week,High,Shared,Yes,8,6,7,6,5,Extrovert,Direct,12000,PG,25000,Male,6769228297,rohan.patil@gmail.com,roomate,None,15000
+36,Aarohi Rajan,38,Female,HR Director,Mumbai,BKC,Early bird,5,No,Never,Veg,No,Rarely,2 days/week,Low,Private,Yes,6,9,5,8,3,Introvert,Clear,40000,Service Apartment,80000,Any,7807685732,aarohi.rajan@gmail.com,roomate,None,40000
+37,Kiaan Barwe,28,Male,UX Designer,Mumbai,Powai,Flexible,4,No,Socially,Non-Veg,Yes,Sometimes,2 days/week,Medium,Private,Yes,8,7,7,7,4,Ambivert,Friendly,20000,Flat,40000,Female,9876414849,kiaan.barwe@gmail.com,roomate,None,30000
+38,Aaryan Subramaniam,18,Male,Student,Mumbai,Chembur,Early bird,4,No,Never,Veg,No,Rarely,Never,Low,Shared,No,5,6,4,7,3,Introvert,Polite,4000,Hostel,10000,Female,5677985347,aaryan.subramaniam@gmail.com,roomate,None,12000
+39,Anvi Kulkarni,32,Female,Data Engineer,Mumbai,Vashi,Night owl,3,No,Socially,Non-Veg,No,Sometimes,3 days/week,High,Shared,Yes,8,6,7,6,5,Extrovert,Direct,15000,PG,30000,Any,9446889313,anvi.kulkarni42@gmail.com,roomate,None,35000
+40,Yug Shah,38,Male,Investment Banker,Mumbai,Fort,Early bird,5,No,Socially,Veg,No,Rarely,2 days/week,Low,Private,Yes,6,9,5,8,3,Introvert,Clear,40000,Service Apartment,80000,Male,4759943131,yug.shah@gmail.com,roomate,None,25000
+41,Laksh Jain,34,Male,Doctor,Mumbai,Parel,Night owl,4,No,Occasionally,Veg,No,Rarely,Full-time,Medium,Private,No,7,8,5,7,4,Introvert,Direct,30000,Apartment,60000,Any,8436717419,laksh.jain@gmail.com,roomate,None,30000
+42,Ayaan Sinha,26,Male,Marketing Executive,Mumbai,Andheri West,Flexible,3,No,Socially,Non-Veg,Yes,Often,2 days/week,High,Shared,Yes,8,5,8,6,5,Extrovert,Friendly,12000,PG,25000,Female,2744289646,ayaan.sinha68@gmail.com,room,None,
+43,Shaurya Bose,38,Male,Senior Architect,Mumbai,Colaba,Early bird,5,No,Socially,Veg,No,Rarely,2 days/week,Low,Private,Yes,7,8,5,8,3,Introvert,Clear,35000,Flat,70000,Any,5110473885,shaurya.bose@gmail.com,roomate,None,10000
+44,Aadhya Swaminathan,39,Female,Professor,Mumbai,Matunga,Flexible,4,No,Never,Veg,Yes,Rarely,2 days/week,Medium,Private,Yes,8,8,5,8,3,Introvert,Direct,25000,Apartment,50000,Female,1479790361,aadhya.swaminathan09@gmail.com,roomate,None,25000
+45,Reyansh Bajwa,27,Male,Product Manager,Mumbai,BKC,Night owl,4,No,Socially,Non-Veg,No,Sometimes,3 days/week,Medium,Private,Yes,7,7,7,7,4,Ambivert,Clear,30000,Service Apartment,60000,Any,8929773806,reyansh.bajwa@gmail.com,room,None,
+46,Aanya Ahluwalia,24,Female,Graphic Designer,Mumbai,Juhu,Flexible,3,Occasionally,Socially,Non-Veg,Yes,Often,2 days/week,High,Shared,Yes,8,5,8,5,6,Extrovert,Friendly,15000,PG,30000,Female,8694021901,aanya.ahluwalia@gmail.com,room,None,
+47,Charvi Mistry,33,Female,Content Writer,Mumbai,Goregaon East,Night owl,3,No,Socially,Veg,No,Sometimes,1 day/week,Medium,Shared,Yes,7,5,7,6,5,Ambivert,Direct,10000,PG,20000,Female,1249084989,charvi.mistry@gmail.com,room,None,
+48,Darshana Reddy,18,Female,Student,Mumbai,Kharghar,Early bird,4,No,Never,Veg,No,Rarely,Never,Low,Shared,No,5,6,4,7,3,Introvert,Polite,4000,Hostel,10000,Female,4076207521,darshana.reddy@gmail.com,roomate,None,23000
+49,Aarush Gowda,40,Male,Senior Developer,Mumbai,Powai,Flexible,4,No,Socially,Non-Veg,Yes,Sometimes,2 days/week,Medium,Private,Yes,8,7,6,7,4,Ambivert,Clear,30000,Apartment,60000,Male,5615171132,aarush.gowda15@gmail.com,room,None,
+50,Ansh Banerjee,36,Male,Business Owner,Mumbai,Bandra West,Night owl,4,Yes,Often,Non-Veg,No,Often,1 day/week,High,Private,Yes,7,6,8,5,6,Extrovert,Direct,40000,Service Apartment,80000,Any,9514562287,ansh.banerjee@gmail.com,roomate,None,10000
+51,Darsh Shekhawat,30,Male,Fashion Designer,Mumbai,Colaba,Flexible,4,No,Socially,Veg,Yes,Sometimes,2 days/week,Medium,Private,Yes,8,7,7,7,4,Ambivert,Friendly,20000,Flat,40000,Female,3057552407,darsh.shekhawat@gmail.com,roomate,None,25000
+52,Ira Sarkar,32,Female,HR Manager,Mumbai,Andheri East,Early bird,5,No,Never,Veg,No,Rarely,1 day/week,Low,Private,Yes,6,8,5,8,3,Introvert,Clear,20000,Flat,40000,Any,9355543487,ira.sarkar@gmail.com,room,None,
+53,Kyra Khurana,22,Female,Student,Mumbai,Vile Parle,Night owl,3,No,Occasionally,Non-Veg,No,Sometimes,Never,Medium,Shared,No,7,5,7,6,4,Ambivert,Friendly,5000,Hostel,12000,Female,7471732206,kyra.khurana@gmail.com,room,None,
+54,Misha Dutta,20,Female,Student,Mumbai,Malad East,Early bird,4,No,Never,Veg,No,Rarely,Never,Low,Shared,No,5,6,4,7,3,Introvert,Polite,4000,Hostel,10000,Female,5360551433,misha.dutta05@gmail.com,roomate,None,10000
+55,Kimaya Kale,32,Female,Software Engineer,Mumbai,Thane West,Flexible,4,No,Socially,Non-Veg,Yes,Sometimes,2 days/week,Medium,Private,Yes,8,7,6,7,4,Ambivert,Clear,18000,Flat,35000,Any,4930183415,kimaya.kale@gmail.com,roomate,None,25000
+56,Ritvik Venkatesh,29,Male,Data Scientist,Mumbai,Powai,Night owl,3,No,Socially,Veg,No,Sometimes,3 days/week,High,Shared,Yes,8,6,7,6,5,Extrovert,Direct,20000,Apartment,40000,Male,6105322531,ritvik.venkatesh@gmail.com,roomate,None,10000
+57,Zara Khan,20,Female,Student,Mumbai,Bandra East,Flexible,3,No,Occasionally,Non-Veg,No,Sometimes,Never,Medium,Shared,No,6,5,7,6,4,Ambivert,Friendly,5000,Hostel,12000,Female,7481807225,zara.khan33@gmail.com,roomate,None,25000
+58,Alisha Ansari,33,Female,Teacher,Mumbai,Kurla,Early bird,5,No,Never,Veg,No,Rarely,1 day/week,Low,Private,Yes,6,8,5,8,3,Introvert,Polite,10000,PG,20000,Female,7629920726,alisha.ansari@gmail.com,room,None,
+59,Kavya Mirza,35,Female,Doctor,Mumbai,Parel,Night owl,4,No,Occasionally,Veg,No,Rarely,Full-time,Medium,Private,No,7,8,5,7,4,Introvert,Direct,30000,Apartment,60000,Any,5020559000,kavya.mirza@gmail.com,roomate,None,10000
+60,Amanpreet Singh,28,Male,Business Analyst,Mumbai,BKC,Flexible,4,No,Socially,Non-Veg,Yes,Sometimes,2 days/week,Medium,Private,Yes,8,7,6,7,4,Ambivert,Clear,25000,Service Apartment,50000,Male,4387464605,amanpreet.singh@gmail.com,roomate,None,25000
+61,Gurpreet Dhillon,20,Female,Student,Mumbai,Ghatkopar,Early bird,4,No,Never,Veg,No,Rarely,Never,Low,Shared,No,5,6,4,7,3,Introvert,Polite,4000,Hostel,10000,Female,4998045184,gurpreet.dhillon@gmail.com,room,None,
+62,Rajveer Bains,30,Male,Marketing Manager,Mumbai,Lower Parel,Night owl,3,Yes,Often,Non-Veg,No,Often,2 days/week,High,Private,Yes,7,5,8,5,6,Extrovert,Direct,25000,Flat,50000,Any,2845188479,rajveer.bains@gmail.com,room,None,
+63,Indrajeet Rana,21,Male,Student,Mumbai,Santacruz,Flexible,3,No,Occasionally,Non-Veg,No,Sometimes,Never,Medium,Shared,No,6,5,7,6,4,Ambivert,Friendly,5000,Hostel,12000,Female,7831149329,indrajeet.rana77@gmail.com,room,None,
+64,Meera Chandran,20,Female,Student,Mumbai,Vashi,Early bird,4,No,Never,Veg,No,Rarely,Never,Low,Shared,No,5,6,4,7,3,Introvert,Polite,4000,Hostel,10000,Female,6302981841,meera.chandran@gmail.com,roomate,None,22000
+65,Aditya Pillai,36,Male,Senior Engineer,Mumbai,Andheri West,Flexible,4,No,Socially,Non-Veg,Yes,Sometimes,2 days/week,Medium,Private,Yes,8,7,6,7,4,Ambivert,Clear,30000,Apartment,60000,Any,1600265779,aditya.pillai@gmail.com,room,None,
+66,Madhav Iyengar,20,Male,Student,Mumbai,Chembur,Early bird,4,No,Never,Veg,No,Rarely,Never,Low,Shared,No,5,6,4,7,3,Introvert,Polite,4000,Hostel,10000,Male,7656089033,madhav.iyengar@gmail.com,roomate,None,10000
+67,Shiv Rajput,37,Male,Project Manager,Mumbai,Powai,Night owl,4,No,Socially,Veg,No,Sometimes,2 days/week,Medium,Private,Yes,7,8,5,8,4,Introvert,Direct,35000,Service Apartment,70000,Any,9160785156,shiv.rajput@gmail.com,roomate,None,25000
+68,Suhana Kapadia,23,Female,Graphic Designer,Mumbai,Juhu,Flexible,3,No,Socially,Non-Veg,Yes,Often,1 day/week,High,Shared,Yes,8,5,8,6,5,Extrovert,Friendly,12000,PG,25000,Female,3437292681,suhana.kapadia@gmail.com,room,None,
+69,Samaira Biswas,26,Female,Content Creator,Mumbai,Bandra West,Night owl,3,No,Socially,Veg,No,Often,2 days/week,Medium,Shared,Yes,7,5,7,6,5,Ambivert,Direct,15000,PG,30000,Female,9792440172,samaira.biswas@gmail.com,room,None,
+70,Nitara Tagore,38,Female,Creative Director,Mumbai,Colaba,Early bird,5,No,Socially,Non-Veg,No,Rarely,2 days/week,Low,Private,Yes,7,9,5,8,3,Introvert,Clear,40000,Service Apartment,80000,Any,7729805357,nitara.tagore@gmail.com,room,None,
+71,Karthik Krishnamurthy,25,Male,Software Engineer,Mumbai,Thane West,Night owl,3,No,Socially,Non-Veg,No,Sometimes,3 days/week,High,Shared,Yes,8,6,7,6,5,Extrovert,Direct,12000,PG,25000,Male,6508521493,karthik.krishnamurthy@gmail.com,roomate,None,19000
+72,Lavanya Prasad,38,Female,HR Director,Mumbai,BKC,Flexible,4,No,Socially,Veg,Yes,Sometimes,2 days/week,Medium,Private,Yes,8,7,6,7,4,Ambivert,Clear,40000,Service Apartment,80000,Female,9598607140,lavanya.prasad19@gmail.com,roomate,None,22000
+73,Riya Mukherjee,29,Female,UX Researcher,Mumbai,Powai,Early bird,4,No,Never,Veg,No,Rarely,1 day/week,Low,Private,Yes,6,8,5,8,3,Introvert,Clear,20000,Flat,40000,Any,4738417618,riya.mukherjee@gmail.com,roomate,None,19000
+74,Gauri Gaekwad,18,Female,Student,Mumbai,Malad West,Early bird,4,No,Never,Veg,No,Rarely,Never,Low,Shared,No,5,6,4,7,3,Introvert,Polite,4000,Hostel,10000,Female,5901511615,gauri.gaekwad@gmail.com,roomate,None,22000
+75,Janhvi Thakkar,30,Female,Product Manager,Mumbai,Andheri East,Night owl,4,No,Socially,Non-Veg,No,Sometimes,2 days/week,Medium,Private,Yes,7,7,6,7,4,Ambivert,Direct,25000,Flat,50000,Female,2209198690,janhvi.thakkar@gmail.com,room,None,
+76,Om Saxena,24,Male,Data Analyst,Mumbai,Goregaon East,Flexible,3,No,Socially,Veg,Yes,Sometimes,2 days/week,High,Shared,Yes,8,6,7,6,5,Extrovert,Friendly,12000,PG,25000,Any,1521413066,om.saxena@gmail.com,roomate,None,19000
+77,Shanaya Lobo,34,Female,Architect,Mumbai,Dadar,Early bird,5,No,Socially,Non-Veg,No,Rarely,1 day/week,Low,Private,Yes,7,8,5,8,3,Introvert,Clear,25000,Flat,50000,Female,5989922176,shanaya.lobo@gmail.com,roomate,None,22000
+78,Parth Srinivasan,37,Male,Senior Analyst,Mumbai,Vashi,Flexible,4,No,Socially,Veg,Yes,Sometimes,2 days/week,Medium,Private,Yes,8,7,6,7,4,Ambivert,Direct,30000,Apartment,60000,Male,8720635347,parth.srinivasan@gmail.com,room,None,
+79,Shravya Hegde,36,Female,Doctor,Mumbai,Parel,Night owl,4,No,Occasionally,Veg,No,Rarely,Full-time,Medium,Private,No,7,8,5,7,4,Introvert,Direct,35000,Service Apartment,70000,Any,9159001210,shravya.hegde@gmail.com,room,None,
+80,Anushka Xavier,26,Female,Marketing Executive,Mumbai,Lower Parel,Flexible,3,No,Socially,Non-Veg,Yes,Often,2 days/week,High,Shared,Yes,8,5,8,6,5,Extrovert,Friendly,15000,PG,30000,Female,2922910434,anushka.xavier@gmail.com,roomate,None,19000
+81,Tara Mathew,18,Female,Student,Mumbai,Kharghar,Early bird,4,No,Never,Veg,No,Rarely,Never,Low,Shared,No,5,6,4,7,3,Introvert,Polite,4000,Hostel,10000,Female,9821470619,tara.mathew@gmail.com,roomate,None,22000
+82,Sahil Qureshi,36,Male,Business Owner,Mumbai,Bandra West,Night owl,4,Yes,Often,Non-Veg,No,Often,1 day/week,High,Private,Yes,7,6,8,5,6,Extrovert,Direct,40000,Service Apartment,80000,Male,4447189586,sahil.qureshi@gmail.com,roomate,None,12000
+83,Farida Naqvi,37,Female,Professor,Mumbai,Matunga,Early bird,5,No,Never,Veg,No,Rarely,2 days/week,Low,Private,Yes,7,9,5,8,3,Introvert,Clear,25000,Flat,50000,Any,4978585870,farida.naqvi@gmail.com,room,None,
+84,Kabir Ahmed,35,Male,Product Designer,Mumbai,Powai,Flexible,4,No,Socially,Non-Veg,Yes,Sometimes,2 days/week,Medium,Private,Yes,8,7,6,7,4,Ambivert,Direct,30000,Apartment,60000,Male,4672312145,kabir.ahmed@gmail.com,roomate,None,16000
+85,Zoya Ali,32,Female,Content Strategist,Mumbai,Juhu,Night owl,3,No,Socially,Veg,No,Often,1 day/week,High,Shared,Yes,8,5,8,6,5,Extrovert,Friendly,15000,PG,30000,Female,4354252562,zoya.ali@gmail.com,roomate,None,23000
+86,Inaya Akhtar,37,Female,HR Manager,Mumbai,Andheri West,Early bird,5,No,Never,Veg,No,Rarely,1 day/week,Low,Private,Yes,6,8,5,8,3,Introvert,Clear,20000,Flat,40000,Female,1627723244,inaya.akhtar62@gmail.com,room,None,
+87,Rizwan Chaudhry,29,Male,Software Engineer,Mumbai,Thane West,Flexible,3,No,Socially,Non-Veg,Yes,Sometimes,3 days/week,High,Shared,Yes,8,6,7,6,5,Extrovert,Direct,12000,PG,25000,Any,5856844988,rizwan.chaudhry@gmail.com,room,None,
+88,Armaan Mallick,22,Male,Student,Mumbai,Chembur,Night owl,3,No,Occasionally,Non-Veg,No,Sometimes,Never,Medium,Shared,No,7,5,7,6,4,Ambivert,Friendly,5000,Hostel,12000,Male,8861249742,armaan.mallick@gmail.com,room,None,
+89,Ayesha Noor,18,Female,Student,Mumbai,Borivali,Early bird,4,No,Never,Veg,No,Rarely,Never,Low,Shared,No,5,6,4,7,3,Introvert,Polite,4000,Hostel,10000,Female,7124639789,ayesha.noor@gmail.com,roomate,None,15000
+90,Ibrahim Siddiqui,30,Male,Data Scientist,Mumbai,BKC,Flexible,4,No,Socially,Veg,Yes,Sometimes,2 days/week,Medium,Private,Yes,8,7,6,7,4,Ambivert,Clear,30000,Service Apartment,60000,Any,5611880073,ibrahim.siddiqui@gmail.com,room,None,
+91,Falak Shroff,31,Female,Fashion Designer,Mumbai,Colaba,Night owl,4,No,Socially,Non-Veg,No,Sometimes,1 day/week,Medium,Private,Yes,7,7,7,7,4,Ambivert,Direct,25000,Flat,50000,Female,1120140983,falak.shroff@gmail.com,roomate,None,19000
+92,Mahira Kohli,19,Female,Student,Mumbai,Vile Parle,Early bird,4,No,Never,Veg,No,Rarely,Never,Low,Shared,No,5,6,4,7,3,Introvert,Polite,4000,Hostel,10000,Male,3248092245,mahira.kohli@gmail.com,roomate,None,22000
+93,Sara Varghese,38,Female,Senior Manager,Mumbai,Nariman Point,Flexible,5,No,Socially,Non-Veg,No,Rarely,2 days/week,Low,Private,Yes,7,9,5,8,3,Introvert,Clear,45000,Service Apartment,90000,Any,3132880479,sara.varghese@gmail.com,room,None,
+94,Rohit Philip,40,Male,Consultant,Mumbai,Lower Parel,Night owl,3,Yes,Often,Veg,No,Often,3 days/week,High,Shared,Yes,8,5,8,5,6,Extrovert,Friendly,25000,Flat,50000,Male,4758256848,rohit.philip@gmail.com,room,None,
+95,Naina Eapen,21,Female,Student,Mumbai,Ghatkopar,Flexible,3,No,Occasionally,Non-Veg,No,Sometimes,Never,Medium,Shared,No,6,5,7,6,4,Ambivert,Friendly,5000,Hostel,12000,Female,5779845589,naina.eapen@gmail.com,roomate,None,16000
+96,Anjali Zachariah,31,Female,Teacher,Mumbai,Kurla,Early bird,5,No,Never,Veg,No,Rarely,1 day/week,Low,Private,Yes,6,8,5,8,3,Introvert,Polite,10000,PG,20000,Female,4889809233,anjali.zachariah@gmail.com,roomate,None,23000
+97,Midhun Joseph,18,Male,Student,Mumbai,Malad East,Early bird,4,No,Never,Veg,No,Rarely,Never,Low,Shared,No,5,6,4,7,3,Introvert,Polite,4000,Hostel,10000,Male,1693661591,midhun.joseph@gmail.com,roomate,None,15000
+98,Anand Krishnan,35,Male,Doctor,Mumbai,Parel,Night owl,4,No,Occasionally,Veg,No,Rarely,Full-time,Medium,Private,No,7,8,5,7,4,Introvert,Direct,30000,Apartment,60000,Any,6622190685,anand.krishnan@gmail.com,room,None,
+99,Gautham Menon,22,Male,Student,Mumbai,Santacruz,Flexible,3,No,Occasionally,Non-Veg,No,Sometimes,Never,Medium,Shared,No,7,5,7,6,4,Ambivert,Friendly,5000,Hostel,12000,Male,6925282472,gautham.menon@gmail.com,roomate,None,16000
+100,Vinayak Shenoy,31,Male,Business Analyst,Mumbai,BKC,Early bird,5,No,Socially,Veg,No,Rarely,2 days/week,Low,Private,Yes,6,8,5,7,3,Introvert,Clear,25000,Apartment,50000,Any,8772074777,vinayak.shenoy@gmail.com,roomate,None,23000
+101,Aarav Bhatia,23,Male,Teacher,Mumbai,Lower Parel,Early bird,4,Yes,Occasionally,Vegan,Yes,Occasionally,2 days/week,High,Shared,Yes,8,6,9,8,7,Extrovert,Friendly,6052,PG,13292,Any,2602610075,aarav.bhatia@gmail.com,room,None,
+102,Isha Joshi,30,Female,Marketing Manager,Mumbai,Chembur,Flexible,5,No,No,Non-Veg,No,Rarely,1 day/week,Low,Private,No,8,9,8,6,5,Extrovert,Clear,10758,Apartment,13566,Male,6118307285,isha.joshi08@gmail.com,room,None,
+103,Arjun Gupta,30,Male,Designer,Mumbai,Chembur,Night owl,5,No,Social,Non-Veg,Yes,Often,2 days/week,Medium,Shared,Yes,7,5,8,9,6,Extrovert,Friendly,12484,Apartment,20873,Any,8849677912,arjun.gupta@gmail.com,room,None,
+104,Rahul Desai,24,Male,Designer,Mumbai,Vashi,Early bird,5,Yes,Social,Vegetarian,No,Rarely,3 days/week,Medium,Private,No,6,9,7,8,3,Extrovert,Direct,6066,Apartment,11354,Male,7901635164,rahul.desai@gmail.com,roomate,None,29000
+105,Meera Iyer,29,Female,Entrepreneur,Mumbai,Colaba,Early bird,2,Yes,Often,Non-Veg,No,Often,3 days/week,High,Private,Yes,5,7,8,9,4,Extrovert,Friendly,10167,Apartment,17195,Female,5231433007,meera.iyer@gmail.com,room,None,
+106,Yash Jain,28,Male,Marketing Manager,Mumbai,Dadar,Night owl,3,No,Social,Non-Veg,No,Often,2 days/week,High,Private,Yes,5,6,6,9,3,Introvert,Direct,7530,PG,10175,Any,4507100138,yash.jain@gmail.com,roomate,None,16000
+107,Ananya Menon,28,Female,Marketing Manager,Mumbai,Lower Parel,Early bird,3,No,Social,Vegetarian,No,Often,3 days/week,Medium,Shared,Yes,5,8,5,8,4,Extrovert,Open,13939,Apartment,18677,Female,2223476291,ananya.menon@gmail.com,roomate,None,23000
+108,Aditya Verma,23,Male,Student,Mumbai,Malad,Early bird,2,No,Social,Vegetarian,Yes,Often,3 days/week,High,Private,Yes,7,6,9,9,4,Extrovert,Clear,14306,PG,22835,Any,9634527151,aditya.verma@gmail.com,room,None,
+109,Aarav Mehta,29,Male,Data Analyst,Mumbai,Bandra,Flexible,4,No,Often,Vegetarian,Yes,Occasionally,1 day/week,Medium,Shared,Yes,8,8,6,9,3,Ambivert,Friendly,5505,PG,13554,Female,3169282155,aarav.mehta@gmail.com,room,None,
+110,Meera Bhatia,22,Female,Data Analyst,Mumbai,Malad,Early bird,1,No,Social,Non-Veg,Yes,Occasionally,3 days/week,Low,Shared,No,8,8,8,6,6,Extrovert,Friendly,9775,Apartment,15022,Any,2067512854,meera.bhatia@gmail.com,room,None,
+111,Vikram Mehta,21,Male,Student,Mumbai,Vashi,Night owl,2,Yes,Often,Non-Veg,No,Occasionally,3 days/week,Medium,Private,No,9,9,8,6,4,Extrovert,Polite,13702,Apartment,21058,Male,6462396702,vikram.mehta@gmail.com,roomate,None,29000
+112,Neha Gupta,29,Female,Teacher,Mumbai,Kurla,Flexible,2,Yes,Occasionally,Vegetarian,No,Often,3 days/week,Low,Private,No,5,7,6,9,6,Ambivert,Polite,10417,Apartment,15174,Female,4979560207,neha.gupta@gmail.com,room,None,
+113,Aditya Singh,28,Male,Consultant,Mumbai,Thane,Early bird,4,Yes,Often,Vegetarian,Yes,Rarely,2 days/week,Low,Shared,Yes,5,8,9,5,4,Introvert,Clear,11235,Apartment,18074,Any,9939058449,aditya.singh@gmail.com,roomate,None,16000
+114,Aarav Patel,27,Male,Consultant,Mumbai,Bandra,Night owl,2,Yes,Social,Non-Veg,No,Often,Full-time,Medium,Shared,No,8,5,8,8,3,Introvert,Clear,7172,PG,12403,Female,5486436673,aarav.patel@gmail.com,roomate,None,23000
+115,Aditya Sharma,22,Male,Entrepreneur,Mumbai,Santacruz,Flexible,3,Yes,Social,Non-Veg,No,Occasionally,2 days/week,Medium,Private,Yes,9,5,5,7,5,Ambivert,Clear,14748,PG,17092,Female,2676850647,aditya.sharma@gmail.com,room,None,
+116,Sneha Menon,23,Female,Entrepreneur,Mumbai,Colaba,Flexible,5,Yes,Often,Vegetarian,No,Often,None,Low,Private,Yes,6,5,8,6,6,Introvert,Clear,8356,Apartment,16259,Male,9238541232,sneha.menon@gmail.com,room,None,
+117,Tanya Iyer,30,Female,Software Engineer,Mumbai,Thane,Early bird,3,Yes,Often,Vegan,No,Occasionally,Full-time,Low,Private,Yes,9,8,9,9,4,Introvert,Open,11045,PG,13554,Any,9134756339,tanya.iyer@gmail.com,roomate,None,19000
+118,Yash Iyer,26,Male,Software Engineer,Mumbai,Lower Parel,Night owl,4,No,Occasionally,Vegan,No,Often,Full-time,Medium,Private,No,7,8,5,6,7,Extrovert,Polite,8268,PG,14835,Any,1321234506,yash.iyer@gmail.com,room,None,
+119,Aditya Sharma,23,Male,Software Engineer,Mumbai,Vashi,Night owl,3,Yes,Occasionally,Non-Veg,No,Occasionally,1 day/week,High,Shared,Yes,7,7,7,7,7,Introvert,Polite,8177,Apartment,11580,Male,9234862468,aditya.sharma44@gmail.com,roomate,None,24000
+120,Arjun Sharma,22,Male,Doctor,Mumbai,Andheri,Early bird,1,Yes,Often,Vegan,No,Occasionally,None,Medium,Shared,Yes,8,6,5,8,4,Extrovert,Direct,9639,Apartment,15061,Any,7623044380,arjun.sharma@gmail.com,roomate,None,33000
+121,Priya Kulkarni,30,Female,Student,Mumbai,Lower Parel,Night owl,3,Yes,Often,Vegetarian,No,Rarely,Full-time,Low,Shared,Yes,9,6,6,8,4,Extrovert,Polite,10065,Apartment,17888,Any,8049583452,priya.kulkarni@gmail.com,room,None,
+122,Siddharth Iyer,28,Male,Software Engineer,Mumbai,Kurla,Flexible,4,Yes,Occasionally,Non-Veg,Yes,Occasionally,Full-time,High,Private,Yes,8,8,7,9,5,Extrovert,Direct,12923,PG,16128,Female,8372844924,siddharth.iyer@gmail.com,roomate,None,23300
+123,Sneha Patel,28,Female,Entrepreneur,Mumbai,Thane,Early bird,3,Yes,Social,Vegan,Yes,Often,1 day/week,Medium,Shared,No,9,5,8,6,7,Ambivert,Friendly,8928,PG,13099,Female,7022380298,sneha.patel@gmail.com,room,None,
+124,Siddharth Iyer,28,Male,Marketing Manager,Mumbai,Vashi,Early bird,1,Yes,Occasionally,Vegetarian,No,Often,None,Low,Shared,No,8,9,8,9,4,Extrovert,Polite,7413,PG,14175,Female,6422096279,siddharth.iyer91@gmail.com,room,None,
+125,Yash Patel,21,Male,Entrepreneur,Mumbai,Ghatkopar,Night owl,1,No,Often,Vegetarian,No,Often,1 day/week,Low,Private,Yes,5,7,5,6,7,Ambivert,Direct,13570,Apartment,18691,Male,8494467460,yash.patel@gmail.com,roomate,None,40000
+126,Arjun Gupta,26,Male,Data Analyst,Mumbai,Malad,Night owl,4,Yes,Often,Vegetarian,Yes,Occasionally,1 day/week,Low,Shared,Yes,8,8,6,5,4,Introvert,Open,13772,PG,19319,Female,5444717434,arjun.gupta@gmail.com,room,None,
+127,Simran Joshi,23,Female,Consultant,Mumbai,Andheri,Night owl,1,No,Social,Non-Veg,No,Often,2 days/week,Medium,Shared,Yes,7,7,9,9,6,Ambivert,Open,12139,PG,21829,Female,2942880246,simran.joshi@gmail.com,roomate,None,15000
+128,Siddharth Verma,30,Male,Designer,Mumbai,Kurla,Flexible,3,Yes,Occasionally,Vegan,Yes,Often,1 day/week,Low,Private,Yes,6,7,6,9,3,Introvert,Direct,9461,Apartment,17345,Female,4885967913,siddharth.verma@gmail.com,roomate,None,40000
+129,Isha Iyer,22,Female,Designer,Mumbai,Borivali,Night owl,1,Yes,Often,Vegetarian,No,Occasionally,2 days/week,Medium,Shared,No,8,8,6,7,6,Extrovert,Clear,9932,PG,19159,Female,6042699395,isha.iyer@gmail.com,room,None,
+130,Arjun Gupta,29,Male,Student,Mumbai,Lower Parel,Flexible,2,Yes,Often,Non-Veg,Yes,Occasionally,None,High,Shared,No,6,8,9,6,4,Ambivert,Clear,9139,PG,13785,Any,5756773735,arjun.gupta17@gmail.com,room,None,
+131,Neha Joshi,30,Female,Consultant,Mumbai,Santacruz,Night owl,5,Yes,Occasionally,Non-Veg,No,Often,2 days/week,Medium,Private,No,7,9,6,6,4,Ambivert,Polite,5278,PG,8231,Female,5062423295,neha.joshi@gmail.com,room,None,
+132,Vikram Sharma,30,Male,Doctor,Mumbai,Ghatkopar,Flexible,4,No,Often,Vegetarian,No,Rarely,None,High,Private,No,7,5,9,7,7,Introvert,Polite,8987,Apartment,11910,Male,5238337141,vikram.sharma@gmail.com,roomate,None,23000
+133,Aarav Das,26,Male,Marketing Manager,Mumbai,Andheri,Flexible,5,No,Occasionally,Non-Veg,Yes,Occasionally,1 day/week,Medium,Shared,No,5,5,7,5,5,Extrovert,Clear,7845,PG,10833,Any,9378846219,aarav.das@gmail.com,room,None,
+134,Priya Menon,27,Male,Designer,Mumbai,Malad,Early bird,2,Yes,No,Non-Veg,No,Occasionally,1 day/week,High,Private,No,8,7,7,5,7,Introvert,Direct,9004,Apartment,15198,Female,6233786555,priya.menon@gmail.com,roomate,None,15000
+135,Simran Khanna,26,Female,Entrepreneur,Mumbai,Lower Parel,Night owl,2,No,Often,Non-Veg,Yes,Rarely,3 days/week,Low,Shared,No,9,7,7,7,6,Extrovert,Open,10233,Apartment,20148,Male,6076828880,simran.khanna@gmail.com,roomate,None,40000
+136,Rohan Jain,28,Male,Entrepreneur,Mumbai,Powai,Flexible,4,Yes,Social,Vegetarian,No,Occasionally,1 day/week,Low,Shared,No,6,7,9,7,4,Extrovert,Clear,13410,Apartment,20689,Male,7132402189,rohan.jain@gmail.com,room,None,
+137,Siddharth Mehta,22,Male,Data Analyst,Mumbai,Dadar,Early bird,3,Yes,No,Vegetarian,Yes,Often,Full-time,High,Shared,No,5,7,8,6,6,Extrovert,Polite,12704,Apartment,19143,Any,2778695596,siddharth.mehta@gmail.com,room,None,
+138,Rohan Bhatia,29,Male,Software Engineer,Mumbai,Thane,Flexible,4,Yes,No,Vegetarian,Yes,Rarely,2 days/week,Medium,Shared,Yes,9,6,6,7,7,Introvert,Polite,14998,Apartment,18588,Any,3994013119,rohan.bhatia@gmail.com,roomate,None,11000
+139,Ananya Rao,29,Female,Doctor,Mumbai,Vashi,Night owl,4,Yes,Often,Vegan,No,Rarely,1 day/week,Low,Shared,Yes,7,9,9,9,6,Ambivert,Direct,6922,PG,12145,Male,9454390682,ananya.rao@gmail.com,room,None,
+140,Yash Kaur,22,Male,Doctor,Mumbai,Powai,Flexible,4,Yes,Occasionally,Non-Veg,No,Often,Full-time,Low,Private,Yes,9,9,6,7,3,Extrovert,Friendly,5360,Apartment,7483,Female,8426098964,yash.kaur@gmail.com,roomate,None,15000
+141,Yash Iyer,26,Male,Student,Mumbai,Kurla,Early bird,1,No,No,Vegan,Yes,Often,2 days/week,Low,Shared,No,7,8,7,7,5,Ambivert,Friendly,8704,PG,16481,Male,9001877768,yash.iyer@gmail.com,roomate,None,40000
+142,Vikram Thakur,23,Male,Software Engineer,Mumbai,Borivali,Night owl,3,No,Social,Non-Veg,No,Occasionally,Full-time,Low,Private,Yes,8,5,8,9,4,Introvert,Clear,10598,Apartment,16891,Male,6626610301,vikram.thakur@gmail.com,room,None,
+143,Tanya Joshi,22,Female,Data Analyst,Mumbai,Thane,Early bird,5,No,Often,Vegetarian,No,Occasionally,Full-time,High,Private,Yes,7,6,8,5,7,Ambivert,Clear,10127,Apartment,12380,Female,8690566852,tanya.joshi@gmail.com,room,None,
+144,Simran Mehta,23,Female,Designer,Mumbai,Colaba,Early bird,3,No,Often,Non-Veg,No,Rarely,None,Low,Shared,No,7,8,7,9,5,Introvert,Friendly,10042,PG,18282,Female,5367396032,simran.mehta@gmail.com,roomate,None,15000
+145,Siddharth Patel,23,Male,Consultant,Mumbai,Powai,Flexible,1,No,No,Vegetarian,Yes,Often,Full-time,Low,Shared,Yes,5,7,8,9,3,Extrovert,Friendly,11747,Apartment,15866,Any,2039947212,siddharth.patel@gmail.com,roomate,None,40000
+146,Aditya Rao,30,Male,Designer,Mumbai,Santacruz,Night owl,5,No,No,Vegan,No,Occasionally,3 days/week,Low,Shared,No,8,9,7,5,6,Extrovert,Clear,5750,PG,13124,Male,2265316261,aditya.rao@gmail.com,roomate,None,22000
+147,Aditya Menon,21,Male,Marketing Manager,Mumbai,Dadar,Flexible,1,Yes,Social,Vegetarian,Yes,Often,3 days/week,High,Shared,No,6,5,5,5,4,Introvert,Polite,13988,Apartment,18461,Male,4600331852,aditya.menon@gmail.com,room,None,
+148,Riya Joshi,30,Female,Consultant,Mumbai,Ghatkopar,Early bird,4,Yes,Often,Vegetarian,No,Rarely,Full-time,Low,Shared,No,8,7,7,7,7,Extrovert,Open,11177,PG,18058,Male,5152709807,riya.joshi@gmail.com,roomate,None,15000
+149,Sneha Patel,24,Female,Banker,Mumbai,Powai,Flexible,2,Yes,No,Vegan,Yes,Occasionally,None,Medium,Shared,No,8,8,7,6,3,Introvert,Direct,5742,Apartment,15643,Female,7230084298,sneha.patel@gmail.com,roomate,None,40000
+150,Arjun Khanna,29,Male,Software Engineer,Mumbai,Thane,Night owl,1,Yes,Often,Non-Veg,No,Rarely,3 days/week,High,Shared,Yes,8,8,7,8,6,Extrovert,Friendly,14337,PG,18434,Female,2041061356,arjun.khanna@gmail.com,room,None,
+151,Priya Jain,24,Female,Marketing Manager,Mumbai,Lower Parel,Early bird,3,Yes,Social,Vegetarian,No,Rarely,3 days/week,High,Shared,Yes,9,5,8,7,6,Introvert,Open,13658,PG,17988,Female,6469391865,priya.jain@gmail.com,room,None,
+152,Rahul Das,21,Male,Student,Mumbai,Colaba,Flexible,1,No,Often,Non-Veg,No,Rarely,Full-time,Low,Shared,No,5,6,6,7,7,Introvert,Open,7248,PG,11347,Female,6349803287,rahul.das@gmail.com,room,None,
+153,Rohan Iyer,30,Male,Teacher,Mumbai,Bandra,Flexible,4,Yes,Social,Vegetarian,Yes,Rarely,1 day/week,High,Shared,Yes,7,6,7,5,5,Extrovert,Clear,7493,PG,16106,Any,6218212709,rohan.iyer@gmail.com,room,None,
+154,Pooja Khanna,26,Female,Consultant,Mumbai,Ghatkopar,Night owl,3,Yes,Occasionally,Vegan,Yes,Rarely,None,Medium,Private,Yes,7,5,7,7,3,Ambivert,Direct,14112,Apartment,18148,Male,8227633896,pooja.khanna@gmail.com,room,None,
+155,Karan Kapoor,27,Male,Data Analyst,Mumbai,Bandra,Early bird,2,Yes,Often,Vegan,Yes,Occasionally,Full-time,Low,Private,Yes,9,5,9,8,5,Introvert,Open,9987,Apartment,14164,Female,5187213845,karan.kapoor@gmail.com,room,None,
+156,Tanya Kaur,23,Female,Doctor,Mumbai,Powai,Flexible,2,No,Often,Non-Veg,Yes,Occasionally,2 days/week,High,Private,Yes,9,8,6,6,3,Extrovert,Direct,6397,PG,15252,Any,1861102619,tanya.kaur@gmail.com,roomate,None,20000
+157,Simran Bhatia,25,Female,Entrepreneur,Mumbai,Ghatkopar,Flexible,2,No,Occasionally,Non-Veg,Yes,Often,None,Low,Shared,Yes,5,5,9,6,6,Ambivert,Friendly,12567,Apartment,19726,Any,8135210710,simran.bhatia@gmail.com,room,None,
+158,Pooja Jain,27,Female,Doctor,Mumbai,Thane,Night owl,5,Yes,Social,Vegan,Yes,Often,1 day/week,Medium,Shared,Yes,9,8,5,6,3,Introvert,Open,8994,Apartment,14868,Any,5282207894,pooja.jain@gmail.com,roomate,None,15000
+159,Manav Kulkarni,23,Male,Designer,Mumbai,Santacruz,Flexible,3,No,Often,Vegan,Yes,Often,3 days/week,Low,Shared,No,6,6,9,6,7,Extrovert,Friendly,7523,PG,15755,Male,4192836665,manav.kulkarni@gmail.com,roomate,None,40000
+160,Arjun Nair,21,Male,Data Analyst,Mumbai,Kurla,Early bird,5,Yes,Occasionally,Vegetarian,Yes,Occasionally,3 days/week,High,Shared,Yes,9,9,5,6,7,Extrovert,Polite,10489,Apartment,15278,Female,8944185813,arjun.nair@gmail.com,room,None,
+161,Karan Joshi,21,Male,Designer,Mumbai,Powai,Early bird,1,No,No,Non-Veg,No,Often,Full-time,Low,Private,No,8,6,6,9,5,Extrovert,Polite,7918,Apartment,16677,Female,3136027241,karan.joshi@gmail.com,roomate,None,15000
+162,Yash Kaur,26,Male,Teacher,Mumbai,Colaba,Early bird,1,Yes,Social,Vegan,No,Often,None,Low,Shared,Yes,9,5,5,6,6,Ambivert,Friendly,8188,PG,14871,Female,8026493673,yash.kaur@gmail.com,roomate,None,40000
+163,Isha Joshi,26,Female,Banker,Mumbai,Thane,Early bird,4,No,Occasionally,Non-Veg,No,Occasionally,2 days/week,Medium,Private,Yes,5,9,9,7,5,Extrovert,Direct,7492,Apartment,11214,Female,5178679649,isha.joshi@gmail.com,roomate,None,30000
+164,Vikram Iyer,21,Male,Consultant,Mumbai,Thane,Flexible,1,Yes,Often,Vegan,No,Rarely,None,High,Shared,No,7,9,7,7,6,Introvert,Direct,9096,PG,14125,Any,3303266954,vikram.iyer@gmail.com,roomate,None,12000
+165,Meera Joshi,23,Female,Designer,Mumbai,Juhu,Night owl,5,Yes,Social,Vegan,Yes,Rarely,None,Medium,Private,No,5,9,7,6,3,Extrovert,Polite,9079,PG,14623,Any,9143895230,meera.joshi@gmail.com,roomate,None,35000
+166,Riya Jain,25,Female,Student,Mumbai,Lower Parel,Early bird,4,No,No,Vegetarian,Yes,Rarely,None,High,Shared,Yes,6,5,5,7,6,Ambivert,Friendly,6853,Apartment,10673,Female,2414464568,riya.jain@gmail.com,roomate,None,25000
+167,Arjun Sharma,26,Male,Software Engineer,Mumbai,Santacruz,Flexible,3,No,Often,Non-Veg,Yes,Rarely,None,Low,Private,Yes,7,7,6,9,5,Introvert,Friendly,5133,PG,11020,Any,9018083059,arjun.sharma@gmail.com,roomate,None,30000
+168,Isha Bhatia,27,Female,Marketing Manager,Mumbai,Colaba,Night owl,4,Yes,Occasionally,Vegetarian,No,Rarely,2 days/week,Low,Private,Yes,9,5,8,9,7,Ambivert,Open,12338,Apartment,20306,Male,5418822443,isha.bhatia@gmail.com,room,None,
+169,Karan Menon,22,Male,Teacher,Mumbai,Powai,Night owl,1,No,Often,Non-Veg,Yes,Rarely,None,Medium,Shared,Yes,9,8,6,6,7,Extrovert,Polite,14636,Apartment,18529,Female,5240471122,karan.menon@gmail.com,roomate,None,10000
+170,Arjun Kaur,22,Male,Entrepreneur,Mumbai,Ghatkopar,Flexible,1,No,Often,Vegetarian,No,Rarely,None,High,Private,No,6,8,6,6,6,Introvert,Open,9309,PG,14826,Female,8689056468,arjun.kaur@gmail.com,roomate,None,19000
+171,Vikram Bhatia,27,Male,Data Analyst,Mumbai,Borivali,Night owl,2,No,Often,Vegetarian,Yes,Often,None,Low,Shared,No,6,6,5,7,5,Ambivert,Polite,6849,PG,9429,Any,5309062776,vikram.bhatia@gmail.com,room,None,
+172,Aarav Gupta,29,Male,Data Analyst,Mumbai,Ghatkopar,Night owl,3,Yes,Often,Non-Veg,No,Occasionally,2 days/week,High,Private,No,8,9,9,8,5,Ambivert,Clear,13010,Apartment,19606,Any,6092072627,aarav.gupta@gmail.com,room,None,
+173,Isha Patel,21,Female,Consultant,Mumbai,Malad,Night owl,1,No,Occasionally,Vegetarian,No,Occasionally,3 days/week,High,Shared,Yes,7,5,9,6,4,Introvert,Direct,14794,PG,23852,Any,6647606007,isha.patel@gmail.com,room,None,
+174,Arjun Menon,29,Male,Entrepreneur,Mumbai,Santacruz,Flexible,5,Yes,Often,Vegan,Yes,Often,None,High,Private,No,9,7,7,8,3,Introvert,Polite,12417,Apartment,16263,Female,8242936441,arjun.menon@gmail.com,room,None,
+175,Manav Menon,26,Male,Marketing Manager,Mumbai,Dadar,Flexible,1,Yes,No,Vegetarian,No,Rarely,Full-time,Low,Shared,No,5,8,8,6,6,Ambivert,Open,8411,Apartment,16852,Female,9259775076,manav.menon@gmail.com,room,None,
+176,Manav Bhatia,23,Male,Banker,Mumbai,Ghatkopar,Night owl,5,No,No,Non-Veg,No,Rarely,None,Medium,Shared,No,6,5,6,9,3,Ambivert,Open,13779,PG,18117,Any,3646855311,manav.bhatia@gmail.com,room,None,
+177,Sneha Joshi,28,Female,Software Engineer,Mumbai,Ghatkopar,Night owl,4,Yes,No,Vegetarian,Yes,Rarely,Full-time,Medium,Shared,No,8,9,6,7,7,Extrovert,Clear,5493,Apartment,10393,Male,4657594993,sneha.joshi@gmail.com,room,None,
+178,Yash Patel,21,Male,Teacher,Mumbai,Malad,Night owl,5,Yes,Social,Non-Veg,Yes,Rarely,2 days/week,Medium,Shared,Yes,9,5,5,8,3,Introvert,Direct,14172,Apartment,22907,Female,3167379238,yash.patel@gmail.com,roomate,None,15000
+179,Karan Thakur,22,Male,Designer,Mumbai,Colaba,Early bird,5,No,Occasionally,Vegetarian,No,Occasionally,None,Low,Shared,No,8,8,7,6,3,Introvert,Direct,11986,PG,18456,Female,3380444041,karan.thakur@gmail.com,roomate,None,10000
+180,Isha Patel,25,Female,Teacher,Mumbai,Vashi,Flexible,4,Yes,Social,Vegetarian,No,Often,3 days/week,High,Private,No,5,8,7,5,3,Extrovert,Open,8566,PG,11858,Female,6353496288,isha.patel@gmail.com,roomate,None,16722
+181,Tanya Singh,24,Female,Consultant,Mumbai,Andheri,Flexible,3,No,Occasionally,Vegan,Yes,Often,3 days/week,Low,Private,No,5,7,6,8,4,Ambivert,Direct,14464,Apartment,17408,Any,4186125196,tanya.singh@gmail.com,roomate,None,21000
+182,Pooja Nair,24,Female,Data Analyst,Mumbai,Andheri,Night owl,4,Yes,No,Non-Veg,No,Rarely,2 days/week,Medium,Private,Yes,7,9,7,5,6,Extrovert,Open,6429,PG,13212,Female,5298484538,pooja.nair@gmail.com,roomate,None,45000
+183,Aditya Kaur,25,Male,Software Engineer,Mumbai,Lower Parel,Night owl,5,Yes,No,Vegetarian,No,Rarely,2 days/week,Medium,Private,No,8,6,7,9,6,Extrovert,Polite,8415,PG,17255,Any,8592011552,aditya.kaur@gmail.com,room,None,
+184,Isha Iyer,26,Female,Doctor,Mumbai,Santacruz,Night owl,5,No,Often,Non-Veg,Yes,Rarely,Full-time,Medium,Shared,No,5,9,8,6,6,Extrovert,Polite,14186,Apartment,17282,Female,5417603877,isha.iyer@gmail.com,roomate,None,16000
+185,Arjun Kapoor,27,Male,Teacher,Mumbai,Ghatkopar,Early bird,3,No,No,Vegan,Yes,Often,None,Medium,Shared,Yes,7,9,9,9,6,Extrovert,Clear,6768,Apartment,9892,Female,6845783336,arjun.kapoor@gmail.com,roomate,None,23000
+186,Siddharth Sharma,23,Male,Software Engineer,Mumbai,Chembur,Night owl,2,No,Occasionally,Vegetarian,Yes,Occasionally,Full-time,High,Shared,No,9,5,6,9,5,Ambivert,Clear,7293,PG,13195,Male,7551417649,siddharth.sharma@gmail.com,room,None,
+187,Vikram Mehta,28,Male,Software Engineer,Mumbai,Andheri,Night owl,5,No,Occasionally,Vegan,Yes,Rarely,3 days/week,Medium,Private,No,5,9,8,8,4,Extrovert,Friendly,13191,PG,22647,Any,4913526548,vikram.mehta@gmail.com,room,None,
+188,Priya Kapoor,28,Female,Banker,Mumbai,Chembur,Early bird,4,No,Occasionally,Non-Veg,No,Often,2 days/week,High,Private,No,5,8,7,6,6,Extrovert,Clear,5508,Apartment,10443,Any,7311281847,priya.kapoor@gmail.com,room,None,
+189,Tanya Kaur,28,Female,Marketing Manager,Mumbai,Lower Parel,Flexible,2,Yes,No,Vegetarian,No,Rarely,None,Low,Private,Yes,7,6,7,7,3,Extrovert,Polite,8994,PG,13154,Male,2567861783,tanya.kaur@gmail.com,room,None,
+190,Yash Mehta,29,Male,Consultant,Mumbai,Lower Parel,Flexible,5,No,Occasionally,Vegetarian,No,Often,Full-time,Medium,Private,Yes,9,6,6,7,4,Extrovert,Friendly,5563,Apartment,15495,Male,2471046930,yash.mehta@gmail.com,room,None,
+191,Riya Bhatia,22,Female,Banker,Mumbai,Borivali,Early bird,5,No,Often,Non-Veg,No,Occasionally,None,Low,Shared,No,9,8,6,7,6,Introvert,Friendly,5624,PG,11522,Male,7848300625,riya.bhatia@gmail.com,room,None,
+192,Karan Thakur,22,Male,Student,Mumbai,Dadar,Flexible,4,No,Social,Vegan,Yes,Occasionally,2 days/week,Low,Shared,Yes,7,7,9,9,5,Extrovert,Clear,14998,Apartment,19719,Female,4315079868,karan.thakur@gmail.com,room,None,
+193,Karan Desai,22,Male,Consultant,Mumbai,Juhu,Early bird,1,No,Often,Vegan,Yes,Occasionally,1 day/week,High,Shared,No,9,9,8,8,3,Introvert,Clear,12770,PG,21833,Female,1836336394,karan.desai@gmail.com,roomate,None,15000
+194,Taran Desai,30,Male,Designer,Mumbai,Malad,Flexible,3,No,Occasionally,Non-Veg,Yes,Often,Full-time,Low,Private,Yes,5,9,6,6,4,Introvert,Clear,10153,PG,14122,Any,7221298408,taran.desai@gmail.com,roomate,None,10000
+195,Siddharth Thakur,23,Male,Software Engineer,Mumbai,Borivali,Night owl,3,Yes,Social,Vegan,No,Often,1 day/week,Medium,Shared,Yes,5,6,8,9,3,Introvert,Direct,10527,Apartment,19266,Female,5953113404,siddharth.thakur@gmail.com,roomate,None,16722
+196,Rahul Patel,29,Male,Designer,Mumbai,Colaba,Flexible,5,No,Often,Vegan,No,Often,3 days/week,High,Shared,Yes,7,8,5,6,3,Introvert,Clear,9953,PG,12482,Male,5886066453,rahul.patel@gmail.com,roomate,None,15629
+197,Priya Das,22,Female,Doctor,Mumbai,Kurla,Night owl,3,Yes,Social,Vegan,Yes,Occasionally,None,High,Private,No,9,6,5,8,4,Extrovert,Clear,8337,Apartment,17352,Female,7540274032,priya.das@gmail.com,room,None,
+198,Yash Khanna,25,Male,Designer,Mumbai,Juhu,Flexible,4,Yes,Occasionally,Vegetarian,No,Rarely,None,High,Shared,Yes,7,6,7,7,7,Introvert,Clear,8602,PG,13296,Male,1685745703,yash.khanna@gmail.com,roomate,None,16000
+199,Karan Nair,22,Male,Consultant,Mumbai,Chembur,Early bird,3,No,Occasionally,Vegan,No,Rarely,2 days/week,Medium,Shared,No,8,5,9,7,4,Ambivert,Friendly,14195,Apartment,16440,Female,8845257032,karan.nair@gmail.com,roomate,None,23000
+200,Rahul Das,23,Male,Software Engineer,Mumbai,Juhu,Night owl,3,Yes,Social,Non-Veg,No,Often,3 days/week,High,Shared,No,5,8,6,6,5,Extrovert,Direct,9421,PG,14183,Any,5870732462,rahul.das@gmail.com,room,None,
+201,Aditi Singh,20,Female,Marketing Manager,Mumbai,Powai,Night owl,3,No,Occasionally,Vegetarian,Yes,Rarely,None,High,Shared,Yes,8,5,9,8,3,Ambivert,Direct,16533,Flat,22002,Any,4299554093,aditi.singh@gmail.com,room,None,
+202,Manav Chopra,24,Male,Software Engineer,Mumbai,Chembur,Early bird,2,Yes,Occasionally,Vegetarian,Yes,Rarely,Full-time,Low,Private,No,7,6,7,7,4,Ambivert,Open,10403,Hostel,14888,Any,1958392722,manav.chopra@gmail.com,room,None,
+203,Ananya Kaur,27,Female,Architect,Mumbai,Lower Parel,Night owl,5,Yes,Occasionally,Vegan,Yes,Rarely,1 day/week,Low,Shared,Yes,8,7,6,7,3,Ambivert,Friendly,16932,PG,21786,Female,1078970674,ananya.kaur@gmail.com,room,None,
+204,Priya Khanna,32,Female,Student,Mumbai,Dadar,Early bird,3,No,Social,Vegetarian,Yes,Rarely,3 days/week,Medium,Shared,Yes,7,8,5,6,5,Introvert,Clear,9179,Apartment,13322,Any,2641003037,priya.khanna@gmail.com,roomate,None,15000
+205,Omkar Thakur,27,Male,Marketing Manager,Mumbai,Chembur,Early bird,2,Yes,Often,Vegan,No,Often,3 days/week,High,Private,No,8,7,7,8,3,Extrovert,Friendly,10975,Hostel,17653,Male,2873683172,omkar.thakur@gmail.com,roomate,None,10000
+206,Aditya Thakur,26,Male,Marketing Manager,Mumbai,Mulund,Early bird,2,Yes,No,Vegetarian,No,Often,Full-time,Medium,Shared,Yes,6,9,7,7,4,Ambivert,Clear,10884,Flat,15670,Any,5266309784,aditya.thakur@gmail.com,roomate,None,10000
+207,Omkar Jain,25,Male,Architect,Mumbai,Vashi,Flexible,2,No,No,Vegetarian,Yes,Rarely,3 days/week,Medium,Shared,No,8,5,9,6,5,Ambivert,Polite,19379,Service Apartment,23279,Any,8905822866,omkar.jain@gmail.com,roomate,None,10000
+208,Siddharth Nair,23,Male,Marketing Manager,Mumbai,Ghatkopar,Night owl,5,No,Often,Vegan,No,Rarely,2 days/week,High,Shared,Yes,6,5,7,8,3,Ambivert,Clear,14976,Flat,18321,Female,2947455120,siddharth.nair@gmail.com,roomate,None,10000
+209,Siddharth Sawant,25,Male,Designer,Mumbai,Byculla,Early bird,3,Yes,Social,Non-Veg,No,Occasionally,3 days/week,Medium,Shared,Yes,7,6,9,8,3,Introvert,Friendly,10119,Apartment,18917,Male,7924599416,siddharth.sawant@gmail.com,room,None,
+210,Sneha Menon,21,Female,Entrepreneur,Mumbai,Andheri,Flexible,5,Yes,Occasionally,Vegetarian,No,Rarely,3 days/week,Low,Private,Yes,8,9,6,7,4,Introvert,Friendly,8818,PG,19562,Any,9284721826,sneha.menon@gmail.com,roomate,None,16000
+211,Varun Kaur,25,Male,Marketing Manager,Mumbai,Santacruz,Flexible,5,Yes,No,Non-Veg,Yes,Rarely,2 days/week,High,Shared,Yes,5,7,9,5,6,Ambivert,Open,9900,Flat,16237,Male,8922851825,varun.kaur@gmail.com,roomate,None,23000
+212,Neha Khanna,32,Female,Content Writer,Mumbai,Borivali,Early bird,2,Yes,Often,Non-Veg,Yes,Occasionally,1 day/week,Low,Shared,Yes,7,5,9,6,5,Ambivert,Clear,16110,Apartment,19211,Female,9655909989,neha.khanna@gmail.com,room,None,
+213,Dev Menon,23,Male,Entrepreneur,Mumbai,Worli,Early bird,4,No,No,Non-Veg,No,Occasionally,3 days/week,Low,Private,No,5,6,6,7,3,Extrovert,Friendly,11478,PG,21168,Female,9971759795,dev.menon@gmail.com,room,None,
+214,Priya Sharma,27,Female,Doctor,Mumbai,Andheri,Flexible,1,No,No,Vegetarian,Yes,Occasionally,1 day/week,High,Shared,Yes,7,6,7,7,4,Introvert,Friendly,7024,Hostel,18713,Any,9880346564,priya.sharma@gmail.com,room,None,
+215,Shreya Kapoor,22,Female,Marketing Manager,Mumbai,Borivali,Night owl,1,Yes,No,Non-Veg,Yes,Rarely,1 day/week,High,Shared,No,6,9,5,5,6,Ambivert,Friendly,15114,PG,20614,Female,2007793720,shreya.kapoor@gmail.com,room,None,
+216,Tanya Jain,22,Female,Architect,Mumbai,Byculla,Night owl,4,No,Social,Non-Veg,No,Occasionally,3 days/week,Medium,Private,Yes,7,7,8,7,4,Ambivert,Open,18244,Hostel,28816,Male,3561887080,tanya.jain@gmail.com,roomate,None,20000
+217,Ananya Iyer,22,Female,HR Executive,Mumbai,Byculla,Flexible,2,No,Social,Vegan,Yes,Often,3 days/week,High,Private,No,8,6,8,8,3,Ambivert,Clear,11637,Flat,15993,Male,7851427305,ananya.iyer@gmail.com,room,None,
+218,Rohan Naik,22,Male,Entrepreneur,Mumbai,Mulund,Night owl,1,No,Social,Vegan,Yes,Occasionally,Full-time,Low,Private,Yes,5,6,9,6,4,Extrovert,Polite,17854,Hostel,27965,Any,4550226992,rohan.naik@gmail.com,roomate,None,21000
+219,Rahul Bhatia,26,Male,Content Writer,Mumbai,Dadar,Flexible,1,No,Often,Vegan,No,Occasionally,3 days/week,Low,Private,No,7,9,7,7,3,Extrovert,Clear,16611,PG,20876,Any,1742470165,rahul.bhatia@gmail.com,roomate,None,14000
+220,Rohan Iyer,21,Male,Marketing Manager,Mumbai,Andheri,Flexible,3,Yes,Occasionally,Vegetarian,No,Often,Full-time,Low,Private,Yes,6,8,7,7,4,Extrovert,Direct,11952,Apartment,21048,Female,6161981167,rohan.iyer@gmail.com,room,None,
+221,Arjun Singh,28,Male,HR Executive,Mumbai,Kurla,Early bird,5,No,Often,Non-Veg,Yes,Occasionally,Full-time,Low,Shared,Yes,8,5,7,6,5,Extrovert,Direct,17011,Service Apartment,20287,Female,6371962620,arjun.singh@gmail.com,room,None,
+222,Priya Mishra,27,Female,Banker,Mumbai,Chembur,Flexible,5,Yes,No,Non-Veg,Yes,Often,2 days/week,High,Shared,No,7,8,9,6,4,Extrovert,Polite,19906,PG,28697,Male,7210992791,priya.mishra@gmail.com,room,None,
+223,Shreya Pillai,29,Female,Doctor,Mumbai,Andheri,Flexible,2,Yes,Social,Non-Veg,No,Often,2 days/week,Low,Shared,Yes,8,8,8,8,3,Ambivert,Friendly,13076,Hostel,19817,Male,4733431719,shreya.pillai@gmail.com,room,None,
+224,Tushar Khanna,22,Male,Data Analyst,Mumbai,Ghatkopar,Night owl,2,No,No,Vegan,No,Often,Full-time,High,Shared,No,6,7,5,7,4,Ambivert,Friendly,9315,Flat,13975,Male,3602038842,tushar.khanna@gmail.com,roomate,None,15000
+225,Priya Gupta,28,Female,Chartered Accountant,Mumbai,Kurla,Flexible,2,Yes,No,Vegetarian,No,Often,None,High,Private,Yes,7,5,7,7,4,Ambivert,Friendly,12489,Apartment,16120,Male,4143055661,priya.gupta@gmail.com,roomate,None,10000
+226,Tushar Yadav,30,Male,Doctor,Mumbai,Worli,Night owl,5,No,Occasionally,Non-Veg,Yes,Often,3 days/week,Low,Private,No,6,5,8,7,3,Introvert,Clear,8765,Service Apartment,15004,Female,3537435042,tushar.yadav@gmail.com,roomate,None,16722
+227,Isha Nair,27,Female,Designer,Mumbai,Kandivali,Flexible,1,No,No,Vegan,No,Rarely,2 days/week,Low,Shared,Yes,8,6,6,5,6,Ambivert,Friendly,19379,Flat,22544,Female,5853197178,isha.nair@gmail.com,roomate,None,16722
+228,Neha Mehta,29,Female,Banker,Mumbai,Lower Parel,Early bird,4,No,Occasionally,Non-Veg,No,Rarely,None,Medium,Private,Yes,8,7,8,6,4,Ambivert,Friendly,15198,PG,22842,Female,1019085557,neha.mehta@gmail.com,roomate,None,16722
+229,Pooja Mehta,28,Female,Consultant,Mumbai,Chembur,Early bird,2,No,Occasionally,Vegetarian,Yes,Rarely,Full-time,Low,Shared,No,7,6,6,7,3,Ambivert,Polite,14304,Hostel,20843,Any,8749214006,pooja.mehta@gmail.com,room,None,
+230,Tushar Mehta,31,Male,HR Executive,Mumbai,Thane,Early bird,2,Yes,Social,Non-Veg,Yes,Often,None,Low,Private,No,8,7,7,7,4,Introvert,Polite,17130,Flat,29060,Female,4749475707,tushar.mehta@gmail.com,roomate,None,33000
+231,Sneha Kaur,28,Female,Architect,Mumbai,Powai,Flexible,5,No,Social,Vegetarian,Yes,Occasionally,2 days/week,Medium,Shared,Yes,6,8,6,7,3,Extrovert,Polite,17798,Apartment,27797,Any,1445945568,sneha.kaur@gmail.com,roomate,None,12000
+232,Rohan Thakur,31,Male,Entrepreneur,Mumbai,Thane,Night owl,1,Yes,Often,Vegan,No,Often,Full-time,Low,Shared,Yes,8,5,7,8,4,Introvert,Direct,12625,Service Apartment,19301,Female,6147273518,rohan.thakur@gmail.com,room,None,
+233,Karan Chopra,28,Male,Teacher,Mumbai,Kandivali,Flexible,3,Yes,Often,Vegan,Yes,Often,2 days/week,Medium,Shared,Yes,5,6,8,6,5,Ambivert,Friendly,13168,PG,25153,Any,9536463254,karan.chopra@gmail.com,room,None,
+234,Simran Jain,23,Female,Student,Mumbai,Marine Lines,Early bird,1,No,Social,Vegan,Yes,Rarely,2 days/week,High,Shared,No,8,7,6,6,5,Extrovert,Friendly,11336,Flat,20365,Female,9603048363,simran.jain@gmail.com,room,None,
+235,Karan Bhatia,28,Male,Architect,Mumbai,Thane,Flexible,1,No,Occasionally,Non-Veg,Yes,Rarely,1 day/week,High,Private,Yes,6,6,5,8,3,Introvert,Direct,9831,PG,13456,Female,2968270777,karan.bhatia@gmail.com,room,None,
+236,Riya Gupta,28,Female,Entrepreneur,Mumbai,Lower Parel,Early bird,1,No,Often,Non-Veg,Yes,Occasionally,Full-time,High,Private,No,7,5,6,6,5,Extrovert,Clear,10528,Service Apartment,18007,Any,3367688237,riya.gupta@gmail.com,room,None,
+237,Isha Thakur,32,Female,Chartered Accountant,Mumbai,Vashi,Night owl,3,No,No,Vegan,No,Occasionally,None,Low,Shared,Yes,8,8,6,7,4,Introvert,Open,11415,Flat,21570,Any,7286089652,isha.thakur@gmail.com,room,None,
+238,Nikita Gupta,21,Female,Marketing Manager,Mumbai,Ghatkopar,Early bird,3,No,Occasionally,Vegan,Yes,Rarely,3 days/week,Low,Shared,No,7,8,9,8,3,Ambivert,Polite,9872,Hostel,20652,Any,1353117388,nikita.gupta@gmail.com,room,None,
+239,Isha Patel,24,Female,Architect,Mumbai,Santacruz,Night owl,3,No,No,Vegetarian,No,Occasionally,1 day/week,Medium,Private,No,8,7,7,7,3,Introvert,Direct,7637,PG,17103,Any,2368619734,isha.patel@gmail.com,roomate,None,15000
+240,Harsh Patel,25,Male,Chartered Accountant,Mumbai,Borivali,Flexible,1,Yes,Often,Vegan,Yes,Often,None,High,Private,Yes,7,6,6,7,4,Introvert,Open,8663,Service Apartment,13758,Female,2347676256,harsh.patel@gmail.com,roomate,None,40000
+241,Nikita Menon,29,Female,Software Engineer,Mumbai,Bandra,Flexible,1,Yes,Occasionally,Vegetarian,No,Occasionally,Full-time,High,Private,No,8,5,6,6,5,Introvert,Open,10576,Apartment,19118,Female,5960393993,nikita.menon@gmail.com,roomate,None,30000
+242,Aditi Sharma,28,Female,Designer,Mumbai,Powai,Flexible,3,No,No,Non-Veg,No,Rarely,2 days/week,Low,Shared,Yes,7,5,6,8,3,Ambivert,Polite,9280,PG,12706,Female,8625993975,aditi.sharma@gmail.com,roomate,None,12000
+243,Rohan Verma,26,Male,Entrepreneur,Mumbai,Borivali,Early bird,3,Yes,Often,Vegan,No,Often,1 day/week,Medium,Shared,Yes,5,6,8,7,4,Ambivert,Clear,8045,Flat,17945,Any,2748290254,rohan.verma@gmail.com,roomate,None,35000
+244,Tushar Menon,28,Male,Data Analyst,Mumbai,Malad,Flexible,2,No,Often,Vegetarian,Yes,Occasionally,Full-time,High,Private,Yes,8,7,7,7,4,Extrovert,Open,11152,Apartment,21079,Male,2037424300,tushar.menon@gmail.com,roomate,None,25000
+245,Yash Joshi,23,Male,Banker,Mumbai,Chembur,Early bird,4,Yes,Occasionally,Non-Veg,Yes,Rarely,1 day/week,Medium,Shared,Yes,7,6,8,6,5,Introvert,Open,8897,Service Apartment,12514,Female,7522807318,yash.joshi@gmail.com,roomate,None,30000
+246,Nikita Thakur,30,Female,Architect,Mumbai,Byculla,Night owl,5,No,Often,Vegetarian,Yes,Often,2 days/week,Medium,Shared,No,8,8,5,7,3,Extrovert,Friendly,10168,PG,15973,Male,7463310784,nikita.thakur@gmail.com,roomate,None,15000
+247,Kritika Iyer,27,Female,Banker,Mumbai,Malad,Early bird,1,Yes,No,Vegetarian,Yes,Occasionally,1 day/week,Low,Private,Yes,6,5,9,5,6,Introvert,Clear,8846,PG,18256,Any,5492373594,kritika.iyer@gmail.com,roomate,None,10000
+248,Isha Singh,31,Female,Software Engineer,Mumbai,Andheri,Early bird,3,Yes,No,Vegan,Yes,Rarely,2 days/week,High,Private,No,7,5,9,8,3,Ambivert,Direct,14340,Hostel,18620,Female,2069840462,isha.singh@gmail.com,roomate,None,16722
+249,Riya Naik,21,Female,Doctor,Mumbai,Malad,Night owl,2,No,Occasionally,Vegetarian,No,Occasionally,None,Low,Private,Yes,5,9,9,7,4,Extrovert,Friendly,7421,Apartment,15586,Female,3558348674,riya.naik@gmail.com,room,None,
+250,Simran Desai,23,Female,Content Writer,Mumbai,Vashi,Night owl,5,No,Often,Non-Veg,Yes,Often,Full-time,Medium,Shared,No,8,6,5,6,5,Extrovert,Clear,8593,Service Apartment,16354,Any,8281461149,simran.desai@gmail.com,roomate,None,6000
+251,Pooja Sharma,32,Female,Architect,Mumbai,Kurla,Night owl,4,Yes,No,Non-Veg,Yes,Occasionally,Full-time,Low,Private,No,8,7,5,8,3,Introvert,Open,11679,Flat,17429,Female,2110785089,pooja.sharma@gmail.com,roomate,None,8000
+252,Aarav Sawant,30,Male,Banker,Mumbai,Kurla,Early bird,1,No,Occasionally,Vegetarian,No,Occasionally,Full-time,High,Private,Yes,6,8,5,6,5,Extrovert,Friendly,7875,Flat,17015,Any,2544357995,aarav.sawant@gmail.com,room,None,
+253,Sneha Joshi,27,Female,Doctor,Mumbai,Mulund,Night owl,1,Yes,Social,Vegan,No,Often,None,High,Shared,Yes,6,6,5,6,4,Ambivert,Polite,18557,Hostel,25778,Male,6050293154,sneha.joshi@gmail.com,room,None,
+254,Varun Kulkarni,25,Male,Entrepreneur,Mumbai,Mulund,Night owl,4,Yes,Occasionally,Non-Veg,Yes,Occasionally,3 days/week,High,Private,Yes,7,7,5,7,3,Extrovert,Clear,7681,Hostel,16256,Female,4128000348,varun.kulkarni88@gmail.com,room,None,
+255,Shreya Verma,21,Female,Software Engineer,Mumbai,Chembur,Flexible,4,No,Often,Vegan,Yes,Often,1 day/week,Medium,Shared,No,8,6,5,7,4,Introvert,Polite,12047,Flat,18607,Male,6487532772,shreya.verma@gmail.com,room,None,
+256,Karan Naik,32,Male,Marketing Manager,Mumbai,Bandra,Night owl,2,Yes,No,Non-Veg,No,Often,None,Low,Private,No,5,8,9,7,4,Extrovert,Friendly,16332,Apartment,25145,Female,6766105649,karan.naik@gmail.com,room,None,
+257,Meera Yadav,31,Female,HR Executive,Mumbai,Malad,Flexible,1,No,Social,Vegetarian,Yes,Often,1 day/week,Medium,Private,Yes,7,7,5,7,3,Introvert,Open,18245,Hostel,29606,Any,7205046416,meera.yadav@gmail.com,room,None,
+258,Vikram Das,21,Male,Consultant,Mumbai,Borivali,Night owl,1,Yes,Occasionally,Vegan,Yes,Often,1 day/week,Medium,Shared,No,6,8,7,8,3,Extrovert,Direct,8542,PG,19558,Female,3410458149,vikram.das@gmail.com,room,None,
+259,Pooja Verma,23,Female,Banker,Mumbai,Bandra,Night owl,2,Yes,Often,Vegan,Yes,Occasionally,2 days/week,High,Shared,No,5,5,5,5,6,Extrovert,Direct,9508,Apartment,14279,Male,8100633657,pooja.verma@gmail.com,roomate,None,15000
+260,Vikram Kapoor,32,Male,Teacher,Mumbai,Kandivali,Early bird,3,No,Social,Vegetarian,Yes,Often,None,Medium,Shared,Yes,8,6,6,6,4,Extrovert,Clear,9616,Service Apartment,21490,Female,1758954665,vikram.kapoor@gmail.com,roomate,None,40000
+261,Shreya Desai,28,Female,Marketing Manager,Mumbai,Mulund,Flexible,4,Yes,Often,Non-Veg,Yes,Occasionally,Full-time,High,Shared,Yes,5,6,8,8,3,Ambivert,Direct,12279,Hostel,22474,Female,7659608001,shreya.desai@gmail.com,roomate,None,30000
+262,Nikita Nair,23,Female,Banker,Mumbai,Lower Parel,Flexible,2,No,Occasionally,Vegan,No,Rarely,1 day/week,High,Private,Yes,7,9,5,7,3,Introvert,Clear,7838,Flat,12476,Female,7223199169,nikita.nair@gmail.com,roomate,None,12000
+263,Rahul Patel,24,Male,Marketing Manager,Mumbai,Chembur,Early bird,2,Yes,No,Vegan,No,Often,3 days/week,Low,Shared,Yes,8,7,6,7,4,Extrovert,Open,15905,Hostel,23333,Any,5045592465,rahul.patel@gmail.com,roomate,None,35000
+264,Arjun Das,21,Male,Data Analyst,Mumbai,Vashi,Night owl,2,No,No,Non-Veg,Yes,Often,Full-time,Low,Private,No,7,5,8,6,4,Extrovert,Clear,19663,Hostel,25080,Male,8274275025,arjun.das2026@gmail.com,roomate,None,25000
+265,Isha Chavan,27,Female,Software Engineer,Mumbai,Kurla,Flexible,3,Yes,No,Vegetarian,No,Occasionally,Full-time,Medium,Shared,No,7,8,6,7,3,Ambivert,Open,13747,Apartment,17364,Female,3754636826,isha.chavan@gmail.com,roomate,None,30000
+266,Ananya Bhatia,21,Female,Software Engineer,Mumbai,Ghatkopar,Night owl,5,Yes,No,Vegetarian,No,Rarely,Full-time,High,Shared,No,8,6,6,8,7,Extrovert,Open,16267,Hostel,21654,Any,3504421565,ananya.bhatia@gmail.com,roomate,None,15000
+267,Manya Naik,31,Female,Consultant,Mumbai,Juhu,Early bird,4,No,Social,Vegetarian,Yes,Occasionally,Full-time,Medium,Shared,No,8,5,8,6,5,Introvert,Direct,13328,Service Apartment,19065,Any,6372116921,manya.naik@gmail.com,roomate,None,10000
+268,Omkar Kaur,25,Male,Entrepreneur,Mumbai,Lower Parel,Early bird,4,Yes,Social,Non-Veg,Yes,Rarely,Full-time,Low,Shared,Yes,6,6,9,9,6,Ambivert,Polite,18265,PG,25113,Female,7576802886,omkar.kaur@gmail.com,roomate,None,10000
+269,Nikita Patel,26,Female,Student,Mumbai,Colaba,Flexible,2,Yes,Social,Vegetarian,No,Often,3 days/week,Low,Private,Yes,5,7,5,8,3,Ambivert,Open,17898,PG,23064,Male,4811015125,nikita.patel@gmail.com,room,None,
+270,Simran Gupta,29,Female,Designer,Mumbai,Worli,Flexible,2,Yes,No,Non-Veg,No,Rarely,1 day/week,Low,Private,No,7,7,8,9,4,Extrovert,Direct,17670,Service Apartment,23012,Male,9518072349,simran.gupta@gmail.com,roomate,None,19000
+271,Simran Chavan,30,Female,Architect,Mumbai,Dadar,Night owl,3,Yes,Occasionally,Vegan,Yes,Rarely,Full-time,Low,Shared,Yes,8,6,7,9,3,Extrovert,Friendly,9833,PG,19665,Female,3326754521,simran.chavan@gmail.com,roomate,None,22000
+272,Harsh Pillai,26,Male,Architect,Mumbai,Lower Parel,Night owl,1,Yes,Occasionally,Vegetarian,Yes,Occasionally,3 days/week,High,Private,Yes,7,9,7,8,4,Extrovert,Polite,15506,Service Apartment,23113,Any,9504845042,harsh.pillai@gmail.com,room,None,
+273,Dev Mehta,23,Male,Banker,Mumbai,Marine Lines,Flexible,3,No,Social,Non-Veg,Yes,Often,3 days/week,High,Shared,No,8,5,7,9,4,Ambivert,Polite,12624,Flat,20890,Female,4508942901,dev.mehta89@gmail.com,room,None,
+274,Riya Verma,32,Female,HR Executive,Mumbai,Chembur,Flexible,2,Yes,No,Vegetarian,No,Often,2 days/week,Medium,Shared,Yes,7,5,5,9,3,Introvert,Clear,10052,Hostel,13476,Female,8574406993,riya.verma@gmail.com,room,None,
+275,Karan Thakur,22,Male,Content Writer,Mumbai,Bandra,Early bird,2,No,Social,Vegetarian,No,Rarely,2 days/week,Low,Shared,No,8,8,8,6,6,Ambivert,Clear,18421,Flat,28305,Female,2583384695,karan.thakur@gmail.com,room,None,
+276,Riya Chopra,23,Female,Architect,Mumbai,Lower Parel,Flexible,3,No,Occasionally,Vegan,Yes,Occasionally,Full-time,Medium,Shared,Yes,5,6,5,6,4,Ambivert,Direct,13852,PG,24970,Female,6174110168,riya.chopra@gmail.com,room,None,
+277,Sneha Kaur,32,Female,Consultant,Mumbai,Kurla,Early bird,1,Yes,Social,Vegetarian,Yes,Rarely,2 days/week,Low,Private,Yes,7,8,9,9,6,Introvert,Clear,19020,Flat,27863,Male,4535970330,sneha.kaur@gmail.com,room,None,
+278,Tushar Mehta,23,Male,Data Analyst,Mumbai,Malad,Flexible,4,Yes,Often,Non-Veg,Yes,Occasionally,3 days/week,High,Shared,No,7,5,7,5,4,Extrovert,Open,10569,Apartment,14446,Male,7478118077,tushar.mehta69@gmail.com,room,None,
+279,Ananya Sawant,30,Female,Data Analyst,Mumbai,Santacruz,Night owl,4,Yes,Occasionally,Non-Veg,Yes,Occasionally,2 days/week,Low,Private,Yes,8,8,5,8,3,Ambivert,Direct,12270,Service Apartment,21655,Male,3439020557,ananya.sawant@gmail.com,roomate,None,15000
+280,Vikram Joshi,25,Male,Content Writer,Mumbai,Juhu,Flexible,1,No,Occasionally,Non-Veg,Yes,Occasionally,None,High,Shared,No,8,6,9,7,5,Extrovert,Polite,18949,PG,27814,Female,2222780573,vikram.joshi@gmail.com,roomate,None,40000
+281,Tushar Kaur,31,Male,Content Writer,Mumbai,Chembur,Night owl,5,No,Often,Non-Veg,Yes,Occasionally,2 days/week,Low,Private,No,6,9,7,6,6,Ambivert,Polite,16025,Hostel,27757,Any,8644018713,tushar.kaur@gmail.com,roomate,None,30000
+282,Vikram Verma,24,Male,Software Engineer,Mumbai,Andheri,Early bird,1,Yes,Occasionally,Vegan,No,Rarely,None,Medium,Shared,No,8,5,9,9,4,Ambivert,Open,10997,Service Apartment,14556,Any,1924394457,vikram.verma56@gmail.com,roomate,None,12000
+283,Varun Kulkarni,21,Male,Consultant,Mumbai,Vashi,Night owl,2,No,Often,Non-Veg,Yes,Occasionally,1 day/week,Medium,Private,Yes,7,9,9,6,7,Introvert,Direct,15918,Flat,25516,Any,5254119497,varun.kulkarni@gmail.com,roomate,None,35000
+284,Rohan Chavan,21,Male,Designer,Mumbai,Borivali,Flexible,3,No,Often,Non-Veg,Yes,Occasionally,Full-time,Low,Shared,No,5,7,7,7,7,Introvert,Open,10707,Apartment,15376,Any,6680011839,rohan.chavan@gmail.com,roomate,None,25000
+285,Rahul Naik,23,Male,HR Executive,Mumbai,Thane,Early bird,5,Yes,Often,Vegetarian,No,Rarely,Full-time,High,Private,No,8,6,5,8,4,Ambivert,Friendly,11428,PG,21450,Male,1135314791,rahul.naik@gmail.com,roomate,None,30000
+286,Aditi Gupta,25,Female,Architect,Mumbai,Malad,Night owl,1,Yes,Often,Non-Veg,Yes,Often,3 days/week,Low,Shared,No,7,8,7,8,4,Introvert,Friendly,16297,Flat,23334,Female,6950980069,aditi.gupta2020@gmail.com,roomate,None,15000
+287,Tushar Shah,31,Male,Doctor,Mumbai,Powai,Flexible,4,Yes,Often,Non-Veg,Yes,Rarely,Full-time,Medium,Private,Yes,5,6,5,9,5,Extrovert,Open,14201,PG,25606,Female,4124620643,tushar.shah@gmail.com,roomate,None,10000
+288,Dev Chopra,21,Male,Banker,Mumbai,Borivali,Night owl,3,Yes,Occasionally,Vegan,No,Occasionally,2 days/week,High,Private,Yes,7,8,7,6,7,Introvert,Polite,15081,Hostel,18991,Any,1380861048,dev.chopra@gmail.com,roomate,None,10000
+289,Rohan Jain,32,Male,Designer,Mumbai,Borivali,Night owl,5,No,Social,Vegan,Yes,Occasionally,None,Medium,Shared,Yes,8,8,7,9,4,Introvert,Clear,15475,Hostel,24116,Female,7583299274,rohan.jain@gmail.com,room,None,
+290,Dev Joshi,21,Male,Architect,Mumbai,Bandra,Early bird,5,No,Often,Non-Veg,Yes,Occasionally,Full-time,High,Shared,No,6,9,9,6,7,Ambivert,Open,9452,Service Apartment,20722,Male,3598237412,dev.joshi@gmail.com,roomate,None,19000
+291,Aditi Thakur,27,Female,Entrepreneur,Mumbai,Dadar,Early bird,2,Yes,Often,Vegan,Yes,Rarely,Full-time,Low,Private,No,6,7,7,5,4,Introvert,Friendly,11279,Flat,22672,Female,9887176436,aditi.thakur@gmail.com,roomate,None,22000
+292,Aditya Patel,31,Male,HR Executive,Mumbai,Andheri,Night owl,3,Yes,Often,Vegan,Yes,Occasionally,3 days/week,High,Private,No,5,8,6,9,6,Introvert,Direct,16260,Hostel,21989,Any,7347717614,aditya.patel@gmail.com,room,None,
+293,Varun Mehta,29,Male,Consultant,Mumbai,Andheri,Night owl,1,No,No,Vegetarian,No,Often,3 days/week,High,Shared,Yes,7,5,5,9,3,Ambivert,Clear,13226,Service Apartment,16802,Female,2286954697,varun.mehta@gmail.com,room,None,
+294,Siddharth Kaur,25,Male,Content Writer,Mumbai,Kandivali,Night owl,5,No,No,Non-Veg,Yes,Often,None,Medium,Private,No,7,5,7,7,6,Introvert,Open,9082,Flat,16945,Male,3129417839,siddharth.kaur@gmail.com,room,None,
+295,Aditi Kaur,23,Female,Content Writer,Mumbai,Mulund,Night owl,1,No,No,Vegan,Yes,Often,Full-time,High,Shared,No,6,5,9,6,4,Introvert,Open,9411,Hostel,19180,Male,8079559941,aditi.kaur@gmail.com,room,None,
+296,Neha Mehta,28,Female,Entrepreneur,Mumbai,Juhu,Flexible,1,Yes,Often,Vegetarian,No,Often,3 days/week,High,Private,Yes,8,8,5,6,4,Introvert,Clear,9512,PG,19957,Male,3711636230,neha.mehta15@gmail.com,room,None,
+297,Yash Mishra,32,Male,Banker,Mumbai,Kandivali,Night owl,2,Yes,Often,Non-Veg,Yes,Rarely,2 days/week,High,Private,Yes,8,8,9,7,7,Introvert,Direct,15236,Hostel,23388,Female,8555627375,yash.mishra@gmail.com,room,None,
+298,Shreya Pillai,27,Female,Entrepreneur,Mumbai,Kurla,Night owl,5,No,Social,Vegan,No,Often,1 day/week,Medium,Shared,Yes,7,5,8,5,5,Introvert,Polite,13756,Apartment,19996,Any,5519790381,shreya.pillai@gmail.com,room,None,
+299,Vikram Singh,22,Male,Doctor,Mumbai,Thane,Flexible,4,No,Social,Vegan,Yes,Rarely,3 days/week,Low,Private,No,6,3,9,5,7,Extrovert,Clear,19941,Hostel,24864,Male,1404982089,vikram.singh26@gmail.com,roomate,None,19000
+300,Rohan Naik,29,Male,Chartered Accountant,Mumbai,Kandivali,Flexible,4,Yes,Social,Vegan,No,Occasionally,2 days/week,Low,Shared,Yes,5,1,9,4,4,Introvert,Friendly,16282,Apartment,27728,Male,8556530293,rohan.naik@gmail.com,roomate,None,22000
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,riya.naik@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,simran.desai@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,pooja.sharma@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,aarav.sawant@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,sneha.joshi@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,varun.kulkarni@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,shreya.verma@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,karan.naik@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,meera.yadav@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,vikram.das@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,pooja.verma@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,vikram.kapoor@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,shreya.desai@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,nikita.nair@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,rahul.patel@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,arjun.das@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,isha.chavan@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ananya.bhatia@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,manya.naik@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,omkar.kaur@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,nikita.patel@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,simran.gupta@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,simran.chavan@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,harsh.pillai@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,dev.mehta@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,riya.verma@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,karan.thakur@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,riya.chopra@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,sneha.kaur@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,tushar.mehta@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ananya.sawant@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,vikram.joshi@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,tushar.kaur@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,vikram.verma@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,varun.kulkarni@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,rohan.chavan@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,rahul.naik@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,aditi.gupta@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,tushar.shah@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,dev.chopra@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,rohan.jain@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,dev.joshi@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,aditi.thakur@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,aditya.patel@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,varun.mehta@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,siddharth.kaur@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,aditi.kaur@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,neha.mehta@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,yash.mishra@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,shreya.pillai@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,vikram.singh@gmail.com,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,rohan.naik@gmail.com,,,

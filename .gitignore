@@ -1,0 +1,11 @@
+# Environments
+venv/
+__pycache__/
+*.pyc
+
+# Database and Secrets
+.env
+staymate.db
+
+# Uploaded files
+static/uploads/*

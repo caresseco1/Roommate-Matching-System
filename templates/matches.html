@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% block title %}All Matches — StayMate{% endblock %}
+{% block content %}
+<div class="page-container">
+  <div class="page-header">
+    <h1>Your Matches <span class="badge-sm">{{ matches|length }} found</span></h1>
+    <p>Ranked by MLR prediction (60%) + Pearson correlation (40%)</p>
+  </div>
+
+  <div class="filter-bar glass">
+    <form method="GET" action="{{ url_for('matches') }}" style="flex: 1; min-width: 200px; margin: 0;">
+      <select name="sort_by" class="form-select" onchange="this.form.submit()">
+        <option value="compatibility" {% if sort_by == 'compatibility' %}selected{% endif %}>Sort by: Recommended (Local First)</option>
+        <option value="score_high" {% if sort_by == 'score_high' %}selected{% endif %}>Sort by: Score (High to Low)</option>
+        <option value="score_low" {% if sort_by == 'score_low' %}selected{% endif %}>Sort by: Score (Low to High)</option>
+        <option value="budget_low" {% if sort_by == 'budget_low' %}selected{% endif %}>Sort by: Budget (Low to High)</option>
+        <option value="budget_high" {% if sort_by == 'budget_high' %}selected{% endif %}>Sort by: Budget (High to Low)</option>
+        <option value="age_closest" {% if sort_by == 'age_closest' %}selected{% endif %}>Sort by: Age (Closest to Me)</option>
+      </select>
+    </form>
+    <input type="text" id="searchInput" class="form-input" placeholder="🔍 Filter by name or locality…" oninput="filterMatches()"/>
+    <select id="minScore" class="form-select" onchange="filterMatches()">
+      <option value="0">All scores</option>
+      <option value="60">60%+</option>
+      <option value="70">70%+</option>
+      <option value="80">80%+</option>
+    </select>
+    <select id="lookingFilter" class="form-select" onchange="filterMatches()">
+      <option value="">Any type</option>
+      <option value="room">Looking for room</option>
+      <option value="roomate">Looking for roommate</option>
+    </select>
+  </div>
+
+  {% if matches %}
+  <div class="matches-list" id="matchesList">
+    {% for m in matches %}
+    {% set p = m.profile %}
+    <div class="match-row glass"
+         data-name="{{ (p.name or '')|lower }}"
+         data-loc="{{ (p.locality or '')|lower }}"
+         data-score="{{ m.final_score }}"
+         data-type="{{ p.looking_for or '' }}">
+      <div class="match-row-rank">#{{ loop.index }}</div>
+      <div class="match-row-avatar">{{ (p.name or 'U')[0] }}</div>
+      <div class="match-row-main">
+        <div class="match-row-name">{{ p.name or 'Anonymous' }}</div>
+        <div class="match-row-meta">
+          📍 {{ p.locality or p.city or 'Mumbai' }}
+          {% if p.occupation %} · {{ p.occupation }}{% endif %}
+          {% if p.age %} · {{ p.age|int }} yrs{% endif %}
+          {% if p.accommodation_type %} · {{ p.accommodation_type }}{% endif %}
+        </div>
+        <div class="match-score-bars-mini">
+          <div class="mini-bar-label">MLR <strong>{{ m.mlr_score }}%</strong></div>
+          <div class="mini-bar"><div class="mini-bar-fill mlr-fill" data-width="{{ m.mlr_score }}"></div></div>
+          <div class="mini-bar-label">Pearson r <strong>{{ m.pearson_score }}%</strong></div>
+          <div class="mini-bar"><div class="mini-bar-fill pearson-fill" data-width="{{ m.pearson_score }}"></div></div>
+        </div>
+      </div>
+      <div class="match-row-right">
+        <div class="score-circle {% if m.final_score >= 80 %}score-high{% elif m.final_score >= 60 %}score-mid{% else %}score-low{% endif %}">
+          {{ m.final_score }}%
+        </div>
+        {% if p.budget_min and p.budget_max %}
+        <div class="budget-tag">₹{{ '{:,}'.format(p.budget_min|int) }}–{{ '{:,}'.format(p.budget_max|int) }}</div>
+        {% endif %}
+        <div style="display: flex; gap: 0.4rem; margin-top: 0.25rem;">
+          <a href="{{ url_for('profile_dataset', dp_id=p.id) }}" class="btn btn-outline btn-sm">View</a>
+          {% if p.original_user_id and p.original_user_id != current_user.id %}
+          <form method="POST" action="{{ url_for('start_chat', receiver_id=p.original_user_id) }}" style="margin: 0;">
+            <button type="submit" class="btn btn-primary btn-sm">Message</button>
+          </form>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="empty-state glass">
+    <div class="empty-icon">🔍</div>
+    <h3>No matches found</h3>
+    <p>Complete your profile to enable AI-powered matching</p>
+  </div>
+  {% endif %}
+</div>
+<script>
+function filterMatches() {
+  const searchInput = document.getElementById('searchInput');
+  if (!searchInput) return;
+  
+  const q = searchInput.value.toLowerCase().trim();
+  const minScore = parseFloat(document.getElementById('minScore').value) || 0;
+  const typeFilter = document.getElementById('lookingFilter').value.toLowerCase();
+
+  document.querySelectorAll('.match-row').forEach(row => {
+    const name = (row.dataset.name || '').toLowerCase();
+    const loc = (row.dataset.loc || '').toLowerCase();
+    const score = parseFloat(row.dataset.score || 0);
+    const type = (row.dataset.type || '').toLowerCase();
+
+    const nameMatch = name.includes(q) || loc.includes(q);
+    const scoreMatch = score >= minScore;
+    const typeMatch = !typeFilter || type === typeFilter;
+
+    row.style.display = (nameMatch && scoreMatch && typeMatch) ? '' : 'none';
+  });
+}
+
+// Animate the progress bars on load
+setTimeout(() => {
+  document.querySelectorAll('.mini-bar-fill').forEach(el => {
+    const width = el.dataset.width;
+    if (width) el.style.width = width + '%';
+  });
+}, 50);
+</script>
+{% endblock %}

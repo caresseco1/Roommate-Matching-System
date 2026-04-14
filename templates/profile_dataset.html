@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% block title %}{{ dp.name }} — StayMate{% endblock %}
+{% block content %}
+<div class="profile-page">
+  <div class="profile-hero glass">
+    <div class="profile-avatar-lg">{{ (dp.name or 'U')[0]|upper }}</div>
+    <div class="profile-hero-info">
+      <h1>{{ dp.name or 'Anonymous' }}</h1>
+      <div class="profile-meta">
+        {% if dp.age %}<span>{{ dp.age|int }} years</span>{% endif %}
+        {% if dp.gender %}<span>{{ dp.gender }}</span>{% endif %}
+        {% if dp.occupation %}<span>{{ dp.occupation }}</span>{% endif %}
+        {% if dp.locality %}<span>📍 {{ dp.locality }}, {{ dp.city or 'Mumbai' }}</span>{% endif %}
+      </div>
+      {% if dp.looking_for %}
+      <div class="looking-badge">{{ '🔍 Looking for a Room' if dp.looking_for == 'room' else '🤝 Has a Room / Looking for Roommate' }}</div>
+      {% endif %}
+    </div>
+    <div class="profile-compat-big">
+      <div class="compat-circle {% if compat.final_score >= 80 %}score-high{% elif compat.final_score >= 60 %}score-mid{% else %}score-low{% endif %}">
+        {{ compat.final_score }}%
+      </div>
+      <div class="compat-label">Compatible</div>
+    </div>
+  </div>
+
+  <!-- Score breakdown -->
+  <div class="compat-breakdown glass">
+    <h3>📊 Compatibility Breakdown</h3>
+    <p class="breakdown-note">MLR Score: <strong>{{ compat.mlr_score }}%</strong> &nbsp;|&nbsp; Pearson Correlation: <strong>{{ compat.pearson_score }}%</strong></p>
+    <div class="breakdown-grid">
+      {% for label, icon, key in [('Age', '🎂', 'age'), ('Lifestyle', '🌙', 'lifestyle'), ('Personality', '🧠', 'personality'), ('Budget', '💰', 'budget'), ('Location', '📍', 'location')] %}
+      <div class="breakdown-item">
+        <div class="breakdown-label">{{ icon }} {{ label }}</div>
+        <div class="breakdown-bar-wrap">
+          <div class="breakdown-bar"><div class="breakdown-fill" data-width="{{ compat.breakdown[key] }}"></div></div>
+          <span class="breakdown-pct">{{ compat.breakdown[key] }}%</span>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Profile details -->
+  <div class="profile-details-grid">
+    <div class="detail-card glass">
+      <h3>🌙 Lifestyle</h3>
+      <div class="detail-list">
+        {% if dp.sleep_schedule %}<div class="detail-item"><span>Sleep</span><strong>{{ dp.sleep_schedule }}</strong></div>{% endif %}
+        {% if dp.cleanliness %}<div class="detail-item"><span>Cleanliness</span><strong>{{ dp.cleanliness|int }}/5</strong></div>{% endif %}
+        {% if dp.smoking %}<div class="detail-item"><span>Smoking</span><strong>{{ dp.smoking }}</strong></div>{% endif %}
+        {% if dp.drinking %}<div class="detail-item"><span>Drinking</span><strong>{{ dp.drinking }}</strong></div>{% endif %}
+        {% if dp.diet %}<div class="detail-item"><span>Diet</span><strong>{{ dp.diet }}</strong></div>{% endif %}
+        {% if dp.pets %}<div class="detail-item"><span>Pets</span><strong>{{ dp.pets }}</strong></div>{% endif %}
+        {% if dp.guests %}<div class="detail-item"><span>Guests</span><strong>{{ dp.guests }}</strong></div>{% endif %}
+        {% if dp.wfh_frequency %}<div class="detail-item"><span>WFH</span><strong>{{ dp.wfh_frequency }}</strong></div>{% endif %}
+        {% if dp.noise_tolerance %}<div class="detail-item"><span>Noise</span><strong>{{ dp.noise_tolerance }}</strong></div>{% endif %}
+        {% if dp.sharing_pref %}<div class="detail-item"><span>Room</span><strong>{{ dp.sharing_pref }}</strong></div>{% endif %}
+        {% if dp.cooking %}<div class="detail-item"><span>Cooking</span><strong>{{ dp.cooking }}</strong></div>{% endif %}
+        {% if dp.social_style %}<div class="detail-item"><span>Social</span><strong>{{ dp.social_style }}</strong></div>{% endif %}
+        {% if dp.communication %}<div class="detail-item"><span>Comms</span><strong>{{ dp.communication }}</strong></div>{% endif %}
+      </div>
+    </div>
+
+    <div class="detail-card glass">
+      <h3>🧠 Big Five Personality</h3>
+      {% for trait, label in [('openness','Openness'),('conscientiousness','Conscientiousness'),('extraversion','Extraversion'),('agreeableness','Agreeableness'),('neuroticism','Neuroticism')] %}
+      {% if dp[trait] is defined and dp[trait] %}
+      {% set val = dp[trait]|float %}
+      <div class="trait-row">
+        <span class="trait-label">{{ label }}</span>
+        <div class="trait-bar"><div class="trait-fill" data-width="{{ val * 10 }}"></div></div>
+        <span class="trait-val">{{ val|int }}/10</span>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="detail-card glass">
+      <h3>💰 Budget & Accommodation</h3>
+      {% if dp.budget_min and dp.budget_max %}
+      <div class="detail-item"><span>Budget</span><strong>₹{{ '{:,}'.format(dp.budget_min|int) }} – ₹{{ '{:,}'.format(dp.budget_max|int) }}/mo</strong></div>
+      {% endif %}
+      {% if dp.accommodation_type %}<div class="detail-item"><span>Type</span><strong>{{ dp.accommodation_type }}</strong></div>{% endif %}
+      {% if dp.preferred_gender %}<div class="detail-item"><span>Preferred</span><strong>{{ dp.preferred_gender }}</strong></div>{% endif %}
+      {% if dp.room_price %}<div class="detail-item"><span>Room Price</span><strong>₹{{ '{:,}'.format(dp.room_price|int) }}/mo</strong></div>{% endif %}
+    </div>
+  </div>
+
+  <!-- Actions for all profiles -->
+  <div class="profile-actions glass">
+    {% if dp.original_user_id and dp.original_user_id != current_user.id %}
+      <form method="POST" action="{{ url_for('start_chat', receiver_id=dp.original_user_id) }}" style="display:inline;">
+        <button type="submit" class="btn btn-primary">💬 Message</button>
+      </form>
+    {% endif %}
+  </div>
+
+</div>
+
+<!-- ✅ JS (fixes VS Code CSS errors + adds animation) -->
+<script>
+  document.querySelectorAll('.breakdown-fill, .trait-fill').forEach(el => {
+    const width = el.dataset.width;
+    if (width) el.style.width = width + '%';
+  });
+</script>
+{% endblock %}

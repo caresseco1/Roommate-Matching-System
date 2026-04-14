@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard — StayMate{% endblock %}
+{% block content %}
+<div class="dashboard">
+  <div class="dash-header">
+    <div>
+      <h1>🛠️ Admin Dashboard</h1>
+      <p class="dash-sub">Platform statistics and overview</p>
+    </div>
+    <div class="dash-actions">
+      <form method="POST" action="{{ url_for('admin_refresh_engine') }}" style="margin: 0;">
+        <button type="submit" class="btn btn-primary">🔄 Retrain Match Engine</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-card glass">
+      <div class="stat-icon">👥</div>
+      <div class="stat-body">
+        <div class="stat-value">{{ total_users }}</div>
+        <div class="stat-label">Total Users</div>
+      </div>
+    </div>
+    <div class="stat-card glass">
+      <div class="stat-icon">✨</div>
+      <div class="stat-body">
+        <div class="stat-value">{{ new_users }}</div>
+        <div class="stat-label">New Users (7d)</div>
+      </div>
+    </div>
+    <div class="stat-card glass">
+      <div class="stat-icon">💬</div>
+      <div class="stat-body">
+        <div class="stat-value">{{ total_requests }}</div>
+        <div class="stat-label">Total Requests</div>
+      </div>
+    </div>
+    <div class="stat-card glass">
+      <div class="stat-icon">⏳</div>
+      <div class="stat-body">
+        <div class="stat-value">{{ pending_requests }}</div>
+        <div class="stat-label">Pending Requests</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="glass" style="padding: 1.5rem; border-radius: var(--radius); margin-top: 1rem;">
+    <h2 class="section-heading" style="margin-bottom: 1rem;">Recent Room Requests</h2>
+    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+      {% for req in recent_requests %}
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem; border-bottom: 1px solid var(--border);">
+        <div style="font-size: 0.9rem;"><strong>{{ req.sender.username }}</strong> requested <strong>{{ req.receiver.username }}</strong></div>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <span style="font-size: 0.8rem; color: var(--text-muted);">{{ req.created_at.strftime('%d %b %Y') }}</span>
+          <span class="status-tag status-{{ req.status }}">{{ req.status }}</span>
+          {% if req.status == 'pending' %}
+          <form method="POST" action="{{ url_for('accept_request', req_id=req.id) }}" style="display:inline;">
+            <button type="submit" class="btn btn-primary btn-sm" style="padding: 0.15rem 0.5rem; font-size: 0.75rem;">Accept</button>
+          </form>
+          <form method="POST" action="{{ url_for('decline_request', req_id=req.id) }}" style="display:inline;">
+            <button type="submit" class="btn btn-danger btn-sm" style="padding: 0.15rem 0.5rem; font-size: 0.75rem;">Reject</button>
+          </form>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}
