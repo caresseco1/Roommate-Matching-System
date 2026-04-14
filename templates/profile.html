@@ -8,7 +8,11 @@
   <div class="profile-hero glass">
     
     <div class="profile-avatar-lg">
-      {{ viewed.username[0]|upper }}
+      {% if viewed.profile_pic %}
+        <img src="{{ url_for('static', filename='uploads/' + viewed.profile_pic) }}" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;" alt="Pic">
+      {% else %}
+        {{ viewed.username[0]|upper }}
+      {% endif %}
     </div>
 
     <div class="profile-hero-info">

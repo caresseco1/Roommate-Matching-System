@@ -41,7 +41,13 @@
          data-score="{{ m.final_score }}"
          data-type="{{ p.looking_for or '' }}">
       <div class="match-row-rank">#{{ loop.index }}</div>
-      <div class="match-row-avatar">{{ (p.name or 'U')[0] }}</div>
+      <div class="match-row-avatar">
+        {% if p.profile_pic %}
+        <img src="{{ url_for('static', filename='uploads/' + p.profile_pic) }}" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;" alt="Pic">
+        {% else %}
+        {{ (p.name or 'U')[0]|upper }}
+        {% endif %}
+      </div>
       <div class="match-row-main">
         <div class="match-row-name">{{ p.name or 'Anonymous' }}</div>
         <div class="match-row-meta">

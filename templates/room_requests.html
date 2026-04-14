@@ -15,7 +15,13 @@
         {% for req in received %}
         {% set other = req.sender %}
         <div class="req-card glass status-border-{{ req.status }}">
-          <div class="req-avatar">{{ other.username[0] }}</div>
+          <div class="req-avatar">
+            {% if other.profile_pic %}
+              <img src="{{ url_for('static', filename='uploads/' + other.profile_pic) }}" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;" alt="Pic">
+            {% else %}
+              {{ other.username[0]|upper }}
+            {% endif %}
+          </div>
           <div class="req-info">
             <div class="req-name">{{ other.username }}</div>
             {% if other.locality %}<div class="req-loc">📍 {{ other.locality }}</div>{% endif %}
@@ -59,7 +65,13 @@
         {% for req in sent %}
         {% set other = req.receiver %}
         <div class="req-card glass status-border-{{ req.status }}">
-          <div class="req-avatar">{{ other.username[0] }}</div>
+          <div class="req-avatar">
+            {% if other.profile_pic %}
+              <img src="{{ url_for('static', filename='uploads/' + other.profile_pic) }}" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;" alt="Pic">
+            {% else %}
+              {{ other.username[0]|upper }}
+            {% endif %}
+          </div>
           <div class="req-info">
             <div class="req-name">{{ other.username }}</div>
             {% if other.locality %}<div class="req-loc">📍 {{ other.locality }}</div>{% endif %}

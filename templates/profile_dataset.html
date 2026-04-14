@@ -3,7 +3,13 @@
 {% block content %}
 <div class="profile-page">
   <div class="profile-hero glass">
-    <div class="profile-avatar-lg">{{ (dp.name or 'U')[0]|upper }}</div>
+    <div class="profile-avatar-lg">
+      {% if dp.profile_pic %}
+        <img src="{{ url_for('static', filename='uploads/' + dp.profile_pic) }}" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;" alt="Pic">
+      {% else %}
+        {{ (dp.name or 'U')[0]|upper }}
+      {% endif %}
+    </div>
     <div class="profile-hero-info">
       <h1>{{ dp.name or 'Anonymous' }}</h1>
       <div class="profile-meta">

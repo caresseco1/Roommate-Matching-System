@@ -14,7 +14,13 @@
     {% set last_msg = convo.last_msg %}
     {% set unread = convo.unread %}
     <a href="{{ url_for('chat', other_id=partner.id) }}" class="convo-card glass {% if unread %}convo-unread{% endif %}">
-      <div class="convo-avatar">{{ partner.username[0] }}</div>
+      <div class="convo-avatar">
+        {% if partner.profile_pic %}
+          <img src="{{ url_for('static', filename='uploads/' + partner.profile_pic) }}" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;" alt="Pic">
+        {% else %}
+          {{ partner.username[0]|upper }}
+        {% endif %}
+      </div>
       <div class="convo-body">
         <div class="convo-name">{{ partner.username }}</div>
         <div class="convo-preview">

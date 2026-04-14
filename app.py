@@ -576,6 +576,18 @@ def unread_count():
     return jsonify({'count': count})
 
 
+@app.route('/message/delete/<int:msg_id>', methods=['POST'])
+@login_required
+def delete_message(msg_id):
+    msg = Message.query.get_or_404(msg_id)
+    if msg.sender_id != current_user.id:
+        flash('Not authorised to delete this message.', 'danger')
+        return redirect(request.referrer or url_for('messages'))
+    db.session.delete(msg)
+    db.session.commit()
+    return redirect(request.referrer or url_for('messages'))
+
+
 # ── Room Requests & Chat Initiation ──────────────────────────────────────────
 
 @app.route('/message/start/<int:receiver_id>', methods=['POST'])
