@@ -1,1 +1,0 @@
-# Message Button Feature&#10;- [x] Create TODO&#10;- [x] Update chat.html (show contact if accepted)&#10;- [ ] Update profile.html, dashboard.html, matches.html (add Message button)&#10;- [ ] Update room_requests.html (rename)&#10;- [ ] Test&#10;- [ ] Complete
