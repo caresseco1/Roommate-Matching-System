@@ -280,8 +280,8 @@ def get_matches(current_user, profiles, top_n=20, sort_by='compatibility'):
 
         pearson_score = _pearson_sim(user_vec, pvec)
 
-        # Combined: 60% MLR, 40% Pearson
-        final = 0.60 * mlr_score + 0.40 * pearson_score
+# Combined: 40% MLR, 60% Pearson (user requested)
+        final = 0.40 * mlr_score + 0.60 * pearson_score
 
         # Per-category breakdown for UI display
         breakdown = _breakdown(current_user, profile)
@@ -353,7 +353,7 @@ def get_compatibility(user_a, user_b, profiles=None) -> dict:
         mlr_score = _build_label(va, vb, p_a=user_a, p_b=user_b)
 
     pearson = _pearson_sim(va, vb)
-    final = 0.60 * mlr_score + 0.40 * pearson
+    final = 0.40 * mlr_score + 0.60 * pearson
 
     breakdown = _breakdown(user_a, user_b)
     return {

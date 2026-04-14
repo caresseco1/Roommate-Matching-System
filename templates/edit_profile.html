@@ -97,6 +97,14 @@
           <div class="form-group">{{ form.budget_min.label(class="form-label") }}{{ form.budget_min(class="form-input") }}</div>
           <div class="form-group">{{ form.budget_max.label(class="form-label") }}{{ form.budget_max(class="form-input") }}</div>
         </div>
+        {% if current_user.looking_for == 'roomate' %}
+        <div class="form-group">
+          {{ form.room_price.label(class="form-label") }}
+          {{ form.room_price(class="form-input") }}
+          <small class="form-hint">Monthly rent you're offering for roommate</small>
+          {% for e in form.room_price.errors %}<span class="form-error">{{ e }}</span>{% endfor %}
+        </div>
+        {% endif %}
         <div class="form-row">
           <div class="form-group">{{ form.accommodation_type.label(class="form-label") }}{{ form.accommodation_type(class="form-select") }}</div>
           <div class="form-group">{{ form.preferred_gender.label(class="form-label") }}{{ form.preferred_gender(class="form-select") }}</div>
@@ -104,6 +112,18 @@
         <div class="form-group" style="margin-top: .75rem;">{{ form.looking_for.label(class="form-label") }}{{ form.looking_for(class="form-select") }}</div>
       </div>
 
+      {% if current_user.looking_for == 'roomate' %}
+      <div class="form-section">
+        <h3 class="section-label">🏠 Room Photos</h3>
+        <p class="section-hint">Upload photos of your room to attract roommates (up to 6)</p>
+        <div style="text-align: center; margin: 1.5rem 0;">
+          <a href="{{ url_for('upload_room_photos') }}" class="btn btn-secondary btn-full">
+            📸 Upload Room Photos
+          </a>
+        </div>
+      </div>
+      {% endif %}
+      
       {{ form.submit(class="btn btn-primary btn-full btn-lg") }}
     </form>
   </div>

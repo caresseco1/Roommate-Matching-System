@@ -136,7 +136,7 @@
       </div>
 
       <div class="form-section">
-        <h3 class="section-label">💰 Budget & Accommodation</h3>
+<h3 class="section-label">💰 Budget & Accommodation</h3>
         <div class="form-row">
           <div class="form-group">
             {{ form.budget_min.label(class="form-label") }}
@@ -149,6 +149,14 @@
             {% for e in form.budget_max.errors %}<span class="form-error">{{ e }}</span>{% endfor %}
           </div>
         </div>
+        {% if current_user.looking_for == 'roomate' %}
+        <div class="form-group">
+          {{ form.room_price.label(class="form-label") }}
+          {{ form.room_price(class="form-input", placeholder="15000") }}
+          <small class="form-hint">Monthly rent you're offering for roommate</small>
+          {% for e in form.room_price.errors %}<span class="form-error">{{ e }}</span>{% endfor %}
+        </div>
+        {% endif %}
         <div class="form-row">
           <div class="form-group">
             {{ form.accommodation_type.label(class="form-label") }}

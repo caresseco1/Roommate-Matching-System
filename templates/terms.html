@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service — StayMate</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <nav class="navbar">
+    <a class="navbar-brand" href="{{ url_for('dashboard') }}">🏠 StayMate</a>
+  </nav>
+  <div class="container" style="max-width: 800px; margin: 4rem auto; padding: 2rem;">
+    <h1>Terms of Service</h1>
+    <p>By using StayMate, you agree to our terms.</p>
+    <a href="{{ url_for('dashboard') }}" class="btn btn-primary">Back to Dashboard</a>
+  </div>
+</body>
+</html>
+

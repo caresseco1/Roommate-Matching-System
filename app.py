@@ -38,9 +38,9 @@ app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME', '')
 app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD', '')
 app.config['MAIL_DEFAULT_SENDER'] = os.environ.get('MAIL_USERNAME', 'noreply@staymate.in')
 
-from models import db, User, DatasetProfile, Message, ProfileView, RoomRequest, Notification, Feedback
+from models import db, User, DatasetProfile, Message, ProfileView, RoomRequest, Notification, Feedback, RoomPhoto
 from forms import (SignupForm, LoginForm, OTPForm, LookingForForm,
-                   RegistrationForm, EditProfileForm, MessageForm, FeedbackForm)
+                   RegistrationForm, EditProfileForm, MessageForm, FeedbackForm, RoomPhotosForm)
 import matching
 
 db.init_app(app)
@@ -240,8 +240,8 @@ def verify():
             db.session.commit()
             session.pop('pending_signup', None)
             login_user(user)
-            flash('Account verified! Complete your profile to find matches.', 'success')
-            return redirect(url_for('registration'))
+            flash('Account verified! Choose what you are looking for.', 'success')
+            return redirect(url_for('looking_for'))
         else:
             flash('Incorrect OTP. Try again.', 'danger')
 
@@ -276,6 +276,10 @@ def logout():
 @app.route('/looking-for', methods=['GET', 'POST'])
 @login_required
 def looking_for():
+    # Skip if already set
+    if current_user.looking_for:
+        return redirect(url_for('dashboard'))
+    
     form = LookingForForm()
     if form.validate_on_submit():
         current_user.looking_for = form.looking_for.data
@@ -328,9 +332,11 @@ def registration():
         current_user.budget_max = form.budget_max.data
         current_user.accommodation_type = form.accommodation_type.data
         current_user.preferred_gender = form.preferred_gender.data
+        if current_user.looking_for == 'roomate':
+            current_user.room_price = form.room_price.data
         db.session.commit()
         _sync_user_to_dataset(current_user)
-        return redirect(url_for('looking_for'))
+        return redirect(url_for('dashboard'))
     return render_template('registration.html', form=form)
 
 
@@ -349,39 +355,61 @@ def edit_profile():
                 os.makedirs(upload_dir, exist_ok=True)
                 pic.save(os.path.join(upload_dir, filename))
                 current_user.profile_pic = filename
-        current_user.age = form.age.data
-        current_user.gender = form.gender.data
-        current_user.occupation = form.occupation.data
-        current_user.locality = form.locality.data
-        current_user.phone_number = form.phone_number.data
-        current_user.sleep_schedule = form.sleep_schedule.data
+        
+        form.populate_obj(current_user)
         current_user.cleanliness = int(form.cleanliness.data)
-        current_user.smoking = form.smoking.data
-        current_user.drinking = form.drinking.data
-        current_user.diet = form.diet.data
-        current_user.pets = form.pets.data
-        current_user.guests = form.guests.data
-        current_user.wfh_frequency = form.wfh_frequency.data
-        current_user.noise_tolerance = form.noise_tolerance.data
-        current_user.sharing_pref = form.sharing_pref.data
-        current_user.cooking = form.cooking.data
-        current_user.social_style = form.social_style.data
-        current_user.communication = form.communication.data
-        current_user.openness = form.openness.data
-        current_user.conscientiousness = form.conscientiousness.data
-        current_user.extraversion = form.extraversion.data
-        current_user.agreeableness = form.agreeableness.data
-        current_user.neuroticism = form.neuroticism.data
-        current_user.budget_min = form.budget_min.data
-        current_user.budget_max = form.budget_max.data
-        current_user.accommodation_type = form.accommodation_type.data
-        current_user.preferred_gender = form.preferred_gender.data
-        current_user.looking_for = form.looking_for.data
+
         db.session.commit()
         _sync_user_to_dataset(current_user)
         flash('Profile updated!', 'success')
         return redirect(url_for('dashboard'))
     return render_template('edit_profile.html', form=form)
+
+
+@app.route('/upload-room-photos', methods=['GET', 'POST'])
+@login_required
+def upload_room_photos():
+    if current_user.looking_for != 'roommate':
+        flash('Room photos available for room owners only.', 'warning')
+        return redirect(url_for('edit_profile'))
+    
+    form = RoomPhotosForm()
+    if form.validate_on_submit():
+        room_dir = os.path.join(app.root_path, 'static', 'uploads', 'room-photos', f'user_{current_user.id}')
+        os.makedirs(room_dir, exist_ok=True)
+        
+        # Handle multiple files from getlist
+        files = request.files.getlist('photos')
+        uploaded_count = 0
+        
+        for photo in files:
+            if photo.filename:  # Only process uploaded files
+                filename = secure_filename(photo.filename)
+                if filename:
+                    unique_name = f"{secrets.token_hex(8)}_{filename}"
+                    photo.save(os.path.join(room_dir, unique_name))
+                    
+                    # Delete old photos first
+                    RoomPhoto.query.filter_by(user_id=current_user.id).delete()
+                    
+                    new_photo = RoomPhoto(
+                        user_id=current_user.id,
+                        filename=f"uploads/room-photos/user_{current_user.id}/{unique_name}"
+                    )
+                    db.session.add(new_photo)
+                    uploaded_count += 1
+        
+        if uploaded_count > 0:
+            db.session.commit()
+            flash(f'✅ Uploaded {uploaded_count} room photo(s)!', 'success')
+        else:
+            flash('No photos uploaded.', 'warning')
+        return redirect(url_for('edit_profile'))
+    
+    # Show current photos
+    user_photos = RoomPhoto.query.filter_by(user_id=current_user.id)\
+        .order_by(RoomPhoto.uploaded_at.desc()).limit(6).all()
+    return render_template('room_photos.html', form=form, photos=user_photos)
 
 
 # ── Dashboard & Matching ──────────────────────────────────────────────────────
@@ -392,7 +420,18 @@ def dashboard():
     profiles = _all_dataset_profiles()
     top_matches = []
     if current_user.profile_completion >= 50:
-        top_matches = matching.get_matches(current_user, profiles, top_n=10)
+     top_matches = matching.get_matches(current_user, profiles, top_n=12)
+
+    # Preprocess map_data for clean JSON in template (fixes VSCode JS errors)
+    map_data = []
+    for m in top_matches:
+        p = m['profile']
+        map_data.append({
+            "name": getattr(p, 'name', 'Anonymous') or "Anonymous",
+            "locality": getattr(p, 'locality', getattr(p, 'city', 'Mumbai')) or "Mumbai",
+            "score": m['final_score'],
+            "url": url_for("profile_dataset", dp_id=p.id)
+        })
 
     pending_requests = RoomRequest.query.filter_by(
         receiver_id=current_user.id, status='pending').order_by(RoomRequest.created_at.desc()).all()
@@ -418,6 +457,7 @@ def dashboard():
     return render_template('dashboard.html',
                            user=current_user,
                            top_matches=top_matches,
+                           map_data=map_data,
                            pending_requests=pending_requests,
                            total_pending_requests=total_pending_requests,
                            active_chats_count=active_chats_count,
@@ -759,6 +799,14 @@ def admin_dashboard():
                            total_requests=total_requests, pending_requests=pending_requests,
                            recent_requests=recent_requests)
 
+
+@app.route('/privacy')
+def privacy():
+    return render_template('privacy.html')
+
+@app.route('/terms')
+def terms():
+    return render_template('terms.html')
 
 @app.route('/admin/feedback')
 @admin_required

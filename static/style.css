@@ -652,9 +652,70 @@ img { max-width: 100%; }
 .empty-state p { color: var(--text-muted); max-width: 360px; }
 
 /* ── Footer ──────────────────────────────────────────────────────────────────── */
-.footer { text-align: center; padding: 2rem; color: var(--text-dim); font-size: .82rem; border-top: 1px solid var(--border); margin-top: 4rem; }
+.footer { 
+  text-align: center; 
+  padding: 2rem 1.5rem; 
+  color: var(--text-dim); 
+  font-size: .82rem; 
+  border-top: 1px solid var(--border); 
+  margin-top: 4rem; 
+}
+
+.photos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+.photo-card {
+  aspect-ratio: 4/3;
+}
+.photo-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.choice-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.choice-card {
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.choice-card:hover {
+  transform: translateY(-5px);
+  border-color: #7c6ef5;
+}
+
+.choice-card.selected {
+  border: 2px solid #7c6ef5;
+  background: rgba(124,110,245,0.1);
+  transform: scale(1.03);
+}
 
 /* ── Responsive ──────────────────────────────────────────────────────────────── */
+
 @media (max-width: 768px) {
   .hero { flex-direction: column; padding: 3rem 1.5rem; text-align: center; }
   .hero-visual { width: 100%; justify-content: center; }

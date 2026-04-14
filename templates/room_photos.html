@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Room Photos — StayMate{% endblock %}
+
+{% block content %}
+<div class="page-container">
+  <div class="page-header">
+    <h1>📸 Upload Room Photos</h1>
+    <p>Add up to 6 photos of your room to attract better roommates</p>
+  </div>
+
+  <div class="profile-actions glass" style="justify-content: flex-start; gap: 1rem; margin-bottom: 2rem;">
+    <a href="{{ url_for('edit_profile') }}" class="btn btn-secondary">← Back to Profile</a>
+  </div>
+
+  <!-- Current photos grid -->
+  {% if photos %}
+  <div class="form-section">
+    <h3 class="section-label">Current Photos ({{ photos|length }}/6)</h3>
+    <div class="photos-grid">
+      {% for photo in photos %}
+      <div class="photo-card glass" style="position: relative;">
+        <img src="{{ url_for('static', filename=photo.filename) }}" alt="Room photo" style="width: 100%; height: 160px; object-fit: cover; border-radius: 12px;">
+        <div style="position: absolute; top: 8px; right: 8px; opacity: 0.8;">
+          {{ photo.uploaded_at.strftime('%d %b') }}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Upload form -->
+  <div class="form-section">
+    <form method="POST" enctype="multipart/form-data" novalidate>
+      {{ form.hidden_tag() }}
+      <div class="form-group">
+        {{ form.photos.label(class="form-label") }}
+        {{ form.photos(class="form-input", multiple=true, accept="image/*") }}
+        <small style="color: var(--text-muted);">JPG, PNG, WebP • Max 6 photos • 5MB each</small>
+        {% for e in form.photos.errors %}<span class="form-error">{{ e }}</span>{% endfor %}
+      </div>
+      {{ form.submit(class="btn btn-primary") }}
+    </form>
+  </div>
+
+</div>
+
+<style>
+.photos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+.photo-card {
+  aspect-ratio: 4/3;
+}
+</style>
+{% endblock %}
+

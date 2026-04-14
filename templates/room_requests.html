@@ -10,7 +10,7 @@
   <div class="requests-grid">
     <!-- Received -->
     <div class="requests-col">
-      <h2 class="col-heading">📥 Received <span class="badge-sm">{{ received|length }}</span></h2>
+      <h2 class="col-heading">Received <span class="badge-sm">{{ received|length }}</span></h2>
       {% if received %}
         {% for req in received %}
         {% set other = req.sender %}
@@ -54,7 +54,7 @@
 
     <!-- Sent -->
     <div class="requests-col">
-      <h2 class="col-heading">📤 Sent <span class="badge-sm">{{ sent|length }}</span></h2>
+      <h2 class="col-heading">Sent <span class="badge-sm">{{ sent|length }}</span></h2>
       {% if sent %}
         {% for req in sent %}
         {% set other = req.receiver %}

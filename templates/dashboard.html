@@ -44,7 +44,7 @@
   <div class="stats-row">
 
     <div class="stat-card glass">
-      <div class="stat-icon">📊</div>
+      <div class="stat-icon"></div>
       <div class="stat-body">
         <div class="stat-value">{{ profile_completion }}%</div>
         <div class="stat-label">Profile Complete</div>
@@ -55,7 +55,7 @@
     </div>
 
     <div class="stat-card glass">
-      <div class="stat-icon">🤝</div>
+      <div class="stat-icon"></div>
       <div class="stat-body">
         <div class="stat-value">{{ top_matches|length }}</div>
         <div class="stat-label">Top Matches</div>
@@ -63,7 +63,7 @@
     </div>
 
     <div class="stat-card glass">
-      <div class="stat-icon">📨</div>
+      <div class="stat-icon"></div>
       <div class="stat-body">
         <div class="stat-value">{{ total_pending_requests }}</div>
         <div class="stat-label">Pending Requests</div>
@@ -71,7 +71,7 @@
     </div>
 
     <div class="stat-card glass">
-      <div class="stat-icon">💬</div>
+      <div class="stat-icon"></div>
       <div class="stat-body">
         <div class="stat-value">{{ active_chats_count }}</div>
         <div class="stat-label">Active Chats</div>
@@ -93,7 +93,7 @@
 
   <div style="display:flex; justify-content:space-between; margin-bottom:1rem;">
     <h2>Your Top Matches</h2>
-    <button class="btn btn-secondary btn-sm" onclick="toggleMap(this)">🗺️ Show Map</button>
+    <button class="btn btn-secondary btn-sm" onclick="toggleMap(this)">Show Map</button>
   </div>
 
   <div id="matchesMap" style="height:400px; display:none;" class="glass"></div>
@@ -170,7 +170,7 @@
 
     if (mapDiv.style.display === 'none') {
       mapDiv.style.display = 'block';
-      btn.innerHTML = '🗺️ Hide Map';
+      btn.innerHTML = 'Hide Map';
 
       if (!mapInitialized) {
         initMap();
@@ -180,28 +180,19 @@
       }
     } else {
       mapDiv.style.display = 'none';
-      btn.innerHTML = '🗺️ Show Map';
+      btn.innerHTML = 'Show Map';
     }
   }
 
   function initMap() {
     window.leafletMap = L.map('matchesMap').setView([19.0760, 72.8777], 11);
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-      attribution: '© OpenStreetMap contributors, © CARTO'
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
     }).addTo(window.leafletMap);
 
-    // ✅ FIXED mapData (NO JS ERRORS)
-    const mapData = [
-      {% for m in top_matches %}
-      {
-        name: {{ (m.profile.name or 'Anonymous') | tojson }},
-        locality: {{ (m.profile.locality or m.profile.city or 'Mumbai') | tojson }},
-        score: {{ m.final_score | tojson }},
-        url: {{ url_for('profile_dataset', dp_id=m.profile.id) | tojson }}
-      }{% if not loop.last %},{% endif %}
-      {% endfor %}
-    ];
+   
+    let mapData = {{ map_data | tojson | safe }} || [];
 
     const coords = {
       'powai': [19.1176, 72.9060], 'andheri': [19.1136, 72.8697], 'bandra': [19.0596, 72.8295],

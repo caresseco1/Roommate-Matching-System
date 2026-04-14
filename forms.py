@@ -2,11 +2,11 @@ from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
 from wtforms import (StringField, PasswordField, IntegerField, SelectField,
                      TextAreaField, SubmitField, HiddenField)
-from wtforms.validators import DataRequired, Email, Length, NumberRange, Optional, EqualTo, Regexp
+from wtforms.validators import DataRequired, Email, Length, NumberRange, Optional, EqualTo, Regexp, ValidationError
 
 
 class SignupForm(FlaskForm):
-    username = StringField('Full Name', validators=[DataRequired(), Length(2, 100)])
+    username = StringField('Full Name', validators=[DataRequired(), Length(2, 100), Regexp(r'^[a-zA-Z\s]+$', message='Username must contain only letters (a-z)')])
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[
         DataRequired(),
@@ -32,7 +32,10 @@ class OTPForm(FlaskForm):
 
 
 class LookingForForm(FlaskForm):
-    looking_for = HiddenField('Looking For', validators=[DataRequired()])
+    looking_for = SelectField('Looking For', choices=[
+        ('room', 'Looking for a Room'),
+        ('roomate', 'Looking for a Roommate')
+    ], validators=[DataRequired()])
     submit = SubmitField('Continue')
 
 
@@ -40,6 +43,7 @@ class RegistrationForm(FlaskForm):
     # Demographics
     profile_pic = FileField('Profile Picture', validators=[
         Optional(), FileAllowed(['jpg', 'png', 'jpeg', 'webp'], 'Images only!')])
+    room_price = IntegerField('Room Price (₹/month)', validators=[Optional(), NumberRange(1000, 500000)])
     age = IntegerField('Age', validators=[DataRequired(), NumberRange(16, 70)])
     gender = SelectField('Gender', choices=[
         ('', 'Select'), ('Male', 'Male'), ('Female', 'Female'), ('Non-binary', 'Non-binary')
@@ -117,7 +121,8 @@ class RegistrationForm(FlaskForm):
 class EditProfileForm(RegistrationForm):
     looking_for = SelectField('Looking For', choices=[
         ('room', 'Looking for a Room'), ('roomate', 'Looking for a Roommate')
-    ], validators=[DataRequired()])
+    ], validators=[Optional()])
+    room_price = IntegerField('Room Price (₹/month)', validators=[Optional(), NumberRange(1000, 500000)])
 
 
 class MessageForm(FlaskForm):
@@ -136,3 +141,20 @@ class FeedbackForm(FlaskForm):
     ])
     comment = TextAreaField('Comment', validators=[Optional(), Length(max=1000)])
     submit = SubmitField('Submit Feedback')
+
+
+class RoomPhotosForm(FlaskForm):
+    """Upload up to 6 room photos for room owners"""
+    photos = FileField('Room Photos', validators=[
+        Optional(),
+        FileAllowed(['jpg', 'jpeg', 'png', 'webp'], 'Images only (JPG, PNG, WebP)!')
+    ])
+    submit = SubmitField('Upload Photos')
+    
+    def validate_photos(self, field):
+        if field.data:
+            if len(field.data) > 6:
+                raise ValidationError('Maximum 6 photos allowed.')
+            for photo in field.data:
+                if photo.size > 5 * 1024 * 1024:
+                    raise ValidationError('Each photo must be under 5MB.')
