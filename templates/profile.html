@@ -47,7 +47,7 @@
 
   <!-- BREAKDOWN -->
   <div class="compat-breakdown glass">
-    <h3>📊 Compatibility Breakdown</h3>
+    <h3>Compatibility Breakdown</h3>
 
     <p class="breakdown-note">
       MLR: <strong>{{ compat.mlr_score }}%</strong> |
@@ -57,10 +57,10 @@
     <div class="breakdown-grid">
 
       {% set items = [
-        ('Age','🎂','age'),
-        ('Lifestyle','🌙','lifestyle'),
-        ('Personality','🧠','personality'),
-        ('Budget','💰','budget'),
+        ('Age','','age'),
+        ('Lifestyle','','lifestyle'),
+        ('Personality','','personality'),
+        ('Budget','','budget'),
         ('Location','📍','location')
       ] %}
 
@@ -92,7 +92,7 @@
   <!-- ROOM PHOTOS GALLERY (room owners) -->
   {% if viewed.looking_for == 'roomate' and viewed.room_photos.count() > 0 %}
   <div class="form-section">
-    <h3 class="section-label">🏠 Room Photos</h3>
+    <h3 class="section-label"> Room Photos</h3>
     <div class="photos-grid">
       {% for photo in viewed.room_photos.order_by(RoomPhoto.uploaded_at.desc()).limit(6) %}
       <div class="photo-card glass">

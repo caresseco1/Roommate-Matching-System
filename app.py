@@ -332,7 +332,7 @@ def registration():
         current_user.budget_max = form.budget_max.data
         current_user.accommodation_type = form.accommodation_type.data
         current_user.preferred_gender = form.preferred_gender.data
-        if current_user.looking_for == 'roomate':
+        if current_user.looking_for in ['roomate', 'roommate']:
             current_user.room_price = form.room_price.data
         db.session.commit()
         _sync_user_to_dataset(current_user)
@@ -369,7 +369,7 @@ def edit_profile():
 @app.route('/upload-room-photos', methods=['GET', 'POST'])
 @login_required
 def upload_room_photos():
-    if current_user.looking_for != 'roomate':
+    if current_user.looking_for not in ['roomate', 'roommate']:
         flash('Room photos available for room owners only.', 'warning')
         return redirect(url_for('edit_profile'))
     
@@ -381,16 +381,17 @@ def upload_room_photos():
         # Handle multiple files from getlist
         files = request.files.getlist('photos')
         uploaded_count = 0
+        current_count = RoomPhoto.query.filter_by(user_id=current_user.id).count()
         
         for photo in files:
             if photo.filename:  # Only process uploaded files
+                if current_count + uploaded_count >= 6:
+                    flash('Maximum limit of 6 photos reached. Some photos were not uploaded.', 'warning')
+                    break
                 filename = secure_filename(photo.filename)
                 if filename:
                     unique_name = f"{secrets.token_hex(8)}_{filename}"
                     photo.save(os.path.join(room_dir, unique_name))
-                    
-                    # Delete old photos first
-                    RoomPhoto.query.filter_by(user_id=current_user.id).delete()
                     
                     new_photo = RoomPhoto(
                         user_id=current_user.id,
@@ -402,14 +403,34 @@ def upload_room_photos():
         if uploaded_count > 0:
             db.session.commit()
             flash(f'✅ Uploaded {uploaded_count} room photo(s)!', 'success')
-        else:
-            flash('No photos uploaded.', 'warning')
-        return redirect(url_for('edit_profile'))
+        elif current_count < 6 and not any(p.filename for p in files):
+            flash('No photos selected.', 'warning')
+        return redirect(url_for('upload_room_photos'))
     
     # Show current photos
     user_photos = RoomPhoto.query.filter_by(user_id=current_user.id)\
-        .order_by(RoomPhoto.uploaded_at.desc()).limit(6).all()
+        .order_by(RoomPhoto.uploaded_at.desc()).all()
     return render_template('room_photos.html', form=form, photos=user_photos)
+
+@app.route('/delete-room-photo/<int:photo_id>', methods=['POST'])
+@login_required
+def delete_room_photo(photo_id):
+    photo = RoomPhoto.query.get_or_404(photo_id)
+    if photo.user_id != current_user.id:
+        flash('Not authorised to delete this photo.', 'danger')
+        return redirect(url_for('upload_room_photos'))
+    
+    try:
+        file_path = os.path.join(app.root_path, 'static', photo.filename)
+        if os.path.exists(file_path):
+            os.remove(file_path)
+    except Exception as e:
+        print(f"Error deleting file: {e}")
+        
+    db.session.delete(photo)
+    db.session.commit()
+    flash('Photo deleted successfully.', 'success')
+    return redirect(url_for('upload_room_photos'))
 
 
 # ── Dashboard & Matching ──────────────────────────────────────────────────────
