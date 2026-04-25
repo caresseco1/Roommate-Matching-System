@@ -332,7 +332,7 @@ def registration():
         current_user.budget_max = form.budget_max.data
         current_user.accommodation_type = form.accommodation_type.data
         current_user.preferred_gender = form.preferred_gender.data
-        if current_user.looking_for in ['roomate', 'roommate']:
+        if current_user.looking_for in ['roomate', 'roomate']:
             current_user.room_price = form.room_price.data
         db.session.commit()
         _sync_user_to_dataset(current_user)
@@ -345,8 +345,13 @@ def registration():
 def edit_profile():
     form = EditProfileForm(obj=current_user)
     if form.validate_on_submit():
-        # Process profile picture upload safely
-        if form.profile_pic.data and hasattr(form.profile_pic.data, 'filename'):
+        # Save existing picture because populate_obj will overwrite it
+        existing_pic = current_user.profile_pic
+        
+        form.populate_obj(current_user)
+        
+        # Process new profile picture upload safely
+        if form.profile_pic.data and hasattr(form.profile_pic.data, 'filename') and form.profile_pic.data.filename:
             pic = form.profile_pic.data
             filename = secure_filename(pic.filename)
             if filename:
@@ -355,8 +360,9 @@ def edit_profile():
                 os.makedirs(upload_dir, exist_ok=True)
                 pic.save(os.path.join(upload_dir, filename))
                 current_user.profile_pic = filename
-        
-        form.populate_obj(current_user)
+        else:
+            current_user.profile_pic = existing_pic
+
         current_user.cleanliness = int(form.cleanliness.data)
 
         db.session.commit()
@@ -369,7 +375,7 @@ def edit_profile():
 @app.route('/upload-room-photos', methods=['GET', 'POST'])
 @login_required
 def upload_room_photos():
-    if current_user.looking_for not in ['roomate', 'roommate']:
+    if current_user.looking_for not in ['roomate', 'roomate']:
         flash('Room photos available for room owners only.', 'warning')
         return redirect(url_for('edit_profile'))
     
@@ -402,7 +408,7 @@ def upload_room_photos():
         
         if uploaded_count > 0:
             db.session.commit()
-            flash(f'✅ Uploaded {uploaded_count} room photo(s)!', 'success')
+            flash(f'Uploaded {uploaded_count} room photo(s)!', 'success')
         elif current_count < 6 and not any(p.filename for p in files):
             flash('No photos selected.', 'warning')
         return redirect(url_for('upload_room_photos'))

@@ -18,7 +18,10 @@
         <option value="age_closest" {% if sort_by == 'age_closest' %}selected{% endif %}>Sort by: Age (Closest to Me)</option>
       </select>
     </form>
-    <input type="text" id="searchInput" class="form-input" placeholder="🔍 Filter by name or locality…" oninput="filterMatches()"/>
+    <div style="position: relative; flex: 1; min-width: 200px;">
+      <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted);"></i>
+      <input type="text" id="searchInput" class="form-input" placeholder="Filter by name or locality…" oninput="filterMatches()" style="padding-left: 36px;"/>
+    </div>
     <select id="minScore" class="form-select" onchange="filterMatches()">
       <option value="0">All scores</option>
       <option value="60">60%+</option>
@@ -51,7 +54,7 @@
       <div class="match-row-main">
         <div class="match-row-name">{{ p.name or 'Anonymous' }}</div>
         <div class="match-row-meta">
-          📍 {{ p.locality or p.city or 'Mumbai' }}
+          <i class="fa-solid fa-location-dot"></i> {{ p.locality or p.city or 'Mumbai' }}
           {% if p.occupation %} · {{ p.occupation }}{% endif %}
           {% if p.age %} · {{ p.age|int }} yrs{% endif %}
           {% if p.accommodation_type %} · {{ p.accommodation_type }}{% endif %}
@@ -70,10 +73,10 @@
         {% if p.budget_min and p.budget_max %}
         <div class="budget-tag">₹{{ '{:,}'.format(p.budget_min|int) }}–{{ '{:,}'.format(p.budget_max|int) }}</div>
         {% endif %}
-        <div style="display: flex; gap: 0.4rem; margin-top: 0.25rem;">
+        <div style="display: flex; align-items: center; gap: 0.4rem; margin-top: 0.25rem;">
           <a href="{{ url_for('profile_dataset', dp_id=p.id) }}" class="btn btn-outline btn-sm">View</a>
           {% if p.original_user_id and p.original_user_id != current_user.id %}
-          <form method="POST" action="{{ url_for('start_chat', receiver_id=p.original_user_id) }}" style="margin: 0;">
+          <form method="POST" action="{{ url_for('start_chat', receiver_id=p.original_user_id) }}" style="margin: 0; display: flex;">
             <button type="submit" class="btn btn-primary btn-sm">Message</button>
           </form>
           {% endif %}
@@ -84,7 +87,7 @@
   </div>
   {% else %}
   <div class="empty-state glass">
-    <div class="empty-icon">🔍</div>
+    <div class="empty-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
     <h3>No matches found</h3>
     <p>Complete your profile to enable AI-powered matching</p>
   </div>

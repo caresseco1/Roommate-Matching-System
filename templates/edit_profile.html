@@ -4,14 +4,14 @@
 <div class="reg-page">
   <div class="reg-card glass">
     <div class="reg-header">
-      <h2>✏️ Edit Your Profile</h2>
+      <h2> Edit Your Profile</h2>
       <p>Updating your profile re-trains your match scores in real time</p>
     </div>
     <form method="POST" enctype="multipart/form-data" novalidate>
       {{ form.hidden_tag() }}
 
       <div class="form-section">
-        <h3 class="section-label">👤 About You</h3>
+        <h3 class="section-label"><i class="fa-solid fa-user"></i> About You</h3>
         <div class="form-group">
           {{ form.profile_pic.label(class="form-label") }}
           {{ form.profile_pic(class="form-input", style="padding: 0.5rem; background: rgba(255,255,255,0.02);") }}
@@ -46,7 +46,7 @@
       </div>
 
       <div class="form-section">
-        <h3 class="section-label">🌙 Lifestyle</h3>
+        <h3 class="section-label"> Lifestyle</h3>
         <div class="form-row">
           <div class="form-group">{{ form.sleep_schedule.label(class="form-label") }}{{ form.sleep_schedule(class="form-select") }}</div>
           <div class="form-group">{{ form.cleanliness.label(class="form-label") }}{{ form.cleanliness(class="form-select") }}</div>
@@ -75,7 +75,7 @@
       </div>
 
       <div class="form-section">
-        <h3 class="section-label">🧠 Big Five Personality <small>(1-10)</small></h3>
+        <h3 class="section-label">Big Five Personality <small>(1-10)</small></h3>
         <p class="section-hint">These directly affect your MLR compatibility score</p>
         {% for field in [form.openness, form.conscientiousness, form.extraversion, form.agreeableness, form.neuroticism] %}
         <div class="form-group trait-group">
@@ -90,16 +90,16 @@
       </div>
 
       <div class="form-section">
-        <h3 class="section-label">💰 Budget & Accommodation</h3>
+        <h3 class="section-label"> Budget & Accommodation</h3>
         <div class="form-row">
           <div class="form-group">{{ form.budget_min.label(class="form-label") }}{{ form.budget_min(class="form-input") }}</div>
           <div class="form-group">{{ form.budget_max.label(class="form-label") }}{{ form.budget_max(class="form-input") }}</div>
         </div>
         <div id="roomPriceGroup" class="form-group"
-             style="display: {% if current_user.looking_for in ['roomate', 'roommate'] %}block{% else %}none{% endif %};">
+             style="display: {% if current_user.looking_for in ['roomate', 'roomate'] %}block{% else %}none{% endif %};">
           {{ form.room_price.label(class="form-label") }}
           {{ form.room_price(class="form-input") }}
-          <small class="form-hint">Monthly rent you're offering for roommate</small>
+          <small class="form-hint">Monthly rent you're offering for roomate</small>
           {% for e in form.room_price.errors %}
             <span class="form-error">{{ e }}</span>
           {% endfor %}
@@ -123,12 +123,12 @@
       </div>
 
       <div id="roomPhotosSection" class="form-section"
-           style="display: {% if current_user.looking_for in ['roomate', 'roommate'] %}block{% else %}none{% endif %};">
-        <h3 class="section-label">🏠 Room Photos</h3>
-        <p class="section-hint">Upload photos of your room to attract roommates (up to 6)</p>
+           style="display: {% if current_user.looking_for in ['roomate', 'roomate'] %}block{% else %}none{% endif %};">
+        <h3 class="section-label"> Room Photos</h3>
+        <p class="section-hint">Upload photos of your room to attract roomates (up to 6)</p>
         <div style="text-align: center; margin: 1.5rem 0;">
           <a href="{{ url_for('upload_room_photos') }}" id="uploadPhotosLink" class="btn btn-secondary btn-full">
-            📸 Upload Room Photos
+             Upload Room Photos
           </a>
           <small id="uploadPhotosHint" class="form-hint" style="display: none; color: var(--accent); margin-top: 0.5rem;">Please save your profile first before uploading photos.</small>
         </div>
@@ -161,14 +161,14 @@ const initialLookingFor = '{{ current_user.looking_for }}';
 
 function toggleRoomOwnerFields() {
   if (!lookingForSelect) return;
-  const isRoomOwner = lookingForSelect.value === 'roomate' || lookingForSelect.value === 'roommate';
+  const isRoomOwner = lookingForSelect.value === 'roomate' || lookingForSelect.value === 'roomate';
   const displayStyle = isRoomOwner ? 'block' : 'none';
   
   if (roomPriceGroup) roomPriceGroup.style.display = displayStyle;
   if (roomPhotosSection) roomPhotosSection.style.display = displayStyle;
   
   // Ask to save profile first if they just switched to room owner (so backend accepts the photos)
-  if (isRoomOwner && initialLookingFor !== 'roomate' && initialLookingFor !== 'roommate') {
+  if (isRoomOwner && initialLookingFor !== 'roomate' && initialLookingFor !== 'roomate') {
     if (uploadPhotosLink) { uploadPhotosLink.style.pointerEvents = 'none'; uploadPhotosLink.style.opacity = '0.5'; }
     if (uploadPhotosHint) uploadPhotosHint.style.display = 'block';
   } else {

@@ -34,7 +34,7 @@ class OTPForm(FlaskForm):
 class LookingForForm(FlaskForm):
     looking_for = SelectField('Looking For', choices=[
         ('room', 'Looking for a Room'),
-        ('roommate', 'Looking for roommate (room owner)')],
+        ('roomate', 'Looking for roomate (room owner)')],
         validators=[DataRequired()])
     submit = SubmitField('Continue')
 
@@ -121,7 +121,7 @@ class RegistrationForm(FlaskForm):
 class EditProfileForm(RegistrationForm):
     looking_for = SelectField('Looking For', choices=[
         ('room', 'Looking for a Room'),
-        ('roommate', 'Looking for roommate (room owner)')]
+        ('roomate', 'Looking for roomate (room owner)')]
 , validators=[Optional()])
     room_price = IntegerField('Room Price (₹/month)', validators=[Optional(), NumberRange(1000, 500000)])
 

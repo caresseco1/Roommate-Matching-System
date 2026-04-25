@@ -1,4 +1,4 @@
-# 🏠 StayMate — AI-Powered roomate Matching
+#  StayMate — AI-Powered roomate Matching
 
 > Multiple Linear Regression + Pearson Correlation matching engine,
 > trained on 300+ Mumbai profiles from your dataset.
@@ -72,7 +72,7 @@ python app.py
 
 ---
 
-## 🧠 How the Matching Engine Works
+## How the Matching Engine Works
 
 ### Step 1 — Feature Encoding (`matching.py → encode_profile`)
 Every profile (dataset row or registered user) is encoded into a **23-dimensional numeric vector**:

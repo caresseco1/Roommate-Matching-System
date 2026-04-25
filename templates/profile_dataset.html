@@ -16,10 +16,10 @@
         {% if dp.age %}<span>{{ dp.age|int }} years</span>{% endif %}
         {% if dp.gender %}<span>{{ dp.gender }}</span>{% endif %}
         {% if dp.occupation %}<span>{{ dp.occupation }}</span>{% endif %}
-        {% if dp.locality %}<span>📍 {{ dp.locality }}, {{ dp.city or 'Mumbai' }}</span>{% endif %}
+        {% if dp.locality %}<span><i class="fa-solid fa-location-dot"></i> {{ dp.locality }}, {{ dp.city or 'Mumbai' }}</span>{% endif %}
       </div>
       {% if dp.looking_for %}
-      <div class="looking-badge">{{ '🔍 Looking for a Room' if dp.looking_for == 'room' else '🤝 Room Owner / Looking for Roommate' }}</div>
+      <div class="looking-badge">{{ '<i class="fa-solid fa-magnifying-glass"></i> Looking for a Room'|safe if dp.looking_for == 'room' else '<i class="fa-solid fa-handshake"></i> Room Owner / Looking for roomate'|safe }}</div>
       {% endif %}
 
     </div>
@@ -33,12 +33,12 @@
 
   <!-- Score breakdown -->
   <div class="compat-breakdown glass">
-    <h3>📊 Compatibility Breakdown</h3>
+    <h3><i class="fa-solid fa-chart-bar"></i> Compatibility Breakdown</h3>
     <p class="breakdown-note">MLR Score: <strong>{{ compat.mlr_score }}%</strong> &nbsp;|&nbsp; Pearson Correlation: <strong>{{ compat.pearson_score }}%</strong></p>
     <div class="breakdown-grid">
-      {% for label, icon, key in [('Age', '🎂', 'age'), ('Lifestyle', '🌙', 'lifestyle'), ('Personality', '🧠', 'personality'), ('Budget', '💰', 'budget'), ('Location', '📍', 'location')] %}
+      {% for label, icon, key in [('Age', '', 'age'), ('Lifestyle', '', 'lifestyle'), ('Personality', '', 'personality'), ('Budget', '', 'budget'), ('Location', '<i class="fa-solid fa-location-dot"></i>', 'location')] %}
       <div class="breakdown-item">
-        <div class="breakdown-label">{{ icon }} {{ label }}</div>
+        <div class="breakdown-label">{{ icon|safe }} {{ label }}</div>
         <div class="breakdown-bar-wrap">
           <div class="breakdown-bar"><div class="breakdown-fill" data-width="{{ compat.breakdown[key] }}"></div></div>
           <span class="breakdown-pct">{{ compat.breakdown[key] }}%</span>
@@ -49,9 +49,9 @@
   </div>
 
   <!-- ROOM PHOTOS GALLERY (room owners) -->
-  {% if dp.original_user_id and dp.looking_for == 'roommate' %}
+  {% if dp.original_user_id and dp.looking_for == 'roomate' %}
   <div class="form-section">
-    <h3 class="section-label">🏠 Room Photos</h3>
+    <h3 class="section-label"> Room Photos</h3>
     <div class="photos-grid">
       {% for photo in room_photos %}
       <div class="photo-card glass">
@@ -70,7 +70,7 @@
   <div class="profile-details-grid">
 
     <div class="detail-card glass">
-      <h3>🌙 Lifestyle</h3>
+      <h3> Lifestyle</h3>
       <div class="detail-list">
         {% if dp.sleep_schedule %}<div class="detail-item"><span>Sleep</span><strong>{{ dp.sleep_schedule }}</strong></div>{% endif %}
         {% if dp.cleanliness %}<div class="detail-item"><span>Cleanliness</span><strong>{{ dp.cleanliness|int }}/5</strong></div>{% endif %}
@@ -89,7 +89,7 @@
     </div>
 
     <div class="detail-card glass">
-      <h3>🧠 Big Five Personality</h3>
+      <h3>Big Five Personality</h3>
       {% for trait, label in [('openness','Openness'),('conscientiousness','Conscientiousness'),('extraversion','Extraversion'),('agreeableness','Agreeableness'),('neuroticism','Neuroticism')] %}
       {% if dp[trait] is defined and dp[trait] %}
       {% set val = dp[trait]|float %}
@@ -103,7 +103,7 @@
     </div>
 
     <div class="detail-card glass">
-      <h3>💰 Budget & Accommodation</h3>
+      <h3> Budget & Accommodation</h3>
       {% if dp.budget_min and dp.budget_max %}
       <div class="detail-item"><span>Budget</span><strong>₹{{ '{:,}'.format(dp.budget_min|int) }} – ₹{{ '{:,}'.format(dp.budget_max|int) }}/mo</strong></div>
       {% endif %}
@@ -117,7 +117,7 @@
   <div class="profile-actions glass">
     {% if dp.original_user_id and dp.original_user_id != current_user.id %}
       <form method="POST" action="{{ url_for('start_chat', receiver_id=dp.original_user_id) }}" style="display:inline;">
-        <button type="submit" class="btn btn-primary">💬 Message</button>
+        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-comment"></i> Message</button>
       </form>
     {% endif %}
   </div>

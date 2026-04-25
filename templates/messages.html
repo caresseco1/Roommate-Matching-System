@@ -3,7 +3,7 @@
 {% block content %}
 <div class="page-container">
   <div class="page-header">
-    <h1>💬 Messages</h1>
+    <h1><i class="fa-solid fa-message"></i> Messages</h1>
     <p>Your conversations with potential roomates</p>
   </div>
 
@@ -30,14 +30,14 @@
       </div>
       <div class="convo-right">
         {% if unread %}<span class="badge">{{ unread }}</span>{% endif %}
-        {% if partner.locality %}<div class="convo-loc">📍 {{ partner.locality }}</div>{% endif %}
+        {% if partner.locality %}<div class="convo-loc"><i class="fa-solid fa-location-dot"></i> {{ partner.locality }}</div>{% endif %}
       </div>
     </a>
     {% endfor %}
   </div>
   {% else %}
   <div class="empty-state glass">
-    <div class="empty-icon">💬</div>
+    <div class="empty-icon"><i class="fa-solid fa-comments"></i></div>
     <h3>No conversations yet</h3>
     <p>Find a match and start a conversation!</p>
     <a href="{{ url_for('matches') }}" class="btn btn-primary">Browse Matches</a>

@@ -257,9 +257,9 @@ def get_matches(current_user, profiles, top_n=20, sort_by='compatibility'):
         if p_pref_gen not in ['any', ''] and p_pref_gen != user_gen:
             continue
             
-        # 3. Looking For Check: "roommate" means room owner (seeking tenant); matches "room" seekers only (prevents owner-owner matches)
+        # 3. Looking For Check: "roomate" means room owner (seeking tenant); matches "room" seekers only (prevents owner-owner matches)
         p_looking = (profile.looking_for or 'room').strip().lower()
-        if user_looking in ['roomate', 'roommate'] and p_looking in ['roomate', 'roommate']:  # room owner
+        if user_looking in ['roomate', 'roomate'] and p_looking in ['roomate', 'roomate']:  # room owner
             continue
 
         diff_vec = np.abs(user_vec - pvec)

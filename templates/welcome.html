@@ -1,33 +1,44 @@
 {% extends "base.html" %}
-{% block title %}Dashboard — StayMate{% endblock %}
+{% block title %}Welcome — StayMate{% endblock %}
 {% block content %}
-<div class="hero">
+<style>
+  .animated-gradient-text {
+    background: linear-gradient(270deg, #4f46e5, #0ea5e9, #8100c2, #4f46e5);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 8s ease infinite;
+  }
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .welcome-animated-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(-45deg, #a7d0ff, #c3d7fc, #b7d9fa, #8f78f7);
+    background-size: 400% 400%;
+    animation: gradient-shift 15s ease infinite;
+  }
+</style>
+
+<div class="welcome-animated-bg"></div>
+
+<div class="hero" style="position: relative; justify-content: center; text-align: center;">
   <div class="hero-particles"></div>
-  <div class="hero-content">
-    <title>STAYMATE</title>
-    <h1 class="hero-title">Welcome to <strong>StayMate</strong>.<br></h1>
-    <p class="hero-subtitle">AI-powered matching using Multiple Linear Regression & Personality Correlation. Not just budget — your lifestyle, personality, and habits.</p>
-    <div class="hero-actions">
-      <a href="{{ url_for('signup') }}" class="btn btn-primary btn-lg">Get Started Free</a>
-      <a href="{{ url_for('login') }}" class="btn btn-outline btn-lg">Sign In</a>
+  <div class="hero-content" style="z-index: 1; align-items: center; max-width: 800px;">
+    <h1 class="hero-title">Welcome to <span class="animated-gradient-text">StayMate</span>.<br></h1>
+    <p class="hero-subtitle" style="margin: 0 auto; max-width: 600px;">AI-powered matching using Multiple Linear Regression & Personality Correlation. Not just budget — your lifestyle, personality, and habits.</p>
+    <div class="hero-actions" style="justify-content: center;">
+      <a href="{{ url_for('signup') }}" class="btn btn-lg" style="background-color: #4f46e5; color: white;">Get Started Free</a>
+      <a href="{{ url_for('login') }}" class="btn btn-lg" style="background-color: #4f46e5; color: white;">Sign In</a>
     </div>
-    <div class="hero-stats">
+    <div class="hero-stats" style="justify-content: center;">
       <div class="stat"><span class="stat-num">300+</span><span class="stat-label">Profiles</span></div>
       <div class="stat"><span class="stat-num">28</span><span class="stat-label">Match Factors</span></div>
       <div class="stat"><span class="stat-num">95%</span><span class="stat-label">Happy Matches</span></div>
-    </div>
-  </div>
-  <div class="hero-visual">
-    <div class="match-card-demo">
-      <div class="demo-avatar">👤</div>
-      <div class="demo-info">
-        <div class="demo-name">Priya S.</div>
-        <div class="demo-loc">📍 Powai, Mumbai</div>
-        <div class="demo-score-bar">
-          <div class="demo-score-fill" style="width:87%"></div>
-        </div>
-        <div class="demo-score-label">87% Compatible</div>
-      </div>
     </div>
   </div>
 </div>
@@ -36,22 +47,22 @@
   <h2 class="section-title">Why StayMate?</h2>
   <div class="features-grid">
     <div class="feature-card">
-      <div class="feature-icon">🧠</div>
+<div class="feature-icon"><i class="fa-solid fa-robot"></i></div>
       <h3>MLR-Powered Matching</h3>
       <p>Multiple Linear Regression trained on 300+ Mumbai profiles weighs 28 lifestyle and personality factors to compute your compatibility score.</p>
     </div>
     <div class="feature-card">
-      <div class="feature-icon">📊</div>
+<div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
       <h3>Pearson Correlation</h3>
       <p>Beyond scores — we compute Pearson correlation between full personality vectors so similar people always surface at the top.</p>
     </div>
     <div class="feature-card">
-      <div class="feature-icon">💬</div>
+<div class="feature-icon"><i class="fa-solid fa-comments"></i></div>
       <h3>In-App Messaging</h3>
       <p>Chat directly with potential roomates, send room requests, and manage your matches — all in one place.</p>
     </div>
     <div class="feature-card">
-      <div class="feature-icon">🔔</div>
+<div class="feature-icon"><i class="fa-solid fa-bell"></i></div>
       <h3>Smart Notifications</h3>
       <p>Get instant alerts for room requests, acceptances, and messages so you never miss an opportunity.</p>
     </div>

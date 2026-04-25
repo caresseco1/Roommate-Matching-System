@@ -3,7 +3,7 @@
 {% block content %}
 <div class="chat-page">
   <div class="chat-header glass">
-    <a href="{{ url_for('messages') }}" class="back-btn">←</a>
+    <a href="{{ url_for('messages') }}" class="back-btn"><i class="fa-solid fa-arrow-left"></i></a>
     <div class="chat-avatar">
       {% if other.profile_pic %}
         <img src="{{ url_for('static', filename='uploads/' + other.profile_pic) }}" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;" alt="Pic">
@@ -13,7 +13,7 @@
     </div>
     <div class="chat-header-info">
       <div class="chat-name">{{ other.username }}</div>
-      {% if other.locality %}<div class="chat-loc">📍 {{ other.locality }}</div>{% endif %}
+      {% if other.locality %}<div class="chat-loc"><i class="fa-solid fa-location-dot"></i> {{ other.locality }}</div>{% endif %}
     </div>
     <div class="chat-header-actions">
       <a href="{{ url_for('profile', user_id=other.id) }}" class="btn btn-outline btn-sm">View Profile</a>
@@ -37,7 +37,7 @@
       {% endfor %}
     {% else %}
     <div class="chat-empty">
-      <p>Say hello to {{ other.username }}! 👋</p>
+      <p>Say hello to {{ other.username }}!</p>
     </div>
     {% endif %}
   </div>
@@ -48,12 +48,12 @@
       {{ form.hidden_tag() }}
       {{ form.content(class="chat-input", placeholder="Type a message…", id="chatInput", rows=1,
          onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();document.getElementById('chatForm').submit();}") }}
-      <button type="submit" class="btn btn-primary chat-send">Send ➤</button>
+      <button type="submit" class="btn btn-primary chat-send">Send <i class="fa-solid fa-paper-plane"></i></button>
     </form>
   </div>
   {% else %}
   <div class="chat-input-area glass" style="text-align: center; padding: 1.25rem; color: var(--text-muted);">
-    <p style="margin-bottom: 0.25rem;">🔒 <strong>Chat is locked</strong></p>
+    <p style="margin-bottom: 0.25rem;"><i class="fa-solid fa-lock"></i> <strong>Chat is locked</strong></p>
     <p style="font-size: .85rem; margin: 0;">You can message each other once the room request is accepted.</p>
   </div>
   {% endif %}

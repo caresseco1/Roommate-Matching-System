@@ -3,7 +3,7 @@
 {% block content %}
 <div class="page-container">
   <div class="page-header">
-  <h1>💬 Message Requests</h1>
+  <h1><i class="fa-solid fa-envelope-open-text"></i> Message Requests</h1>
     <p>Manage your sent and received requests</p>
   </div>
 
@@ -24,13 +24,13 @@
           </div>
           <div class="req-info">
             <div class="req-name">{{ other.username }}</div>
-            {% if other.locality %}<div class="req-loc">📍 {{ other.locality }}</div>{% endif %}
+            {% if other.locality %}<div class="req-loc"><i class="fa-solid fa-location-dot"></i> {{ other.locality }}</div>{% endif %}
             {% if other.occupation %}<div class="req-occ">{{ other.occupation }}</div>{% endif %}
             <div class="req-date">{{ req.created_at.strftime('%d %b %Y') }}</div>
             {% if req.status == 'accepted' %}
             <div style="margin-top: 0.5rem; font-size: 0.8rem; background: rgba(255,255,255,0.05); padding: 0.5rem; border-radius: 8px; border: 1px solid var(--border);">
-              <div style="color: var(--accent-2); margin-bottom: 0.15rem;">📞 {{ other.phone_number or 'Not provided' }}</div>
-              <div style="color: var(--text-muted);">✉️ <a href="mailto:{{ other.email }}" style="color: inherit;">{{ other.email }}</a></div>
+              <div style="color: var(--accent-2); margin-bottom: 0.15rem;"><i class="fa-solid fa-phone"></i> {{ other.phone_number or 'Not provided' }}</div>
+              <div style="color: var(--text-muted);"><i class="fa-solid fa-envelope"></i> <a href="mailto:{{ other.email }}" style="color: inherit;">{{ other.email }}</a></div>
             </div>
             {% endif %}
           </div>
@@ -45,7 +45,7 @@
             </form>
             {% endif %}
             {% if req.status == 'accepted' %}
-            <a href="{{ url_for('chat', other_id=other.id) }}" class="btn btn-outline btn-sm">💬 Chat</a>
+            <a href="{{ url_for('chat', other_id=other.id) }}" class="btn btn-outline btn-sm"><i class="fa-solid fa-comment"></i> Chat</a>
             <form method="POST" action="{{ url_for('unmatch', req_id=req.id) }}">
               <button class="btn btn-danger btn-sm">Unmatch</button>
             </form>
@@ -74,12 +74,12 @@
           </div>
           <div class="req-info">
             <div class="req-name">{{ other.username }}</div>
-            {% if other.locality %}<div class="req-loc">📍 {{ other.locality }}</div>{% endif %}
+            {% if other.locality %}<div class="req-loc"><i class="fa-solid fa-location-dot"></i> {{ other.locality }}</div>{% endif %}
             {% if other.occupation %}<div class="req-occ">{{ other.occupation }}</div>{% endif %}
             <div class="req-date">{{ req.created_at.strftime('%d %b %Y') }}</div>
             {% if req.status == 'accepted' %}
             <div style="margin-top: 0.5rem; font-size: 0.8rem; background: rgba(255,255,255,0.05); padding: 0.5rem; border-radius: 8px; border: 1px solid var(--border);">
-              <div style="color: var(--accent-2); margin-bottom: 0.15rem;">📞 {{ other.phone_number or 'Not provided' }}</div>
+              <div style="color: var(--accent-2); margin-bottom: 0.15rem;"><i class="fa-solid fa-phone"></i> {{ other.phone_number or 'Not provided' }}</div>
               <div style="color: var(--text-muted);"><a href="mailto:{{ other.email }}" style="color: inherit;">{{ other.email }}</a></div>
             </div>
             {% endif %}
@@ -87,7 +87,7 @@
           <div class="req-actions">
             <span class="status-tag status-{{ req.status }}">{{ req.status }}</span>
             {% if req.status == 'accepted' %}
-            <a href="{{ url_for('chat', other_id=other.id) }}" class="btn btn-primary btn-sm">💬 Chat</a>
+            <a href="{{ url_for('chat', other_id=other.id) }}" class="btn btn-primary btn-sm"><i class="fa-solid fa-comment"></i> Chat</a>
             <form method="POST" action="{{ url_for('unmatch', req_id=req.id) }}">
               <button class="btn btn-danger btn-sm">Unmatch</button>
             </form>

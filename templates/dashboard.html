@@ -10,11 +10,10 @@
 <style>
   .leaflet-popup-content-wrapper,
   .leaflet-popup-tip {
-    background: rgba(13,15,26,0.85);
+    background: #ffffff;
     border: 1px solid var(--border);
-    backdrop-filter: blur(16px);
     color: var(--text);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    box-shadow: var(--shadow);
   }
 </style>
 
@@ -24,19 +23,19 @@
   <div class="dash-header">
     <div style="display: flex; align-items: center; gap: 1rem;">
       {% if user.profile_pic %}
-      <img src="{{ url_for('static', filename='uploads/' + user.profile_pic) }}" alt="Profile" style="width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent); flex-shrink: 0;">
+      <img src="{{ url_for('static', filename='uploads/' + user.profile_pic) }}" alt="Profile" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent); flex-shrink: 0;">
       {% else %}
-      <div style="width: 64px; height: 64px; border-radius: 50%; background: var(--accent-grad); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: bold; color: white; flex-shrink: 0;">{{ user.username[0]|upper }}</div>
+      <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--accent-grad); display: flex; align-items: center; justify-content: center; font-size: 2.2rem; font-weight: bold; color: white; flex-shrink: 0;">{{ user.username[0]|upper }}</div>
       {% endif %}
       <div>
-        <h1 style="margin-bottom: 0.2rem;">Hello, {{ user.username.split()[0] }} 👋</h1>
+        <h1 style="margin-bottom: 0.2rem;">Hello, {{ user.username.split()[0] }}</h1>
         <p class="dash-sub" style="margin: 0;">Here's your roomate compatibility overview</p>
       </div>
     </div>
 
     <div class="dash-actions">
-      <a href="{{ url_for('matches') }}" class="btn btn-primary">View Matches</a>
-      <a href="{{ url_for('edit_profile') }}" class="btn btn-outline">Edit Profile</a>
+      <a href="{{ url_for('matches') }}" class="btn" style="background-color: #4f46e5; color: white;">View Matches</a>
+      <a href="{{ url_for('edit_profile') }}" class="btn" style="background-color: #4f46e5; color: white;">Edit Profile</a>
     </div>
   </div>
 
@@ -44,7 +43,7 @@
   <div class="stats-row">
 
     <div class="stat-card glass">
-      <div class="stat-icon"></div>
+      <div class="stat-icon"><i class="fa-solid fa-user-check"></i></div>
       <div class="stat-body">
         <div class="stat-value">{{ profile_completion }}%</div>
         <div class="stat-label">Profile Complete</div>
@@ -55,7 +54,7 @@
     </div>
 
     <div class="stat-card glass">
-      <div class="stat-icon"></div>
+      <div class="stat-icon"><i class="fa-solid fa-star"></i></div>
       <div class="stat-body">
         <div class="stat-value">{{ top_matches|length }}</div>
         <div class="stat-label">Top Matches</div>
@@ -63,7 +62,7 @@
     </div>
 
     <div class="stat-card glass">
-      <div class="stat-icon"></div>
+      <div class="stat-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
       <div class="stat-body">
         <div class="stat-value">{{ total_pending_requests }}</div>
         <div class="stat-label">Pending Requests</div>
@@ -71,7 +70,7 @@
     </div>
 
     <div class="stat-card glass">
-      <div class="stat-icon"></div>
+      <div class="stat-icon"><i class="fa-solid fa-comments"></i></div>
       <div class="stat-body">
         <div class="stat-value">{{ active_chats_count }}</div>
         <div class="stat-label">Active Chats</div>
@@ -83,7 +82,7 @@
   <!-- ALERT -->
   {% if profile_completion < 50 %}
   <div class="alert-card glass">
-    ⚠️ Complete your profile ({{ profile_completion }}%)
+    <i class="fa-solid fa-triangle-exclamation"></i> Complete your profile ({{ profile_completion }}%)
     <a href="{{ url_for('registration') }}" class="btn btn-primary btn-sm">Complete Now</a>
   </div>
   {% endif %}
@@ -93,7 +92,7 @@
 
   <div style="display:flex; justify-content:space-between; margin-bottom:1rem;">
     <h2>Your Top Matches</h2>
-    <button class="btn btn-secondary btn-sm" onclick="toggleMap(this)">Show Map</button>
+    <button class="btn btn-sm" style="background-color: #4f46e5; color: white;" onclick="toggleMap(this)">Show Map</button>
   </div>
 
   <div id="matchesMap" style="height:400px; display:none;" class="glass"></div>
@@ -117,7 +116,7 @@
 
         <div class="match-info">
           <div class="match-name">{{ p.name or 'Anonymous' }}</div>
-          <div class="match-loc">📍 {{ p.locality or 'Mumbai' }}</div>
+          <div class="match-loc"><i class="fa-solid fa-location-dot"></i> {{ p.locality or 'Mumbai' }}</div>
         </div>
 
         <div class="match-score-badge
@@ -138,7 +137,7 @@
           View Profile
         </a>
         {% if p.original_user_id and p.original_user_id != current_user.id %}
-        <form method="POST" action="{{ url_for('start_chat', receiver_id=p.original_user_id) }}" style="display:inline;">
+        <form method="POST" action="{{ url_for('start_chat', receiver_id=p.original_user_id) }}" style="margin: 0; display: flex;">
           <button type="submit" class="btn btn-primary btn-sm">Message</button>
         </form>
         {% endif %}
@@ -240,7 +239,7 @@
 
       // Use a custom HTML marker with their initial and gradient background!
       const customIcon = L.divIcon({
-        html: `<div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#7c6ef5 0%,#5eead4 100%);display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;border:2px solid white;box-shadow:0 4px 8px rgba(0,0,0,0.4);">${initial}</div>`,
+        html: `<div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#4f46e5 0%,#0ea5e9 100%);display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;border:2px solid white;box-shadow:0 4px 8px rgba(0,0,0,0.2);">${initial}</div>`,
         className: '',
         iconSize: [32, 32],
         iconAnchor: [16, 32],
@@ -251,10 +250,10 @@
 
       marker.bindPopup(`
         <div style="text-align: center; font-family: 'Poppins', sans-serif; min-width: 140px;">
-          <strong style="font-size: 1.1rem; color: #7c6ef5;">${match.score}% Match</strong><br>
+          <strong style="font-size: 1.1rem; color: #4f46e5;">${match.score}% Match</strong><br>
           <b style="font-size: .95rem; color: var(--text);">${cleanName}</b><br>
-          <span style="color: #7a7f9a; font-size: 0.8rem;">📍 ${cleanLoc}</span><br>
-          <a href="${match.url}" style="display: inline-block; margin-top: 8px; padding: 4px 12px; background: #7c6ef5; color: white; border-radius: 6px; text-decoration: none; font-size: 0.8rem; font-weight: 600;">View Profile</a>
+          <span style="color: var(--text-muted); font-size: 0.8rem;"><i class="fa-solid fa-location-dot"></i> ${cleanLoc}</span><br>
+          <a href="${match.url}" style="display: inline-block; margin-top: 8px; padding: 4px 12px; background: #4f46e5; color: white; border-radius: 6px; text-decoration: none; font-size: 0.8rem; font-weight: 600;">View Profile</a>
         </div>
       `);
     });

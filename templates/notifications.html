@@ -3,7 +3,7 @@
 {% block content %}
 <div class="page-container">
   <div class="page-header">
-    <h1>🔔 Notifications</h1>
+    <h1><i class="fa-solid fa-bell"></i> Notifications</h1>
     <p>Stay updated on your matches and requests</p>
   </div>
 
@@ -12,12 +12,12 @@
     {% for n in notifications %}
     <div class="notif-card glass {% if not n.is_read %}notif-unread{% endif %}">
       <div class="notif-icon">
-        {% if 'request' in n.message|lower %}🤝
-        {% elif 'accepted' in n.message|lower %}✅
-        {% elif 'declined' in n.message|lower %}❌
-        {% elif 'unmatched' in n.message|lower %}💔
-        {% elif 'message' in n.message|lower %}💬
-        {% else %}🔔{% endif %}
+        {% if 'request' in n.message|lower %}<i class="fa-solid fa-handshake"></i>
+        {% elif 'accepted' in n.message|lower %}<i class="fa-solid fa-check"></i>
+        {% elif 'declined' in n.message|lower %}<i class="fa-solid fa-xmark"></i>
+        {% elif 'unmatched' in n.message|lower %}<i class="fa-solid fa-heart-crack"></i>
+        {% elif 'message' in n.message|lower %}<i class="fa-solid fa-comment"></i>
+        {% else %}<i class="fa-solid fa-bell"></i>{% endif %}
       </div>
       <div class="notif-body">
         <div class="notif-msg">{{ n.message }}</div>
@@ -31,7 +31,7 @@
   </div>
   {% else %}
   <div class="empty-state glass">
-    <div class="empty-icon">🔔</div>
+    <div class="empty-icon"><i class="fa-solid fa-bell-slash"></i></div>
     <h3>All caught up!</h3>
     <p>No notifications yet. Start connecting with roomates.</p>
     <a href="{{ url_for('matches') }}" class="btn btn-primary">Find Matches</a>

@@ -11,7 +11,7 @@
       {{ form.hidden_tag() }}
 
       <div class="form-section">
-        <h3 class="section-label">👤 About You</h3>
+        <h3 class="section-label"><i class="fa-solid fa-user"></i> About You</h3>
         <div class="form-group">
           {{ form.profile_pic.label(class="form-label") }}
           {{ form.profile_pic(class="form-input", style="padding: 0.5rem; background: rgba(255,255,255,0.02);") }}
@@ -50,7 +50,7 @@
       </div>
 
       <div class="form-section">
-        <h3 class="section-label">🌙 Lifestyle</h3>
+        <h3 class="section-label"> Lifestyle</h3>
         <div class="form-row">
           <div class="form-group">
             {{ form.sleep_schedule.label(class="form-label") }}
@@ -118,7 +118,7 @@
       </div>
 
       <div class="form-section">
-        <h3 class="section-label">🧠 Big Five Personality <small>(rate 1-10)</small></h3>
+        <h3 class="section-label">Big Five Personality <small>(rate 1-10)</small></h3>
         <p class="section-hint">These are used directly in the MLR compatibility calculation</p>
         {% for field in [form.openness, form.conscientiousness, form.extraversion, form.agreeableness, form.neuroticism] %}
         <div class="form-group trait-group">
@@ -136,7 +136,7 @@
       </div>
 
       <div class="form-section">
-<h3 class="section-label">💰 Budget & Accommodation</h3>
+<h3 class="section-label"> Budget & Accommodation</h3>
         <div class="form-row">
           <div class="form-group">
             {{ form.budget_min.label(class="form-label") }}

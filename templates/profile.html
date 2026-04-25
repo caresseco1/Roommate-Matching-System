@@ -23,7 +23,7 @@
         {% if viewed.gender %}<span>{{ viewed.gender }}</span>{% endif %}
         {% if viewed.occupation %}<span>{{ viewed.occupation }}</span>{% endif %}
         {% if viewed.locality %}
-          <span>📍 {{ viewed.locality }}, Mumbai</span>
+          <span><i class="fa-solid fa-location-dot"></i> {{ viewed.locality }}, Mumbai</span>
         {% endif %}
       </div>
     </div>
@@ -61,14 +61,14 @@
         ('Lifestyle','','lifestyle'),
         ('Personality','','personality'),
         ('Budget','','budget'),
-        ('Location','📍','location')
+        ('Location','<i class="fa-solid fa-location-dot"></i>','location')
       ] %}
 
       {% for label, icon, key in items %}
       <div class="breakdown-item">
 
         <div class="breakdown-label">
-          {{ icon }} {{ label }}
+          {{ icon|safe }} {{ label }}
         </div>
 
         <div class="breakdown-bar-wrap">
@@ -112,7 +112,7 @@
           action="{{ url_for('start_chat', receiver_id=viewed.id) }}"
           style="display:inline;">
       <button type="submit" class="btn btn-primary">
-        💬 Message
+        <i class="fa-solid fa-comment"></i> Message
       </button>
     </form>
 

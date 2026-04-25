@@ -3,7 +3,7 @@
 {% block content %}
 <div class="page-container">
   <div class="page-header">
-    <h1>🛠️ Admin — Feedback</h1>
+    <h1><i class="fa-solid fa-screwdriver-wrench"></i> Admin — Feedback</h1>
     <p>{{ feedbacks|length }} total submissions</p>
   </div>
 
@@ -21,7 +21,11 @@
         <div class="fb-user">{{ fb.user.username }} <span style="color:var(--text-muted);font-size:.85rem">{{ fb.user.email }}</span></div>
         <div class="fb-meta">
           <span class="tag">{{ fb.category }}</span>
-          <span class="rating-stars">{{ '⭐' * fb.rating }}</span>
+        <span class="rating-stars">
+          {% for i in range(fb.rating) %}
+            <i class="fa-solid fa-star"></i>
+          {% endfor %}
+        </span>
           <span style="color:var(--text-muted);font-size:.8rem">{{ fb.created_at.strftime('%d %b %Y') }}</span>
         </div>
       </div>
@@ -33,7 +37,7 @@
   </div>
   {% else %}
   <div class="empty-state glass">
-    <div class="empty-icon">📭</div>
+    <div class="empty-icon"><i class="fa-solid fa-box-open"></i></div>
     <h3>No feedback yet</h3>
   </div>
   {% endif %}

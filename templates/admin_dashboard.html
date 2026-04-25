@@ -4,40 +4,40 @@
 <div class="dashboard">
   <div class="dash-header">
     <div>
-      <h1>🛠️ Admin Dashboard</h1>
+      <h1><i class="fa-solid fa-screwdriver-wrench"></i> Admin Dashboard</h1>
       <p class="dash-sub">Platform statistics and overview</p>
     </div>
     <div class="dash-actions">
       <form method="POST" action="{{ url_for('admin_refresh_engine') }}" style="margin: 0;">
-        <button type="submit" class="btn btn-primary">🔄 Retrain Match Engine</button>
+        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-arrows-rotate"></i> Retrain Match Engine</button>
       </form>
     </div>
   </div>
 
   <div class="stats-row">
     <div class="stat-card glass">
-      <div class="stat-icon">👥</div>
+      <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
       <div class="stat-body">
         <div class="stat-value">{{ total_users }}</div>
         <div class="stat-label">Total Users</div>
       </div>
     </div>
     <div class="stat-card glass">
-      <div class="stat-icon">✨</div>
+      <div class="stat-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
       <div class="stat-body">
         <div class="stat-value">{{ new_users }}</div>
         <div class="stat-label">New Users (7d)</div>
       </div>
     </div>
     <div class="stat-card glass">
-      <div class="stat-icon">💬</div>
+      <div class="stat-icon"><i class="fa-solid fa-comments"></i></div>
       <div class="stat-body">
         <div class="stat-value">{{ total_requests }}</div>
         <div class="stat-label">Total Requests</div>
       </div>
     </div>
     <div class="stat-card glass">
-      <div class="stat-icon">⏳</div>
+      <div class="stat-icon"><i class="fa-solid fa-hourglass-half"></i></div>
       <div class="stat-body">
         <div class="stat-value">{{ pending_requests }}</div>
         <div class="stat-label">Pending Requests</div>
