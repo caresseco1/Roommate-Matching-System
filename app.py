@@ -837,9 +837,51 @@ def admin_dashboard():
     
     recent_requests = RoomRequest.query.order_by(RoomRequest.created_at.desc()).limit(10).all()
     
-    return render_template('admin_dashboard.html', total_users=total_users, new_users=new_users,
-                           total_requests=total_requests, pending_requests=pending_requests,
-                           recent_requests=recent_requests)
+    all_users = User.query.order_by(User.created_at.desc()).all()
+    
+    return render_template('admin_dashboard.html', 
+                           total_users=total_users, 
+                           new_users=new_users,
+                           total_requests=total_requests, 
+                           pending_requests=pending_requests,
+                           recent_requests=recent_requests,
+                           all_users=all_users)
+
+
+@app.route('/admin/delete-user/<int:user_id>', methods=['POST'])
+@admin_required
+def admin_delete_user(user_id):
+    user = User.query.get_or_404(user_id)
+    if user.id == current_user.id:
+        flash('Cannot delete your own admin account.', 'danger')
+        return redirect(url_for('admin_dashboard'))
+        
+    # Delete associated records manually to ensure a clean slate
+    Message.query.filter((Message.sender_id == user.id) | (Message.receiver_id == user.id)).delete()
+    RoomRequest.query.filter((RoomRequest.sender_id == user.id) | (RoomRequest.receiver_id == user.id)).delete()
+    Notification.query.filter_by(user_id=user.id).delete()
+    Feedback.query.filter_by(user_id=user.id).delete()
+    ProfileView.query.filter((ProfileView.viewer_id == user.id) | (ProfileView.viewed_id == user.id)).delete()
+    DatasetProfile.query.filter_by(original_user_id=user.id).delete()
+    
+    # Safely handle and delete uploaded room photos
+    photos = RoomPhoto.query.filter_by(user_id=user.id).all()
+    for photo in photos:
+        try:
+            file_path = os.path.join(app.root_path, 'static', photo.filename)
+            if os.path.exists(file_path):
+                os.remove(file_path)
+        except Exception as e:
+            print(f"Error deleting photo file: {e}")
+        db.session.delete(photo)
+        
+    # Lastly, delete the user and clear matching cache
+    db.session.delete(user)
+    db.session.commit()
+    
+    matching.invalidate_cache()
+    flash(f'User {user.username} deleted successfully.', 'success')
+    return redirect(url_for('admin_dashboard'))
 
 
 @app.route('/privacy')

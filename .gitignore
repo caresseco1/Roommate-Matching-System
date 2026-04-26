@@ -1,11 +1,18 @@
-# Environments
+# Environment variables
+.env
+
+# Python virtual environment and cache
 venv/
+env/
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
 
-# Database and Secrets
-.env
-staymate.db
+# Database
+*.db
+*.sqlite3
+instance/
 
-# Uploaded files
-static/uploads/*
+# Uploaded user files
+static/uploads/

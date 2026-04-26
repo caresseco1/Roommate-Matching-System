@@ -55,7 +55,9 @@
     <div class="photos-grid">
       {% for photo in room_photos %}
       <div class="photo-card glass">
-        <img src="{{ url_for('static', filename=photo.filename) }}" alt="Room photo" loading="lazy">
+        <a href="{{ url_for('static', filename=photo.filename) }}" target="_blank" title="Click to view full size">
+          <img src="{{ url_for('static', filename=photo.filename) }}" alt="Room photo" loading="lazy">
+        </a>
       </div>
       {% else %}
       <p class="no-photos">No room photos uploaded yet.</p>

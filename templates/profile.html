@@ -96,7 +96,9 @@
     <div class="photos-grid">
       {% for photo in viewed.room_photos.order_by(RoomPhoto.uploaded_at.desc()).limit(6) %}
       <div class="photo-card glass">
-        <img src="{{ url_for('static', filename=photo.filename) }}" alt="Room photo" loading="lazy">
+        <a href="{{ url_for('static', filename=photo.filename) }}" target="_blank" title="Click to view full size">
+          <img src="{{ url_for('static', filename=photo.filename) }}" alt="Room photo" loading="lazy">
+        </a>
       </div>
       {% endfor %}
     </div>

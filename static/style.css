@@ -706,12 +706,24 @@ img { max-width: 100%; }
 }
 .photo-card {
   aspect-ratio: 4/3;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+.photo-card a {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 .photo-card img {
   width: 100%;
-  height: 160px;
+  height: 100%;
   object-fit: cover;
-  border-radius: 12px;
+  transition: transform 0.4s ease;
+  cursor: zoom-in;
+}
+.photo-card:hover img {
+  transform: scale(1.08);
 }
 
 .visually-hidden {

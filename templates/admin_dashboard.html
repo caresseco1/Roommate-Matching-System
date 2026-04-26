@@ -67,5 +67,41 @@
       {% endfor %}
     </div>
   </div>
+
+  <div class="glass" style="padding: 1.5rem; border-radius: var(--radius); margin-top: 1.5rem;">
+    <h2 class="section-heading" style="margin-bottom: 1rem;"><i class="fa-solid fa-users"></i> Manage Users</h2>
+    <div style="overflow-x: auto;">
+      <table style="width: 100%; border-collapse: collapse; text-align: left;">
+        <thead>
+          <tr style="border-bottom: 2px solid var(--border);">
+            <th style="padding: 0.75rem;">Name</th>
+            <th style="padding: 0.75rem;">Email</th>
+            <th style="padding: 0.75rem;">Role</th>
+            <th style="padding: 0.75rem;">Joined</th>
+            <th style="padding: 0.75rem; text-align: right;">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for u in all_users %}
+          <tr style="border-bottom: 1px solid var(--border);">
+            <td style="padding: 0.75rem;"><strong>{{ u.username }}</strong></td>
+            <td style="padding: 0.75rem; color: var(--text-muted);">{{ u.email }}</td>
+            <td style="padding: 0.75rem;">
+              {% if u.is_admin %}<span class="badge" style="background: var(--accent);">Admin</span>{% else %}<span class="badge-sm">User</span>{% endif %}
+            </td>
+            <td style="padding: 0.75rem; color: var(--text-muted); font-size: 0.85rem;">{{ u.created_at.strftime('%d %b %Y') }}</td>
+            <td style="padding: 0.75rem; text-align: right;">
+              {% if u.id != current_user.id %}
+              <form method="POST" action="{{ url_for('admin_delete_user', user_id=u.id) }}" style="margin: 0; display: inline;">
+                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this user? This will delete all their data, messages, and requests permanently.');" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;"><i class="fa-solid fa-trash"></i> Delete</button>
+              </form>
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
 {% endblock %}
